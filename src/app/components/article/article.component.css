@@ -1,0 +1,46 @@
+.article-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* Espacement entre les articles */
+  margin: 50px;
+}
+
+.article {
+  text-align: center;
+}
+
+.article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Centrer l'image horizontalement */
+}
+
+*{
+    padding: 5px;
+}
+
+img{
+
+    width: 250px;
+}
+
+h1{
+     font-family: 'Satisfy';
+     font-size: 30px;
+}
+
+.title{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.center img{
+    margin: 50px;
+    width: 30%;
+}

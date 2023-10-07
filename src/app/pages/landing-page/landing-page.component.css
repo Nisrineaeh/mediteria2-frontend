@@ -1,0 +1,78 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+
+}
+
+.landing-page{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Satisfy';
+    
+    background-image: url('/assets/haut.jpg');
+    background-size: cover; /* Fait en sorte que l'image couvre toute la zone de .landing-page */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-position: center; /* Centre l'image dans .landing-page */
+}
+.center-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.nom-marque {
+    display: block;
+    font-size: 4em;
+}
+
+.sous-titre {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: 'Lato';
+}
+
+.btn-round {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 50px;          /* Largeur du bouton */
+    height: 50px;         /* Hauteur du bouton */
+    border-radius: 50%;   /* Pour le rendre rond */
+    
+    border: 1px solid black; 
+    background-color: transparent;
+    
+    color: black; 
+    font-size: 1em;
+    
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 0px;
+}
+
+.btn-round:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--dark-color); 
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.li {
+    font-size: 10px;
+}
+.titre-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
