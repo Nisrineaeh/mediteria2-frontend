@@ -44,3 +44,25 @@ h1{
     margin: 50px;
     width: 30%;
 }
+
+/* ECRAN LARGE */
+@media screen and (min-width: 768px) {
+  .article-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ECRAN MOYENS */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .article-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* PETIT ECRAN */
+
+@media screen and (max-width: 575px) {
+  .article-container {
+    grid-template-columns: 1fr;
+  }
+}
