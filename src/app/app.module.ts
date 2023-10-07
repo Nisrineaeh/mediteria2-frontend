@@ -15,6 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AccueilComponent } from './pages/accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ChatComponent } from './components/chat/chat.component';
     NavBarComponent,
     FooterBarComponent,
     FavoriteComponent,
-    ChatComponent
+    ChatComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
