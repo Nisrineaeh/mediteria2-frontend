@@ -1,15 +1,108 @@
- <div class="container">
-        <h2>Inscription</h2>
-        <form id="registration-form">
-            <label for="username">Nom d'utilisateur :</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="email">Adresse e-mail :</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">S'inscrire</button>
-        </form>
+<div class="page_form">
+  <div class="img_class">
+    <img
+      id="photo"
+      src="assets/logo-svg.svg"
+      alt="photo d'un couple qui embrasse simultanément un chien"
+    />
+  </div>
+
+  <div class="d-flex justify-content-center form_group">
+    <div class="col-md-6 col-sm-12 form_group p-3 mb-5 rounded">
+      <form [formGroup]="addUser" (ngSubmit)="onSubmit()" class="formcontainer">
+        <h1>Inscription</h1>
+        <div class="icon">
+          <i class="fas fa-user-circle"></i>
+        </div>
+
+          <input
+            formControlName="username"
+            class="form-control shadow"
+            id="inputLastName"
+            placeholder="Pseudo"
+            [ngClass]="{
+              'is-invalid':
+                addUser.get('username')?.touched &&
+                addUser.get('username')?.invalid
+            }"
+          />
+          <div
+            *ngIf="
+              addUser.get('username')?.touched &&
+              addUser.get('username')?.invalid
+            "
+            class="invalid-feedback"
+          >
+            Le pseudo est requis.
+          </div>
+
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control shadow"
+            id="inputEmail"
+            placeholder=" E-mail"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            [ngClass]="{
+              'is-invalid':
+                addUser.get('email')?.touched && addUser.get('email')?.invalid
+            }"
+          />
+          <div
+            *ngIf="
+              addUser.get('email')?.touched && addUser.get('email')?.invalid
+            "
+            class="invalid-feedback"
+          >
+            Format d'adresse e-mail invalide.
+          </div>
+
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control shadow"
+            id="exampleInputPassword1"
+            placeholder="Mot de Passe"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+            [ngClass]="{
+              'is-invalid':
+                addUser.get('password')?.touched &&
+                addUser.get('password')?.invalid
+            }"
+          />
+          <div
+            *ngIf="
+              addUser.get('password')?.touched &&
+              addUser.get('password')?.invalid
+            "
+            class="invalid-feedback"
+          >
+            Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+            une minuscule et un chiffre.
+          </div>
+
+     
+  
+         
+
+          <textarea
+            formControlName="description"
+            class="form-control shadow mytext"
+            rows="3"
+            id="inputDescription"
+            placeholder="Description"
+          ></textarea>
+
+        <div class="btn_signin">
+          <button
+            type="submit"
+            class="btn shadow-lg validbtn"
+            [disabled]="addUser.invalid"
+          >
+            <strong>s'inscrire</strong>
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
+</div>

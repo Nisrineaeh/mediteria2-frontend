@@ -1,0 +1,39 @@
+#photo {
+width: 30%;
+margin: 100px 0px 0px 100px;
+}
+
+.connexion {
+    background-color: var(--title-color);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+
+h1{
+    color: var(--title-color);
+    font-family: 'Satisfy';
+}
+
+
+input {
+    border-radius: 10px;
+    margin-bottom: 15px; 
+}
+
+h1 {
+    color: var(--title-color);
+    margin-top: 20px; 
+}
+
+
+
+@media screen and (max-width: 576px) {
+   #photo {
+        display: none;
+    }
+    .container {
+        padding: 0 15px;
+    }
+}

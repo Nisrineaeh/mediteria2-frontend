@@ -7,19 +7,19 @@ import { LoginComponent } from './pages/login/login.component';
 import { MeditationTechniqueComponent } from './pages/meditation-technique/meditation-technique.component';
 import { MessagingComponent } from './pages/messaging/messaging.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
-  { path: 'first', component: LandingPageComponent},
+  {path: 'first', component: LandingPageComponent},
+  {path:'signin', component: SigninComponent},
   {path: 'home', component: AccueilComponent},
   {path:'forum', component: ForumComponent},
   {path:'login', component: LoginComponent},
   {path: 'medtech', component: MeditationTechniqueComponent},
   {path: 'messaging', component: MessagingComponent},
   {path: 'profil', component: ProfileComponent},
-  {path: 'signin', component: SigninComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

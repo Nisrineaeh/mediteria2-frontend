@@ -18,6 +18,8 @@ import { ChatComponent } from './components/chat/chat.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ArticleComponent } from './components/article/article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,8 +42,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    RouterModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
