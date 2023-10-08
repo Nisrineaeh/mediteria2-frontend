@@ -1,0 +1,11 @@
+div{
+    background-color: white;
+    border-color: transparent !important;
+    color: #8DAEC6;
+    text-align: center;
+}
+
+p{
+    margin: 5px;
+    font-family: 'Lato';
+}

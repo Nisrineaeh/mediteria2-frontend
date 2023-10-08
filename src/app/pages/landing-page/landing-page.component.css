@@ -14,7 +14,7 @@
     justify-content: space-between;
     font-family: 'Satisfy';
     
-    background-image: url('/assets/haut.jpg');
+    background-image: url('/assets/haut2.svg');
     background-size: cover; /* Fait en sorte que l'image couvre toute la zone de .landing-page */
     background-repeat: no-repeat; /* Empêche l'image de se répéter */
     background-position: center; /* Centre l'image dans .landing-page */
@@ -30,6 +30,7 @@
 .nom-marque {
     display: block;
     font-size: 4em;
+    color: #4b7575;
 }
 
 .sous-titre {
@@ -37,6 +38,7 @@
     font-size: 1.5em;
     margin-bottom: 20px;
     font-family: 'Lato';
+    color: #4b7575;
 }
 
 .btn-round {
@@ -75,4 +77,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+img {
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+img:hover {
+  transform: scale(1.3);
 }

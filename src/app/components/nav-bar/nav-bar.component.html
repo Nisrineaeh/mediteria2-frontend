@@ -1,44 +1,97 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">ღ Méditéria</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active"href="#" [routerLink]="['/home']">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" [routerLink]="['/medtech']">Méditation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" [routerLink]="['/forum']">Forum</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" [routerLink]="['/messaging']">Messagerie</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Connection
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/signin']">Inscription</a></li>
-                        <li><a class="dropdown-item" href="#" [routerLink]="['/login']">Se connecter</a></li>
-                        <li><a class="dropdown-item" href="#" [routerLink]="['/profil']">Profil</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- <button [class.connected]="authService.checkConnexion()" [class.disconnected]="!authService.checkConnexion()">
-                {{ authService.checkConnexion() ? "Connecté" : "Déconnecté" }}
-            </button>
-
-            <button [class.connected]="authService.checkConnexion()" [class.disconnected]="!authService.checkConnexion()" class="deconnexion-button" (click)="deconnexion()">{{ authService.checkConnexion() ? "Déconnexion" : "Se connecté" }}</button> -->
-
-
-
-        </div>
+<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ღ Méditéria</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-auto align-items-center" id="navbarNavDropdown">
+      <ul class="navbar-nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" [routerLink]="['/home']">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/medtech']">Méditation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/forum']">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/messaging']">Messagerie</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Connection
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" [routerLink]="['/signin']">Inscription</a></li>
+            <li><a class="dropdown-item" href="#" [routerLink]="['/login']">Se connecter</a></li>
+            <li><a class="dropdown-item" href="#" [routerLink]="['/profil']">Profil</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav> -->
+<!-- 
+<nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">ღ Méditéria</a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/medtech']">Méditation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/forum']">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/messaging']">Messagerie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/signin']">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Se connecter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <img src="assets/logo-svg.svg" alt="" [routerLink]="['/first']">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" [routerLink]="['/home']">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/medtech']">Méditation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/forum']">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/messaging']">Messagerie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/login']">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/profil']">Profil</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
