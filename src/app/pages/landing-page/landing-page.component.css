@@ -80,6 +80,7 @@
 }
 
 img {
+    width: 15%;
   transition: transform 0.3s;
   cursor: pointer;
 }
