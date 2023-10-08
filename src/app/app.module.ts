@@ -17,6 +17,7 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ArticleComponent } from './components/article/article.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { ArticleComponent } from './components/article/article.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,4 +33,6 @@ Installation nécessaires :
 ```bash
 
 npm i bootstrap
+
+npm i @angular/forms
 ```
