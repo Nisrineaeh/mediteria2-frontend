@@ -20,10 +20,18 @@ export class UserService {
   }
 
   getUserProfile(): Observable<User> {
-    const userId = localStorage.getItem('user_id');
+    const userId = +localStorage.getItem('user_id')!;
     if (!userId) {
       throw new Error('Pas id utilisateur trouvé')
     }
     return this.http.get<User>(`${this.bddUrl}/${userId}`, {headers: this.getHeaders()})
+  }
+
+  modifyInfosUser(id: number, userData: Partial<User>): Observable<User> {
+    return this.http.patch<User>(`${this.bddUrl}/${id}`, userData ,{headers : this.getHeaders()})
+  }
+
+  deleteUserAccount(id: number): Observable<any> {
+    return this.http.delete(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
   }
 }

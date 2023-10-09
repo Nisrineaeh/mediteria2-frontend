@@ -1,0 +1,37 @@
+div{
+    margin: 20px;
+  
+}
+.modal-header{
+    margin: 130px 90px 0px;
+    font-family: var(--font-family-title);
+    color: var(--title-color);
+}
+
+.btn{
+    margin-left: 50px;
+    background-color: var(--title-color);
+    border: none;
+
+}
+
+label{
+    font-family: var(--font-family-p);
+    color: var(--title-color);
+}
+
+.form-group{
+    margin: 30px 80px; 
+}
+
+::placeholder{
+color: rgba(128, 128, 128, 0.42);
+}
+
+
+@media screen and (max-width: 576px) {
+  
+    .btn {
+        margin: 0px;
+    }
+}

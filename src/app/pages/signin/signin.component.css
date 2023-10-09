@@ -55,6 +55,9 @@ h1{
     border: none;
 }
 
+::placeholder{
+color: rgba(128, 128, 128, 0.42);
+}
 
 @media screen and (max-width: 768px) {
     .page_form {

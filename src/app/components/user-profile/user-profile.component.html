@@ -16,9 +16,27 @@
         </ul>
       </div>
       <div class="d-flex justify-content-between">
-        <button class="btn btn-primary">Modifier</button>
-        <button class="btn btn-danger">Quitter la communauté</button>
+        <button class="btn btn-primary" [routerLink]="['/modify']">Modifier</button>
+        <button class="btn btn-danger" data-toggle="modal" (click)="openModal(deleteTemplate)">Quitter la communauté</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+
+<ng-template #deleteTemplate>
+  <div class="modal-header">
+    <h2 class="modal-title pull-left">Confirmation</h2>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Êtes-vous sûr de vouloir quitter la communauté et supprimer votre compte ? 🥺
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Non</button>
+    <button type="button" class="btn btn-danger" (click)="deleteAccount()">Oui, supprimer</button>
+  </div>
+</ng-template>

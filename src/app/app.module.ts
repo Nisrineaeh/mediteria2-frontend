@@ -22,6 +22,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ScreenComponent } from './components/screen/screen.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -41,14 +44,18 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AccueilComponent,
     ArticleComponent,
     ScreenComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ModifyInfosUserComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

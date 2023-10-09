@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h1 class="modal-title">Modifier le profil</h1>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="username">Nouveau Pseudo</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="newUsername" name="newUsername" placeholder="Sois original ..">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Nouvelle Description</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="newDescription" name="newDescription" placeholder="quelque mots qui vous décris ..">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Changement d'Email</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="newEmail" name="newEmail" placeholder="courrier@versla paix.fr">
+    </div>
+    <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+    </div>
+
+  </form>
+</div>

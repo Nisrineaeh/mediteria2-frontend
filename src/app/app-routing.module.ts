@@ -9,6 +9,7 @@ import { MessagingComponent } from './pages/messaging/messaging.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'medtech', component: MeditationTechniqueComponent},
   {path: 'messaging', component: MessagingComponent},
   {path: 'profil', component: ProfileComponent},
+  {path:'modify', component: ModifyInfosUserComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
