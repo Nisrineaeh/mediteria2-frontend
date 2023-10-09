@@ -20,6 +20,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ScreenComponent } from './components/screen/screen.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FavoriteComponent,
     ChatComponent,
     AccueilComponent,
-    ArticleComponent
+    ArticleComponent,
+    ScreenComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+img{
+
+    width: 250px;
+}
+
+h1{
+     font-family: 'Satisfy';
+     font-size: 30px;
+     color: var(--title-color);
+}
+
+.title{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.center{
+    text-align: center;
+    background-image: url('/assets/background.svg');
+    background-size: 65%;
+    background-position: 10% 1%
+  
+}
+
+.center img{
+    width: 30%;
+}
+
+/* ECRAN LARGE */
+@media screen and (min-width: 768px) {
+  .article-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ECRAN MOYENS */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .article-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

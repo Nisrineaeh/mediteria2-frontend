@@ -1,0 +1,33 @@
+.container{
+    margin-top: 150px;
+}
+
+h1{
+    font-family: 'Satisfy';
+    background-color: var(--background-color);
+    color: var(--title-color);
+}
+
+li{
+    font-family: var(--font-family-p);
+    border: none;
+}
+.text{
+    font-family: var(--font-family-p);
+    color: var(--title-color);
+}
+
+button{
+    margin: 15px;
+}
+
+.btn-primary{
+    background-color: var(--title-color);
+    border: none;
+}
+
+.btn-danger{
+    opacity: 0.5;
+    background-color: grey;
+    border: none;
+}

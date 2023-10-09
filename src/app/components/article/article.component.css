@@ -3,6 +3,10 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px; /* Espacement entre les articles */
   margin: 50px;
+/* background-image: url('/assets/background.svg');
+background-size: 65%;
+   */
+
 }
 
 .article {
@@ -42,7 +46,11 @@ h1{
 }
 
 .center img{
-    width: 30%;
+    width:30%;
+}
+
+.article:first-child img {
+  margin-top: 28px;
 }
 
 /* ECRAN LARGE */

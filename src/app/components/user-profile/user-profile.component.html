@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card">
+    <h1 class="card-header">Votre profil</h1>
+    <div class="card-body">
+      <div *ngIf="user">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <span class="text">Pseudo:</span> {{ user.username }}
+          </li>
+          <li class="list-group-item">
+            <span class="text">Email:</span> {{ user.email }}
+          </li>
+          <li class="list-group-item">
+            <span class="text">Description:</span> {{ user.description }}
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary">Modifier</button>
+        <button class="btn btn-danger">Quitter la communauté</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,15 +8,15 @@
 
 .img_class {
     flex: 1;
-    max-width: 45%;
+    max-width: 100%;
     margin-right: 10px;
     text-align: center;
 }
 
 .img_class img {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
-    margin-top: 100px;
+    margin-top: 125px;
 }
 
 .d-flex {
@@ -48,19 +48,29 @@ h1{
     justify-content: center;
 }
 
+.connexion {
+    background-color: var(--title-color);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+
 @media screen and (max-width: 768px) {
     .page_form {
         flex-direction: column;
         align-items: center;
     }
-
-    .img_class, .d-flex {
-        max-width: 100%;
-        flex: 100%;
+    .rounded{
+        margin-bottom: 50px;
     }
 
-    .img_class {
-        margin-bottom: 20px;
+    .img_class{
+        margin: 0px;
+    }
+
+    .d-flex{
+        margin: 0px;
     }
 
 }
