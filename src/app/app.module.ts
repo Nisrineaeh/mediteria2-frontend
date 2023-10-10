@@ -26,6 +26,7 @@ import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminMeditationComponent } from './components/admin-meditation/admin-meditation.component';
+import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { AdminMeditationComponent } from './components/admin-meditation/admin-me
     UserProfileComponent,
     ModifyInfosUserComponent,
     AdminMeditationComponent,
+    MeditationDetailsComponent,
+
 
   ],
   imports: [

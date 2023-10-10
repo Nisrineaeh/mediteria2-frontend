@@ -7,7 +7,7 @@ import { MeditationTechnique } from '../models/meditation-technique';
   providedIn: 'root'
 })
 export class MeditationService {
-  private bddUrl = 'http://localhost:3000/meditation-technique'
+  private bddUrl = 'http://localhost:3000'
   constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
@@ -22,6 +22,14 @@ export class MeditationService {
 
 
   getAllMeditations(): Observable<MeditationTechnique[]> {
-    return this.http.get<MeditationTechnique[]>(`${this.bddUrl}`, {headers: this.getHeaders()});
+    return this.http.get<MeditationTechnique[]>(`${this.bddUrl}/meditation-technique`, {headers: this.getHeaders()});
+  }
+
+  getMeditationById(id: number): Observable<MeditationTechnique> {
+    return this.http.get<MeditationTechnique>(`${this.bddUrl}/meditation-technique/${id}`, {headers: this.getHeaders()});
+  }
+
+  getMédiaUrl(mediaId: number): string {
+    return `${this.bddUrl}/media/${mediaId}`;
   }
 }

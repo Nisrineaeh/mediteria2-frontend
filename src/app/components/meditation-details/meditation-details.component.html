@@ -1,0 +1,16 @@
+<div *ngIf="meditation" class="background-container" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}">
+    <div class="info-panel">
+        <h2>{{ meditation.name }}</h2>
+        <p>{{ meditation.description }}</p>
+        <p><span class="highlighted">Durée</span> : {{ meditation.duration }} minutes</p>
+        <p><span class="highlighted">Atmosphère</span> : {{ meditation.atmosphere }}</p>
+        
+        <div *ngIf="meditAudio" class="audio-container">
+            <audio controls [src]="meditAudio">
+                Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+        </div>
+    </div>
+<div class="keyword-display">{{ currentKeyword }}</div>
+
+</div>
