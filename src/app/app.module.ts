@@ -25,6 +25,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminMeditationComponent } from './components/admin-meditation/admin-meditation.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ScreenComponent,
     UserProfileComponent,
     ModifyInfosUserComponent,
+    AdminMeditationComponent,
 
   ],
   imports: [
