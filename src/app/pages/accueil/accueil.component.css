@@ -1,15 +1,60 @@
 h1{
-    margin-top:150px ;
+    margin-top: 80px;
     font-family: var(--font-family-title);
     color: var(--title-color);
     display: flex;
     justify-content: center;
 }
 
+p {
+  /* background-image: url('/assets/background.svg'); */
+  background-repeat: repeat;
+  background-size: cover;
+  font-family: 'Lato';
+  display: flex;
+  text-align: justify;
+  margin: 30px;
+}
+
+.col-md-3{
+    margin-top: 100px;
+}
+
+h2{
+    font-family: var(--font-family-title);
+    color: var(--p-color);
+}
+
+button{
+    background-color: var(--p-color);
+    border: none;
+}
+
+button:hover, button:active{
+    background-color: var(--title-color);
+    border: none;
+}
+
+.card .mb-3{
+    border: none;
+}
+
+button{
+    width: 100%;
+
+}
+
 @media screen and (max-width: 576px) {
   
     h1{
-        margin-top: 80px;
+        margin: 0px;
         padding: 0px;
     }
+
+    .col-md-3{
+    margin-top: 210px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 }

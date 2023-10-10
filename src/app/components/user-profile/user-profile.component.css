@@ -45,7 +45,7 @@ button{
 
 h2{
     font-family: var(--font-family-title);
-    color: var(--title-color);
+    color: var();
 }
 
 .modal-body{

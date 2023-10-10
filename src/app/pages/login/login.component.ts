@@ -41,7 +41,7 @@ export class LoginComponent {
             localStorage.setItem('access_token', response.accessToken);
 
             console.log('Connexion réussie et token stocké!');
-            this.router.navigate(['/accueil']);
+            this.router.navigate(['/profil']);
           } else {
             console.error('Token non reçu dans la réponse.');
           }
