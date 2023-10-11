@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let meditation of meditations">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" *ngIf="mediaImg && mediaImg[meditation.id]" [src]="mediaImg[meditation.id]" alt="Meditation image">
+
+      <div class="card-body">
+        <h5 class="card-title">{{ meditation.name }}</h5>
+        <p class="card-text">{{ meditation.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ meditation.duration }} minutes</small></p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/meditation', meditation.id]">Ouvrir</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="openModal(editTemplate, meditation)">Modifier</button>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteMeditation(meditation.id)">Supprimer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #editTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modifier la technique</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #editForm="ngForm" (ngSubmit)="updateMeditation()">
+  <div class="form-group">
+    <label for="name">Nom:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="selectedMeditation.name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea class="form-control" id="description" [(ngModel)]="selectedMeditation.description" name="description" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="atmosphere">Atmosphère:</label>
+    <input type="text" class="form-control" id="atmosphere" [(ngModel)]="selectedMeditation.atmosphere" name="atmosphere" required>
+  </div>
+  <div class="form-group">
+    <label for="duration">Durée:</label>
+    <input type="number" class="form-control" id="duration" [(ngModel)]="selectedMeditation.duration" name="duration" required>
+  </div>
+  <div class="form-group">
+    <label for="keyword">Mots-clés:</label>
+    <input type="text" class="form-control" id="keyword" [(ngModel)]="selectedMeditation.keyword" name="keyword">
+  </div>
+</form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="updateMeditation()">Mettre à jour</button>
+  </div>
+</ng-template>

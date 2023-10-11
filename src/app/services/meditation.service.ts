@@ -34,7 +34,20 @@ export class MeditationService {
   }
 
   addMeditation(méditation: any): Observable<any> {
-    console.log('MEDITATION ENVOYER',méditation);
+    console.log('MEDITATION ENVOYER',méditation)
     return this.http.post(`${this.bddUrl}/meditation-technique`, méditation, { headers : this.getHeaders()});
   }
+
+  getMeditationsByUserId(userId: number): Observable<MeditationTechnique[]> {
+    return this.http.get<MeditationTechnique[]>(`${this.bddUrl}/meditation-technique/user/${userId}`, {headers: this.getHeaders()});
+  }
+
+  updateMeditation(id: number, meditation: MeditationTechnique): Observable<MeditationTechnique> {
+    return this.http.patch<MeditationTechnique>(`${this.bddUrl}/meditation-technique/${id}`, meditation, {headers: this.getHeaders()});
+  }
+  deleteMeditation(id: number): Observable<any> {
+    return this.http.delete(`${this.bddUrl}/meditation-technique/${id}`, {headers: this.getHeaders()});
+  }
+
+
 }

@@ -1,0 +1,91 @@
+import { Component, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { MeditationTechnique } from 'src/app/models/meditation-technique';
+import { MeditationService } from 'src/app/services/meditation.service';
+import { MédiaService } from 'src/app/services/média.service';
+
+@Component({
+  selector: 'app-my-tech',
+  templateUrl: './my-tech.component.html',
+  styleUrls: ['./my-tech.component.css']
+})
+export class MyTechComponent {
+  meditations: MeditationTechnique[] = [];
+  currentUser = +localStorage.getItem('user_id')!;
+  mediaImg : any;
+  meditAudio: any;
+
+  modalRef!: BsModalRef;
+  selectedMeditation!: MeditationTechnique;
+
+  constructor(private meditationService: MeditationService, private mediaService: MédiaService, private modalService: BsModalService) { }
+
+  ngOnInit(): void {
+    this.loadAllMeditations();
+  }
+
+  loadMediaForMeditations(): void {
+    this.meditations.forEach((meditation) => {
+      if (meditation.visualMedia) {
+        this.mediaService.getMédiaById(meditation.visualMedia.id).subscribe((data: Blob) => {
+          this.createImageFromBlob(data, (dataUrl) => {
+            this.mediaImg[meditation.id] = dataUrl;
+          });
+        });
+      }
+
+      if (meditation.audioMedia) {
+        this.mediaService.getMédiaById(meditation.audioMedia.id).subscribe((data: Blob) => {
+          this.createImageFromBlob(data, (dataUrl: any) => {
+            this.meditAudio[meditation.id] = dataUrl;
+          });
+        });
+      }
+    });
+  }
+
+  createImageFromBlob(image: Blob, callback: (dataUrl: string) => void): void {
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+      callback(event.target.result);
+    }
+    reader.readAsDataURL(image);
+  }
+
+  openModal(template: TemplateRef<any>, meditation: MeditationTechnique) {
+    this.selectedMeditation = meditation;
+    this.modalRef = this.modalService.show(template);
+  }
+
+ 
+  loadAllMeditations(): void {
+    const userId = this.currentUser;
+    this.meditationService.getMeditationsByUserId(userId).subscribe(meditations => {
+      this.meditations = meditations;
+      this.loadMediaForMeditations();
+    });
+  }
+
+
+  updateMeditation() {
+    this.meditationService.updateMeditation(this.selectedMeditation.id, this.selectedMeditation).subscribe(() => {
+      
+      this.modalRef.hide();
+      this.loadAllMeditations();
+    }, (error: any) => {
+      console.error('There was an error updating the meditation!', error);
+    });
+
+  }
+
+  deleteMeditation(id: number) {
+    this.meditationService.deleteMeditation(id).subscribe(() => {
+      alert('Méditation supprimée avec succès!');
+      this.loadAllMeditations();
+    }, (error: any) => {
+      console.error('Erreur lors de la suppression de la méditation!', error);
+      alert('Erreur lors de la suppression de la méditation!');
+    });
+  }
+
+}

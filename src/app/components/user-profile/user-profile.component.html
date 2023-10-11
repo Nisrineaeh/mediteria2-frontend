@@ -24,19 +24,16 @@
     <h1 class="card-header">Vos techniques de méditation</h1>
     <div class="card-body">
       <div *ngIf="user">
-        <ul class="list-group">
-            <li class="list-group-item">ok</li>
-        </ul>
+       <app-my-tech></app-my-tech>
       </div>
       <div class="d-flex justify-content-between">
         <button class="btn btn-primary" [routerLink]="['/add']">Ajouter</button>
-        <button class="btn btn-danger">Supprimer une technique</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
+
 
 <ng-template #deleteTemplate>
   <div class="modal-header">
