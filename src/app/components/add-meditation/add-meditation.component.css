@@ -1,0 +1,63 @@
+.container {
+  margin-top: 150px;
+  max-width: 1000px;
+  padding: 20px;
+  background-color: var(--p-color);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-family: var(--font-family-title);
+  color: var(--title-color);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-family: 'Lato';
+  color: var(--title-color);
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: var(--title-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 576px) {
+  
+    .container{
+        margin-top: 50px;
+        margin-bottom: 45px;
+    }
+}

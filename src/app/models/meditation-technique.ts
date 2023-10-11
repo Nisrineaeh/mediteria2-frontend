@@ -1,4 +1,5 @@
 import { Média } from "./média";
+import { User } from "./user";
 
 export interface MeditationTechnique {
     id: number;

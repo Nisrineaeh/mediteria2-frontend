@@ -32,4 +32,9 @@ export class MeditationService {
   getMédiaUrl(mediaId: number): string {
     return `${this.bddUrl}/media/${mediaId}`;
   }
+
+  addMeditation(méditation: any): Observable<any> {
+    console.log('MEDITATION ENVOYER',méditation);
+    return this.http.post(`${this.bddUrl}/meditation-technique`, méditation, { headers : this.getHeaders()});
+  }
 }

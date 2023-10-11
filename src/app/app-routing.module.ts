@@ -11,6 +11,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
 import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
+import { AddMeditationComponent } from './components/add-meditation/add-meditation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'profil', component: ProfileComponent},
   {path:'modify', component: ModifyInfosUserComponent},
   {path: 'meditation/:id', component: MeditationDetailsComponent},
+  {path: 'add', component: AddMeditationComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

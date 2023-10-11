@@ -9,6 +9,7 @@ import { catchError, tap } from 'rxjs';
 export class MédiaService {
   image: Média[]=[];
 
+
   private bddUrl='http://localhost:3000/media';
 
   constructor(private http: HttpClient) { }
@@ -42,7 +43,7 @@ export class MédiaService {
   }
 
   postMédia(formData: FormData) {
-    return this.http.post('http://localhost:3000/media', formData);
+    return this.http.post('http://localhost:3000/media', formData, {headers: this.getHeaders()});
   }
 
   deleteMédia(id: number) {
