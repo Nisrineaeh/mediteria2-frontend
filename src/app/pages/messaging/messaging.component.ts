@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChatModalComponent } from 'src/app/components/chat-modal/chat-modal.component';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,17 +14,14 @@ export class MessagingComponent implements OnInit {
   users: User[] = [];
   private currentUserId:number= +localStorage.getItem('user_id')!;
   searchTerm: string = '';
+  currentUser!: User;
 
-  constructor(private usersService: UserService) { }
+  constructor(private usersService: UserService, private modalService: NgbModal, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.usersService.getAllUsers().subscribe(allUsers => {
       this.users = allUsers.filter(user => user.id !== this.currentUserId);
     });
-  }
-
-  contactUser(user: User) {
-    // Logic to start or open a conversation with the user
   }
 
 
@@ -33,4 +33,14 @@ export class MessagingComponent implements OnInit {
     }
     return this.users;
   }
+
+ 
+  openChatModal(user: User) {
+    localStorage.setItem('receiverId', user.id.toString());
+    const modalRef = this.modalService.open(ChatModalComponent, { centered: true, size: 'lg', windowClass: 'custom-modal-width' });
+    modalRef.componentInstance.selectedUser = user;
+    modalRef.componentInstance.usernameFromParent = user.username;
+  }
+
+
 }

@@ -1,7 +1,7 @@
 <div class="container">
   
   <div class="search-bar mb-3">
-    <input [(ngModel)]="searchTerm" placeholder="Rechercher un utilisateur..." class="form-control">
+    <input [(ngModel)]="searchTerm" placeholder="Rechercher un compagnon de méditation ..." class="form-control">
   </div>
 
   <div class="row">
@@ -9,7 +9,7 @@
       <div class="user-card">
         <p>{{ user.username }}</p>
         <div class="right">
-        <button (click)="contactUser(user)">Contacter</button></div>
+        <button (click)="openChatModal(user)">Contacter</button></div>
       </div>
     </div>
   </div>

@@ -1,0 +1,100 @@
+.message {
+  padding: 10px;
+  margin: 10px 0;
+  max-width: auto;
+}
+.my-message{
+  display: flex;
+  justify-content: right;
+  background-color: #ffa52669;
+  border-radius: 25px;
+  width: auto;
+}
+
+.other-message{
+  display: flex;
+  justify-content: left;
+  background-color: #c93c2071;
+    border-radius: 25px;
+  width: auto;
+}
+
+
+form {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd; 
+  padding-top: 10px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #C93C20; 
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #c93c20c9;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #C93C20;
+} 
+
+
+.send{
+  display: flex;
+  justify-content: right;
+}
+
+.receive{
+  display:flex;
+  justify-content: left;
+}
+
+div{
+  padding:5px;
+}
+
+.name{
+  font-weight: bold;
+}
+
+.time{
+  font-style: italic;
+  display: flex;
+  justify-content: right;
+  font-size: 10px;
+}
+
+div.message{
+  margin: 0px;
+  padding: 0px;
+}
+
+.close{
+    display: flex;
+    justify-content: right;
+}
+
+h1{
+    font-size:2rem;
+    color: rgb(149, 128, 128);
+}
+
+.modal-width{
+    width: 75% !important;
+}

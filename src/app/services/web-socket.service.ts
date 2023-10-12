@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'socket.io-client';
 import { Message } from '../models/message';
-import { Observable } from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +11,21 @@ export class WebSocketService {
     // this.socket = io('ws://localhost:3000/')
   }
 
+  // initConnection(): void {
+  //   this.socket = new Socket({ url: 'http://localhost:3000', options: {} });
+  // }
+
   listen(eventName: string) {
     console.log("Listen");
-    // return this.socket.fromEvent(eventName);
-    return new Observable((subscriber) => {
-      this.socket.on(eventName, (data: any) => {
-        console.log("-------", data);
+    return this.socket.fromEvent(eventName);
+    // return new Observable((subscriber) => {
+    //   this.socket.on(eventName, (data: any) => {
+    //     console.log("-------", data);
 
-        subscriber.next(data);
+    //     subscriber.next(data);
 
-      })
-    })
+    //   })
+    // })
   }
 
   emit(eventName: string, data: Message) {

@@ -14,19 +14,19 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<{ access_token: string, user_id: number, username: string }>(this.bddUrl + '/auth/login', { username, password })
+    return this.http.post<{ access_token: string, user_id: number, sub: string }>(this.bddUrl + '/auth/login', { username, password })
       .pipe(
         tap(response => {
           // console.log(response)
           localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('username', response.username);
-          console.log('username co stocker', response.username)
+          localStorage.setItem('username', response.sub);
+          console.log('username co stocker', response.sub)
           if (response.user_id && Number.isFinite(response.user_id)) {
             localStorage.setItem('user_id', `${response.user_id}`);
             console.log('Id utilisateur stocké:', localStorage.getItem('user_id'))
             console.log(typeof response.user_id)
           } else {
-            console.error('user_id is either missing or invalid in the response.');
+            console.error('mauvais user Id');
           }
         })
       );
@@ -38,6 +38,8 @@ export class AuthService {
       user
     );
   }
+
+
 
 
 }
