@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Favorite } from '../models/favorite';
 import { MeditationTechnique } from '../models/meditation-technique';
 
@@ -10,8 +10,17 @@ import { MeditationTechnique } from '../models/meditation-technique';
 export class FavoriteService {
 
   private bddUrl = 'http://localhost:3000'
+  private _favoriteUpdated = new Subject<void>();
 
   constructor(private http: HttpClient) { }
+
+  // Observable pour les autres composants à écouter
+  favoriteUpdated$ = this._favoriteUpdated.asObservable();
+
+  // Méthode pour émettre un événement lorsque les favoris sont mis à jour
+  notifyFavoriteUpdated() {
+    this._favoriteUpdated.next();
+  }
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('access_token');
@@ -34,5 +43,7 @@ export class FavoriteService {
   getUserFavorites(userId: number): Observable<Favorite[]> {
     return this.http.get<Favorite[]>(`${this.bddUrl}/favorite/user/${userId}`, { headers: this.getHeaders() });
   }
+
+
 
 }

@@ -13,7 +13,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MessagingComponent } from './pages/messaging/messaging.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
-import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ArticleComponent } from './components/article/article.component';
@@ -23,7 +22,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ScreenComponent } from './components/screen/screen.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminMeditationComponent } from './components/admin-meditation/admin-meditation.component';
 import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
@@ -31,6 +30,8 @@ import { AddMeditationComponent } from './components/add-meditation/add-meditati
 import { MyTechComponent } from './components/my-tech/my-tech.component';
 import { HeartComponent } from './components/heart/heart.component';
 import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
+import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,6 @@ import { MyFavoriteComponent } from './components/my-favorite/my-favorite.compon
     MessagingComponent,
     NavBarComponent,
     FooterBarComponent,
-    FavoriteComponent,
     ChatComponent,
     AccueilComponent,
     ArticleComponent,
@@ -58,6 +58,7 @@ import { MyFavoriteComponent } from './components/my-favorite/my-favorite.compon
     MyTechComponent,
     HeartComponent,
     MyFavoriteComponent,
+    ModalDeconnexionComponent,
 
 
   ],
@@ -71,6 +72,6 @@ import { MyFavoriteComponent } from './components/my-favorite/my-favorite.compon
     ModalModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -47,6 +47,7 @@ export class MyFavoriteComponent {
         next: () => {
           alert('Technique supprimée de vos favoris avec succès.');
           this.loadUserFavorites();
+          this.favoriteService.notifyFavoriteUpdated()
         },
         error: error => {
           console.error('Erreur lors de la suppression du favori', error);

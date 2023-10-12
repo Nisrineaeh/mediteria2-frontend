@@ -12,6 +12,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
 import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
 import { AddMeditationComponent } from './components/add-meditation/add-meditation.component';
+import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'modify', component: ModifyInfosUserComponent},
   {path: 'meditation/:id', component: MeditationDetailsComponent},
   {path: 'add', component: AddMeditationComponent},
+  {path:'deconnexion', component: ModalDeconnexionComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
