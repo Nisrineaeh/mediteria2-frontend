@@ -34,4 +34,8 @@ export class UserService {
   deleteUserAccount(id: number): Observable<any> {
     return this.http.delete(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
   }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.bddUrl}`, { headers: this.getHeaders() });
+  }
 }

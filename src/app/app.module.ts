@@ -30,6 +30,7 @@ import { MyTechComponent } from './components/my-tech/my-tech.component';
 import { HeartComponent } from './components/heart/heart.component';
 import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
+import { SocketIoModule } from 'ngx-socket-io';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-
     FormsModule,
     HttpClientModule,
     ModalModule.forRoot(),
+    SocketIoModule.forRoot({ url: 'http://localhost:3000', options: {} }),
   ],
   providers: [],
   bootstrap: [AppComponent],
