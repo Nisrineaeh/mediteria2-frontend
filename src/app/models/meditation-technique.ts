@@ -11,4 +11,5 @@ export interface MeditationTechnique {
     createdBy: number;
     audioMedia: Média;
     visualMedia: Média;
+    isFavorite?: boolean;
 }

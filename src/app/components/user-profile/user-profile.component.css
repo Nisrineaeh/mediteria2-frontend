@@ -59,3 +59,7 @@ h2{
         padding: 0px;
     }
 }
+
+.card-body{
+    margin-bottom: 20px;
+}

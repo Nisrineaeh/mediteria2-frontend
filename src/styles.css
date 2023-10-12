@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200&family=Roboto&family=Satisfy&display=swap');
+@import "~font-awesome/css/font-awesome.css";
 
 :root{
     --title-color:#4A8BA5;

@@ -8,6 +8,8 @@
       <p class="card-text"><span class="underline">Durée :</span> {{ technique.duration }} minutes</p>
       <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
     </div>
-    <div class="btns"><button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button></div>
+    <div class="btns"><button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button>
+<app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
   </div>
 </div>
+

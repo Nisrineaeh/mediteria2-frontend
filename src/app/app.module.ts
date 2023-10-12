@@ -29,6 +29,8 @@ import { AdminMeditationComponent } from './components/admin-meditation/admin-me
 import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
 import { AddMeditationComponent } from './components/add-meditation/add-meditation.component';
 import { MyTechComponent } from './components/my-tech/my-tech.component';
+import { HeartComponent } from './components/heart/heart.component';
+import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { MyTechComponent } from './components/my-tech/my-tech.component';
     MeditationDetailsComponent,
     AddMeditationComponent,
     MyTechComponent,
+    HeartComponent,
+    MyFavoriteComponent,
 
 
   ],
