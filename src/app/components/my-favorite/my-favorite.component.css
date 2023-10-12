@@ -22,7 +22,7 @@ ul.favorite-list {
 }
 
 .favorite-list button {
-    background-color: #ff4757;
+    background-color: var(--p-color);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -32,7 +32,7 @@ ul.favorite-list {
 }
 
 .favorite-list button:hover {
-    background-color: #e84141;
+    background-color: grey;
 }
 
 p.no-favorites {

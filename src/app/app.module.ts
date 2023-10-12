@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -31,7 +30,6 @@ import { MyTechComponent } from './components/my-tech/my-tech.component';
 import { HeartComponent } from './components/heart/heart.component';
 import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs';
 import { MeditationService } from 'src/app/services/meditation.service';
 import { MédiaService } from 'src/app/services/média.service';
@@ -18,7 +19,8 @@ export class AddMeditationComponent {
   constructor(
     private fb: FormBuilder,
     private meditationService: MeditationService,
-    private médiaService: MédiaService
+    private médiaService: MédiaService,
+    private router: Router,
   ) {
     this.meditationForm = this.fb.group({
       name: ['', Validators.required],
@@ -58,7 +60,7 @@ export class AddMeditationComponent {
           console.log('this.currentUser:', this.currentUser);
           console.log('this.audioMediaId:', this.audioMediaId);
           console.log('this.visualMediaId:', this.visualMediaId);
-
+          this.router.navigate(['/profil']);
         },
         error: error => {
           // Gérez les erreurs ici
@@ -83,12 +85,12 @@ export class AddMeditationComponent {
         if (response && response.id) {
           console.log('Audio enregistré avec succès. ID:', response.id);
           this.audioMediaId = response.id;
-          alert('Média audio enregistré avec succès');
+          // alert('Média audio enregistré avec succès');
         }
       },
       error: error => {
         console.error('Erreur lors de lupload du média audio :', error);
-        alert('Erreur lors de lenregistrement du média audio');
+        // alert('Erreur lors de lenregistrement du média audio');
       }
     });
   }
@@ -104,7 +106,7 @@ export class AddMeditationComponent {
         if (response && response.id) {
           console.log('Visuel enregistré avec succès. ID:', response.id);
           this.visualMediaId = response.id;
-          alert('Média visuel enregistré avec succès');
+          // alert('Média visuel enregistré avec succès');
         }
       },
       error: error => {
