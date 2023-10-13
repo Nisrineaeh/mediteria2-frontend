@@ -20,7 +20,6 @@ export class UserProfileComponent {
   currentUserId: String = localStorage.getItem('user_id')!;
   searchTerm: string = '';
   
-  @ViewChild('deleteTemplate')deleteTemplate!: TemplateRef<any>;
   @Input() selectedUser!: User;
 
   constructor(
@@ -50,9 +49,7 @@ export class UserProfileComponent {
 
   openModal(template: TemplateRef<any>) {
     console.log('Trying to open modal...');
-    this.modalRef = this.modalService.show(template, {
-      class: 'modal-dialog-centered'
-    });
+    this.modalRef = this.modalService.show(template);
   }
 
   deleteAccount() {
@@ -62,6 +59,7 @@ export class UserProfileComponent {
       next: (response) => {
         console.log('Compte supprimé avec succès');
         this.router.navigate(['/first']);
+        this.modalRef.hide()
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du compte', error);
@@ -69,16 +67,16 @@ export class UserProfileComponent {
     });
   }
 
-  // continueConversation(user: User) {
-  //   localStorage.setItem('receiverId', user.id.toString());
-  //   console.log('Ouverture de la modal pour user :', user)
-  //   const modalRef = this.modalService.show(ChatModalComponent, {
-  //     initialState: {
-  //       selectedUser: user
-  //     },
-  //     class: 'modal-lg custom-modal-width'
-  //   });
-  // }
+  continueConversation(user: User) {
+    localStorage.setItem('receiverId', user.id.toString());
+    console.log('Ouverture de la modal pour user :', user)
+    const modalRef = this.modalService.show(ChatModalComponent, {
+      initialState: {
+        selectedUser: user
+      },
+      class: 'modal-lg custom-modal-width'
+    });
+  }
 
   // get filteredUsers(): User[] {
   //   if (this.searchTerm) {
