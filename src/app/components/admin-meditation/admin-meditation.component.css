@@ -53,3 +53,18 @@ p{
 app-heart{
     margin-left: 50px;
 }
+
+
+.comments-section {
+    padding: 20px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.comment {
+    margin-bottom: 15px;
+}
+
+.comment strong {
+    display: block;
+    margin-bottom: 5px;
+}

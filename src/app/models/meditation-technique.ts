@@ -1,3 +1,4 @@
+import { Comment } from "./comment";
 import { Média } from "./média";
 import { User } from "./user";
 
@@ -12,4 +13,5 @@ export interface MeditationTechnique {
     audioMedia: Média;
     visualMedia: Média;
     isFavorite?: boolean;
+    comments?: Comment[];
 }
