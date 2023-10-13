@@ -63,7 +63,7 @@ export class UserService {
 
   getCurrentUser(): Observable<User> {
     const currentUserId = localStorage.getItem('user_id');
-    return this.http.get<User>(`${this.bddUrl}/${currentUserId}`);
+    return this.http.get<User>(`${this.bddUrl}/${currentUserId}`, { headers: this.getHeaders() });
   }
 
 }

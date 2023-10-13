@@ -32,6 +32,7 @@ import { MyFavoriteComponent } from './components/my-favorite/my-favorite.compon
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
 import { SocketIoModule } from 'ngx-socket-io';
 import { ChatModalComponent } from './components/chat-modal/chat-modal.component';
+import { ChatHistoryComponent } from './components/chat-history/chat-history.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ChatModalComponent } from './components/chat-modal/chat-modal.component
     MyFavoriteComponent,
     ModalDeconnexionComponent,
     ChatModalComponent,
+    ChatHistoryComponent,
 
 
   ],

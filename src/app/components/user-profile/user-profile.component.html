@@ -39,6 +39,37 @@
       </div>
       
     </div>
+
+    <h1 class="card-header">Vos Messages</h1>
+    <div class="card-body">
+      <div class="container mt-5">
+
+ 
+
+
+
+  <div *ngIf="usersWithConversations.length > 0">  <div class="mb-4">
+    <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Rechercher une conversation avec ...">
+  </div>
+    <div class="row">
+      <div *ngFor="let user of filteredUsers" class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ user.username }}</h5>
+            <div class="mt-auto align-self-end"> 
+              <button class="btn-sm" (click)="continueConversation(user)">Continuer la conversation</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="usersWithConversations.length === 0" class="text-center mt-5">
+    Vous n'avez démarré aucune conversation pour l'instant.
+  </div>
+</div>
+    </div>
   </div>
 </div>
 

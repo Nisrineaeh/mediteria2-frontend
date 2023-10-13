@@ -32,6 +32,6 @@
       </ul>
     </div>
 
-    <button type="button" class="nav-link" (click)="navigateToModal()"> Déconnexion</button>
+    <button type="button" class="nav-link" (click)="navigateToModal()" *ngIf="isUserLoggedIn"> Déconnexion</button>
   </div>
 </nav>

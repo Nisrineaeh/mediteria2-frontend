@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, forkJoin, takeUntil } from 'rxjs';
 import { Favorite } from 'src/app/models/favorite';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { FavoriteService } from 'src/app/services/favorite.service';
@@ -22,20 +22,20 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
   constructor(private meditationService: MeditationService, private favoriteService: FavoriteService){}
 
   ngOnInit(): void {
-    this.getAllMeditation();
+    this.getAllMeditationAndFavorites();
     this.getUserFavorites();
 
     this.favoriteService.favoriteUpdated$
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(() => {
-        this.getAllMeditation();
+        this.getAllMeditationAndFavorites();
         this.getUserFavorites();
       });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['techniqueId']) {
-      this.getAllMeditation();
+      this.getAllMeditationAndFavorites();
       this.getUserFavorites();
     }
   }
@@ -45,16 +45,28 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     this.ngUnsubscribe.complete();
   }
 
-  getAllMeditation(){
-    this.meditationService.getAllMeditations().subscribe(data =>{
-      this.techniques = data;
-    })
-  }
-
   getUserFavorites(): void {
     const userId = +localStorage.getItem('user_id')!;
 
     this.favoriteService.getUserFavorites(userId).subscribe(favorites => {
+      this.userFavorites = favorites;
+
+      this.techniques.forEach(technique => {
+        technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
+      });
+    });
+  }
+
+  getAllMeditationAndFavorites() {
+    const userId = +localStorage.getItem('user_id')!;
+
+    // Create an observable for each service call
+    const meditations$ = this.meditationService.getAllMeditations();
+    const favorites$ = this.favoriteService.getUserFavorites(userId);
+
+    // Execute observables simultaneously with forkJoin
+    forkJoin([meditations$, favorites$]).subscribe(([meditations, favorites]) => {
+      this.techniques = meditations;
       this.userFavorites = favorites;
 
       this.techniques.forEach(technique => {

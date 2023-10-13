@@ -14,4 +14,7 @@ export class NavBarComponent {
     this.router.navigate(['/deconnexion']);
   }
 
+  get isUserLoggedIn(): boolean {
+    return !!localStorage.getItem('access_token');
+  }
 }
