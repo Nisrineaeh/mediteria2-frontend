@@ -39,7 +39,7 @@
       </div>
       
     </div>
-
+<!-- 
     <h1 class="card-header">Vos Messages</h1>
     <div class="card-body">
       <div class="container mt-5">
@@ -52,7 +52,7 @@
     <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Rechercher une conversation avec ...">
   </div>
     <div class="row">
- <div class="container mt-5">
+ <div class="container mt-5"> -->
 
  
 
@@ -68,7 +68,7 @@
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ conversation.username }}</h5>
-           
+           <button class="btn btn-primary mt-auto" (click)="continueConversation(conversation)">Continuer la conversation</button>
           </div>
         </div>
       </div>
@@ -80,37 +80,13 @@
 </div>
 </div>
     </div>
-  </div>
-</div>
-<!-- 
-<h1 class="card-header">Vos Messages</h1>
-<div class="card-body">
-  <div class="container mt-5">
-    <div class="mb-4">
-      <input type="text" [(ngModel)]="searchTerm" class="form-control" placeholder="Rechercher une conversation avec ...">
-    </div>
-    <div class="row">
-      <div *ngFor="let conversation of filteredConversations" class="col-md-4 mb-4">
-        <div class="card h-100">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ conversation.username }}</h5>
-           
-          </div>
-        </div>
-      </div>
-    </div>
-    <div *ngIf="filteredConversations.length === 0" class="text-center mt-5">
-      Vous n'avez démarré aucune conversation pour l'instant.
-    </div>
-  </div>
-</div> -->
-
+ 
 
 
 <ng-template #deleteTemplate>
   <div class="modal-header">
     <h2 class="modal-title pull-left">Confirmation</h2>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.dismiss()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -118,7 +94,7 @@
     Êtes-vous sûr de vouloir quitter la communauté et supprimer votre compte ? 🥺
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Non</button>
+    <button type="button" class="btn btn-secondary" (click)="modalRef.dismiss()">Non</button>
     <button type="button" class="btn btn-danger" (click)="deleteAccount()">Oui, supprimer</button>
   </div>
 </ng-template>

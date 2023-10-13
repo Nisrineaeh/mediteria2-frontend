@@ -12,7 +12,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MessagingComponent } from './pages/messaging/messaging.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ArticleComponent } from './components/article/article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -47,7 +46,6 @@ import { ChatHistoryComponent } from './components/chat-history/chat-history.com
     MessagingComponent,
     NavBarComponent,
     FooterBarComponent,
-    ChatComponent,
     AccueilComponent,
     ArticleComponent,
     ScreenComponent,

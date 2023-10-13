@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 import { ChatModalComponent } from '../chat-modal/chat-modal.component';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ChatModalComponent } from '../chat-modal/chat-modal.component';
 export class UserProfileComponent {
   userData!: User;
   user!: User;
-  modalRef!: BsModalRef;
+  modalRef!: NgbModalRef;
   usersWithConversations: User[] = [];
   currentUserId: String = localStorage.getItem('user_id')!;
   searchTerm: string = '';
@@ -25,7 +26,7 @@ export class UserProfileComponent {
   constructor(
     private userService: UserService,
     private router: Router,
-    private modalService: BsModalService,
+    private modalService: NgbModal,
     private messagesService: MessageService,
   ) {}
 
@@ -49,7 +50,7 @@ export class UserProfileComponent {
 
   openModal(template: TemplateRef<any>) {
     console.log('Trying to open modal...');
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.open(template);
   }
 
   deleteAccount() {
@@ -59,7 +60,7 @@ export class UserProfileComponent {
       next: (response) => {
         console.log('Compte supprimé avec succès');
         this.router.navigate(['/first']);
-        this.modalRef.hide()
+        this.modalRef.dismiss()
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du compte', error);
@@ -70,12 +71,10 @@ export class UserProfileComponent {
   continueConversation(user: User) {
     localStorage.setItem('receiverId', user.id.toString());
     console.log('Ouverture de la modal pour user :', user)
-    const modalRef = this.modalService.show(ChatModalComponent, {
-      initialState: {
-        selectedUser: user
-      },
-      class: 'modal-lg custom-modal-width'
+    const modalRef = this.modalService.open(ChatModalComponent, {
+      size: 'lg'
     });
+    modalRef.componentInstance.selectedUser = user; // This is how you pass data to modals in ng-bootstrap
   }
 
   // get filteredUsers(): User[] {
