@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { User } from 'src/app/models/user';
@@ -19,7 +19,8 @@ export class UserProfileComponent {
   usersWithConversations: User[] = [];
   currentUserId: String = localStorage.getItem('user_id')!;
   searchTerm: string = '';
-
+  
+  @ViewChild('deleteTemplate')deleteTemplate!: TemplateRef<any>;
   @Input() selectedUser!: User;
 
   constructor(
@@ -48,7 +49,10 @@ export class UserProfileComponent {
 }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    console.log('Trying to open modal...');
+    this.modalRef = this.modalService.show(template, {
+      class: 'modal-dialog-centered'
+    });
   }
 
   deleteAccount() {
@@ -65,27 +69,35 @@ export class UserProfileComponent {
     });
   }
 
-  continueConversation(user: User) {
-    localStorage.setItem('receiverId', user.id.toString());
-    console.log('Ouverture de la modal pour user :', user)
-    const modalRef = this.modalService.show(ChatModalComponent, {
-      initialState: {
-        selectedUser: user
-      },
-      class: 'modal-lg custom-modal-width'
-    });
-  }
+  // continueConversation(user: User) {
+  //   localStorage.setItem('receiverId', user.id.toString());
+  //   console.log('Ouverture de la modal pour user :', user)
+  //   const modalRef = this.modalService.show(ChatModalComponent, {
+  //     initialState: {
+  //       selectedUser: user
+  //     },
+  //     class: 'modal-lg custom-modal-width'
+  //   });
+  // }
 
-  get filteredUsers(): User[] {
+  // get filteredUsers(): User[] {
+  //   if (this.searchTerm) {
+  //     return this.usersWithConversations.filter(
+  //       user => user.username.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //     );
+  //   }
+  //   return this.usersWithConversations;
+  // }
+
+
+  get filteredConversations(): User[] {
     if (this.searchTerm) {
-      return this.usersWithConversations.filter(
-        user => user.username.toLowerCase().includes(this.searchTerm.toLowerCase())
+      return this.usersWithConversations.filter(user =>
+        user.username.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
     return this.usersWithConversations;
   }
-
-
 
 
 }
