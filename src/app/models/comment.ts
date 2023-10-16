@@ -1,7 +1,10 @@
+import { User } from "./user";
+
 export interface Comment {
     id?: number;
     date?: string;
     comment: string;
     meditationTechniqueId: number;
-    userId: number;
+    user_id: number;
+    user?: User;
 }

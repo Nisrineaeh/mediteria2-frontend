@@ -17,9 +17,9 @@
     <div class="comment" *ngIf="technique.comments && technique.comments.length">
      
       <div *ngFor="let comment of technique.comments; let i = index">
-        <span>{{ comment.comment }}</span>
-        <p class="author">Nom de la personne</p>
-        <button *ngIf="isUserAllowedToDelete(comment.userId)" (click)="onDeleteComment(comment.id!, i)">
+        <span>De {{comment.user?.username}} : {{ comment.comment }} </span>
+        <p class="author">{{comment.date |  date:'dd/MM/yyyy HH:mm'}}</p>
+        <button *ngIf="isUserAllowedToDelete(+comment.user_id)" (click)="onDeleteComment(comment.id!, i)">
           Supprimer
         </button>
       </div>

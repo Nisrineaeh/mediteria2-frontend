@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { Comment } from '../models/comment';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Comment } from '../models/comment';
 export class CommentService {
   private bddUrl = 'http://localhost:3000/comment'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('access_token');
@@ -25,6 +26,7 @@ export class CommentService {
   }
 
   addComment(comment: Comment): Observable<Comment> {
+    console.log('Le comments', comment)
     return this.http.post<Comment>(`${this.bddUrl}`, comment, { headers: this.getHeaders() });
   }
 

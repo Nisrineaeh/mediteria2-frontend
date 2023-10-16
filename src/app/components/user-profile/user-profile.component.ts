@@ -42,7 +42,6 @@ export class UserProfileComponent {
       },
     });
 
-    console.log('utilisateur pour la modal :', this.selectedUser)
     this.messagesService.getUserConversations(+this.currentUserId).subscribe(users => {
       this.usersWithConversations = users;
     });

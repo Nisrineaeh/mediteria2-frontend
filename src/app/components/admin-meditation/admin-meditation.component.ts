@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Subject, forkJoin, takeUntil } from 'rxjs';
+import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Observable, Subject, forkJoin, map, switchMap, takeUntil } from 'rxjs';
 import { Comment } from 'src/app/models/comment';
 
 import { Favorite } from 'src/app/models/favorite';
@@ -35,7 +35,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     });
     this.getAllMeditationAndFavorites();
     this.getUserFavorites();
-
+    
 
     this.favoriteService.favoriteUpdated$
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -43,7 +43,10 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
         this.getAllMeditationAndFavorites();
         this.getUserFavorites();
       });
+
+      
   }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['techniqueId']) {
@@ -69,11 +72,9 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     });
   }
 
- 
 
   getAllMeditationAndFavorites() {
-    const userId = +localStorage.getItem('user_id')!;
-
+    const userId = Number(localStorage.getItem('user_id'))!;
     const meditations$ = this.meditationService.getAllMeditations();
     const favorites$ = this.favoriteService.getUserFavorites(userId);
 
@@ -84,13 +85,24 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
       this.techniques.forEach(technique => {
         technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
         
+    
         this.commentService.getCommentsByTechnique(technique.id).subscribe(comments => {
           technique.comments = comments;
-          console.log(technique.comments)
+          console.log('REGARDE LA ', technique.comments);
+          
+       
+          technique.comments.forEach(comment => {
+            this.userService.getUserById((Number(comment.user_id))).subscribe(user => {
+              comment.user = user;
+            });
+          });
         });
+          
       });
     });
   }
+
+
 
   onFavoriteChanged(isFavorite: boolean, technique: any) {
     technique.isFavorite = isFavorite;
@@ -109,9 +121,10 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
     const commentPayload = {
       comment: commentText,
-      userId: +(localStorage.getItem('user_id'))!,
+      user_id:  +(localStorage.getItem('user_id'))!,
       meditationTechniqueId: technique.id,
-      date: new Date().toISOString()
+      date: new Date().toISOString(),
+  
     };
 
     console.log('LE COMMENTAIRE :', commentPayload);
@@ -137,6 +150,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     this.commentService.deleteComment(commentId).subscribe({
       next: () => {
         this.comments.splice(index, 1);
+        alert('Commentaire effacer !')
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du commentaire :', error);
@@ -150,7 +164,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
   }
 
 
-
+ 
 
 }
 
