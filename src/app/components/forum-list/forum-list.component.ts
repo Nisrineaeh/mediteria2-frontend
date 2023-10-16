@@ -8,16 +8,19 @@ import { ForumService } from 'src/app/services/forum.service';
   styleUrls: ['./forum-list.component.css']
 })
 export class ForumListComponent implements OnInit {
-  forums: Forum[] = [];  // Ici, nous typons 'forums' comme un tableau de 'Forum'.
+  forums: Forum[] = [];
 
   constructor(private forumService: ForumService) { }
 
   ngOnInit(): void {
-    this.forumService.getForums().subscribe((data: Forum[]) => {
-      this.forums = data;
-    }, error => {
-      console.error('Erreur lors de la récupération des forums:', error);
-    });
-
+    this.forumService.getForums().subscribe(
+      data => {
+        this.forums = data;
+      },
+      error => {
+        console.error('Il y a une erreur !', error);
+      }
+    );
   }
+
 }

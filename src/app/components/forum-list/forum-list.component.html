@@ -1,6 +1,8 @@
-<h2>Liste des forums</h2>
-<ul>
-  <li *ngFor="let forum of forums">
-    {{ forum.name }} - {{ forum.meditation_technique.name }}
-  </li>
-</ul>
+
+<h1>Forum de méditation</h1>
+<i>choissez bien vos mots vous n'avez le droit qu'à une phrase :D</i>
+<div *ngFor="let forum of forums">
+  <h2>{{ forum.name }}</h2>
+
+  <a [routerLink]="['/forum', forum.id]">Voir les discussions</a>
+</div>

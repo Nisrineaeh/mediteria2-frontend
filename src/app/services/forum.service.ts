@@ -24,4 +24,8 @@ export class ForumService {
   getForums(): Observable<Forum[]> {
     return this.http.get<Forum[]>(this.bddUrl, {headers: this.getHeaders()});
   }
+
+  getForumMessages(forumId: number): Observable<any> {
+    return this.http.get<any>(`${this.bddUrl}/${forumId}`);
+  }
 }
