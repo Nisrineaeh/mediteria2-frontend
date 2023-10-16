@@ -1,89 +1,3 @@
-<!-- <h1>Techniques de Méditéria</h1>
-
-<div class="container">
-  <div class="card" *ngFor="let technique of techniques">
-    <div class="card-body">
-      <h2 class="card-title">{{ technique.name }}</h2>
-      <p class="card-text strong">{{ technique.description }}</p>
-      <p class="card-text"><span class="underline">Durée :</span> {{ technique.duration }} minutes</p>
-      <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
-    </div>
-    <div class="btns"><button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button>
-<app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
-  </div>
-</div>
-
-
-<div *ngIf="technique.comments && technique.comments.length">
-  <h3>Commentaires:</h3>
-  <div *ngFor="let comment of technique.comments">
-    <p>{{ comment.comment }}</p>
-    <button (click)="onDeleteComment(comment.id, technique)">Supprimer</button>
-  </div>
-</div>
-
-
-<div>
-  <textarea [(ngModel)]="newCommentText"></textarea>
-  <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
-</div> -->
-<!-- <h1>Techniques de Méditéria</h1>
-
-<div class="container">
-  <div class="card" *ngFor="let technique of techniques">
-    <div class="card-body">
-      <h2 class="card-title">{{ technique.name }}</h2>
-      <p class="card-text strong">{{ technique.description }}</p>
-      <p class="card-text"><span class="underline">Durée :</span> {{ technique.duration }} minutes</p>
-      <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
-    </div>
-    <div class="btns">
-      <button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button>
-      <app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
-    </div>
-
-    <div *ngIf="technique.comments && technique.comments.length">
-      <h3>Commentaires:</h3>
-      <div *ngFor="let comment of technique.comments">
-        <p>{{ comment.comment }}</p>
-
-      </div>
-    </div>
-
-    <div>
-      <textarea [(ngModel)]="newCommentText"></textarea>
-      <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
-    </div>
-  </div>
-</div> -->
-<!-- <h1>Techniques de Méditéria</h1>
-
-<div class="container">
-  <div class="card" *ngFor="let technique of techniques">
-    <div class="card-body">
-      <h2 class="card-title">{{ technique.name }}</h2>
-      <p class="card-text strong">{{ technique.description }}</p>
-      <p class="card-text"><span class="underline">Durée :</span> {{ technique.duration }} minutes</p>
-      <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
-    </div>
-    <div class="btns">
-      <button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button>
-      <app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
-    </div>
-
-    <div *ngIf="technique.comments && technique.comments.length">
-      <h3>Commentaires:</h3>
-      <div *ngFor="let comment of technique.comments">
-        <p>{{ comment.comment }}</p>
-      </div>
-    </div>
-
-    <div>
-      <textarea [(ngModel)]="newCommentText"></textarea>
-      <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
-    </div>
-  </div>
-</div> -->
 <h1>Techniques de Méditéria</h1>
 
 <div class="container">
@@ -99,19 +13,24 @@
       <app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
     </div>
 
-    <!-- Section des commentaires pour chaque technique -->
-    <div *ngIf="technique.comments && technique.comments.length">
-      <h3>Commentaires:</h3>
-      <div *ngFor="let comment of technique.comments">
-        <p>{{ comment.comment }}</p>
-        <!-- <button (click)="onDeleteComment(comment.id, technique)">Supprimer</button> -->
+ <h3>Commentaires</h3>
+    <div class="comment" *ngIf="technique.comments && technique.comments.length">
+     
+      <div *ngFor="let comment of technique.comments; let i = index">
+        <span>{{ comment.comment }}</span>
+        <p class="author">Nom de la personne</p>
+        <button *ngIf="isUserAllowedToDelete(comment.userId)" (click)="onDeleteComment(comment.id!, i)">
+          Supprimer
+        </button>
       </div>
-    </div>
-    
-    <!-- Section pour ajouter un nouveau commentaire -->
+  </div>
+
     <div>
-      <textarea [(ngModel)]="newCommentTexts[technique.id]"></textarea>
+      <div class="center">
+      <textarea [(ngModel)]="newCommentTexts[technique.id]"></textarea></div>
+      <div class="btns">
       <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
     </div>
+    </div>  
   </div>
 </div>

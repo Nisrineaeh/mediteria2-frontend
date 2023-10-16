@@ -1,70 +1,96 @@
-h1{
-    margin-top: 90px;
-    display: flex;
-    justify-content: center;
-    font-family: 'Satisfy';
-    color: var(--title-color);
+h1 {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  font-family: "Satisfy";
+  color: var(--title-color);
 }
 
-h2{
-    font-family: 'Satisfy';
-    color: var(--p-color);
+h2 {
+  font-family: "Satisfy";
+  color: var(--p-color);
 }
 
-div.card{
-    margin-bottom: 20px;
-    border-color: var(--p-color);
-    position: relative;
+div.card {
+  margin-bottom: 20px;
+  border-color: var(--p-color);
+  position: relative;
+  border-width: 15px;
 }
 
-.btns{
-    display: flex;
-    justify-content: right;
-    margin: 20px;
+.btns {
+  display: flex;
+  justify-content: right;
+  margin: 20px;
 }
 
-.btn{
-    background-color: var(--title-color);
-    border: none;
+.btn {
+  background-color: var(--title-color);
+  border: none;
 }
 
-.strong{
-    margin: 20px;
+.strong {
+  margin: 20px;
 }
 
-p{
-    font-family: 'Lato';
+p {
+  font-family: "Lato";
+  
 }
-
 
 .underline {
   text-decoration: underline;
 }
 .card-content {
-    padding: 20px;
+  padding: 20px;
 }
 
 .card-heart {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-app-heart{
-    margin-left: 50px;
-}
-
-
-.comments-section {
-    padding: 20px;
-    border-top: 1px solid #e1e1e1;
+app-heart {
+  margin-left: 50px;
 }
 
 .comment {
-    margin-bottom: 15px;
+  border: 1px rgba(177, 173, 173, 0.573) solid;
+  max-height: 180px;
+  overflow-y: scroll;
+  margin: 15px;
+  padding: 8px;
 }
 
-.comment strong {
-    display: block;
-    margin-bottom: 5px;
+textarea {
+  width: 97%;
+  margin: auto;
+border: 1px rgba(177, 173, 173, 0.573) solid;
+}
+
+button {
+  background-color: var(--title-color);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  margin: 10px;
+}
+
+h3 {
+  margin-left: 15px;
+  font-family: "Satisfy";
+  color: var(--p-color);
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.author{
+    font-style: italic;
+    font-size: 15px;
+    color: grey;
 }

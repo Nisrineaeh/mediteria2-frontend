@@ -8,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { CommentService } from 'src/app/services/comment.service';
 import { FavoriteService } from 'src/app/services/favorite.service';
 import { MeditationService } from 'src/app/services/meditation.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-meditation',
@@ -15,19 +16,23 @@ import { MeditationService } from 'src/app/services/meditation.service';
   styleUrls: ['./admin-meditation.component.css']
 })
 export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
-
+ 
   techniques: MeditationTechnique[] =[];
   userFavorites: Favorite[] = [];
   private ngUnsubscribe = new Subject<void>();
-  
+  comments: Comment[] = [];
   newCommentTexts: { [key: number]: string } = {};
+  currentUser?: User;
 
   @Input() techniqueId?: number;
 
 
-  constructor(private meditationService: MeditationService, private favoriteService: FavoriteService, private commentService: CommentService){}
+  constructor(private meditationService: MeditationService, private favoriteService: FavoriteService, private commentService: CommentService, private userService: UserService){}
 
   ngOnInit(): void {
+    this.userService.getCurrentUser().subscribe(user => {
+      this.currentUser = user;
+    });
     this.getAllMeditationAndFavorites();
     this.getUserFavorites();
 
@@ -78,8 +83,10 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
       this.techniques.forEach(technique => {
         technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
+        
         this.commentService.getCommentsByTechnique(technique.id).subscribe(comments => {
           technique.comments = comments;
+          console.log(technique.comments)
         });
       });
     });
@@ -89,40 +96,6 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     technique.isFavorite = isFavorite;
   }
 
-  
-
-  // onAddComment(technique: MeditationTechnique): void {
-  //   console.log('Tentative d\'envoi de commentaire');
-  //   const commentText = this.newCommentTexts[technique.id];
-
-  //   if (!commentText || !commentText.trim()) {
-  //     console.log('Le texte du commentaire est vide, donc il ne sera pas envoyé.');
-  //     return;
-  //   }
-
-  //   const newComment: Comment = {
-  //     comment: commentText,
-  //     meditationtechniqueId: technique.id,
-  //     userId: +localStorage.getItem('user_id')!,
-  //     date: new Date().toISOString()
-  //   };
-
-  //   console.log('LE COMMENTAIRE :', newComment);
-
-  //   this.commentService.addComment(newComment).subscribe({
-  //     next: (addedComment) => {
-  //       if (!technique.comments) {
-  //         technique.comments = [];
-  //       }
-  //       technique.comments.push(addedComment);
-  //       this.newCommentTexts[technique.id] = '';
-  //       console.log('Commentaire ajouté avec succès.', addedComment);
-  //     },
-  //     error: (error) => {
-  //       console.error('Erreur lors de l\'ajout du commentaire :', error);
-  //     }
-  //   });
-  // }
 
   onAddComment(technique: MeditationTechnique): void {
     console.log('Tentative d\'envoi de commentaire');
@@ -156,9 +129,25 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
         console.error('Erreur lors de l\'ajout du commentaire :', error);
       }
     });
+
+    
   }
 
+  onDeleteComment(commentId: number, index: number): void {
+    this.commentService.deleteComment(commentId).subscribe({
+      next: () => {
+        this.comments.splice(index, 1);
+      },
+      error: (error) => {
+        console.error('Erreur lors de la suppression du commentaire :', error);
+      }
+    });
+  }
 
+  isUserAllowedToDelete(commentUserId: number): boolean {
+  
+    return this.currentUser ? commentUserId === this.currentUser.id : false;
+  }
 
 
 
