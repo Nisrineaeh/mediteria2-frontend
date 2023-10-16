@@ -134,6 +134,8 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
         if (!technique.comments) {
           technique.comments = [];
         }
+        addedComment.user_id = +(localStorage.getItem('user_id'))!;
+        addedComment.user = this.currentUser;
         technique.comments.push(addedComment);
         this.newCommentTexts[technique.id] = '';
         console.log('Commentaire ajouté avec succès.', addedComment);
@@ -150,7 +152,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     this.commentService.deleteComment(commentId).subscribe({
       next: () => {
         this.comments.splice(index, 1);
-        alert('Commentaire effacer !')
+        alert('Commentaire effacer');
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du commentaire :', error);
