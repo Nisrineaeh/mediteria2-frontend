@@ -4,5 +4,6 @@ export interface MessageForum {
     id: number;
     content: string;
     date: Date;
-    user: User;
+    userId: number;
+    forumId: number;
 }

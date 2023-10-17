@@ -1,8 +1,14 @@
 
 <h1>Forum de méditation</h1>
-<i>choissez bien vos mots vous n'avez le droit qu'à une phrase :D</i>
-<div *ngFor="let forum of forums">
+<!-- <div *ngFor="let forum of forums">
   <h2>{{ forum.name }}</h2>
 
   <a [routerLink]="['/forum', forum.id]">Voir les discussions</a>
+</div> -->
+<div *ngFor="let forum of forums">
+  <div class="forum-card" (click)="onForumSelect(forum.id)">
+    <h2>{{forum.name}}</h2>
+
+  </div>
 </div>
+<!-- <button (click)="startForum()">Démarrer un forum</button> -->

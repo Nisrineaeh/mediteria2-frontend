@@ -13,6 +13,7 @@ import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-
 import { MeditationDetailsComponent } from './components/meditation-details/meditation-details.component';
 import { AddMeditationComponent } from './components/add-meditation/add-meditation.component';
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
+import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'signin', component: SigninComponent},
   {path: 'home', component: AccueilComponent},
   {path:'forum', component: ForumComponent},
+  {path:'forum-detail/:id', component: ForumDetailsComponent},
   {path:'login', component: LoginComponent},
   {path: 'medtech', component: MeditationTechniqueComponent},
   {path: 'messaging', component: MessagingComponent},

@@ -1,1 +1,14 @@
-<p>forum-details works!</p>
+
+<div *ngIf="forum"> 
+  <h1>{{ forum[0].name }}</h1>
+  <div *ngFor="let message of forum"> 
+    <div class="contenu"><p>{{message.user?.username}} <br> {{ message.message }} <br> <i>{{message.date}}</i></p>
+    </div>
+  </div>
+</div>
+
+<form (ngSubmit)="onSubmit()">
+  <textarea [(ngModel)]="newMessageContent" name="message" required></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
