@@ -21,7 +21,7 @@ export class ForumDetailsComponent implements OnInit {
   forum: Forum[]=[];
   messages: string[] = [];
   currentUser!: User;
-
+  currentUserId= +localStorage.getItem('user_id')!;
   techniques: MeditationTechnique[] = [];
   newMessageContent: string = '';
 

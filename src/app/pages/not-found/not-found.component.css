@@ -1,0 +1,9 @@
+img {
+margin-top: 80px;
+  width: 100%;
+  height: 600px;
+  cursor: pointer;
+}
+.txt {
+  text-align: center;
+}

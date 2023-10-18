@@ -56,3 +56,6 @@ p{
 .name{
     font-weight: bold;
 }
+button:hover{
+    cursor: pointer;
+}

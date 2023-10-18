@@ -98,3 +98,7 @@ h3 {
 .card{
   margin-bottom: 50px;
 }
+
+app-heart:hover{
+  cursor: pointer;
+}
