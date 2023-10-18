@@ -30,6 +30,14 @@ h1 {
 color: rgba(128, 128, 128, 0.42);
 }
 
+p:hover{
+    cursor: pointer;
+}
+
+p{
+    margin: 10px;
+    font-family: 'Lato';
+}
 
 @media screen and (max-width: 576px) {
    #photo {

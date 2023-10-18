@@ -31,7 +31,7 @@ export class ForumService {
     return this.http.post<Forum>(`${this.bddUrl}`, forum, { headers: this.getHeaders() });
   }
 
-  deleteComment(forumId: number): Observable<void> {
+  deleteMessage(forumId: number): Observable<void> {
     return this.http.delete<void>(`${this.bddUrl}/${forumId}`, { headers: this.getHeaders() });
   }
 

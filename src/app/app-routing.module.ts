@@ -14,22 +14,23 @@ import { MeditationDetailsComponent } from './components/meditation-details/medi
 import { AddMeditationComponent } from './components/add-meditation/add-meditation.component';
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: "full" },
   {path: 'first', component: LandingPageComponent},
   {path:'signin', component: SigninComponent},
-  {path: 'home', component: AccueilComponent},
-  {path:'forum', component: ForumComponent},
-  {path:'forum-detail/:id', component: ForumDetailsComponent},
+  {path: 'home', component: AccueilComponent, canActivate:[authGuard]},
+  { path: 'forum', component: ForumComponent, canActivate: [authGuard] } ,
+  { path: 'forum-detail/:id', component: ForumDetailsComponent, canActivate: [authGuard] } ,
   {path:'login', component: LoginComponent},
-  {path: 'medtech', component: MeditationTechniqueComponent},
-  {path: 'messaging', component: MessagingComponent},
-  {path: 'profil', component: ProfileComponent},
-  {path:'modify', component: ModifyInfosUserComponent},
-  {path: 'meditation/:id', component: MeditationDetailsComponent},
-  {path: 'add', component: AddMeditationComponent},
-  {path:'deconnexion', component: ModalDeconnexionComponent},
+  { path: 'medtech', component: MeditationTechniqueComponent, canActivate: [authGuard] },
+  { path: 'messaging', component: MessagingComponent, canActivate: [authGuard] },
+  { path: 'profil', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'modify', component: ModifyInfosUserComponent, canActivate: [authGuard] },
+  { path: 'meditation/:id', component: MeditationDetailsComponent, canActivate: [authGuard] },
+  { path: 'add', component: AddMeditationComponent, canActivate: [authGuard] },
+  { path: 'deconnexion', component: ModalDeconnexionComponent, canActivate: [authGuard] },
   {path: '**', component: NotFoundComponent},
 ];
 

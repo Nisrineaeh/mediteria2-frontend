@@ -10,6 +10,7 @@ export class AuthService {
 
   private bddUrl = 'http://localhost:3000'
   currentUser!: User;
+  isConnected: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +40,10 @@ export class AuthService {
     );
   }
 
+  checkConnexion(): boolean {
+    this.isConnected = !!localStorage.getItem('access_token');
+    return this.isConnected;
+  }
 
 
 

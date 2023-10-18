@@ -63,6 +63,14 @@ export class ForumDetailsComponent implements OnInit {
 
   onSubmit() {
     const techniqueId = this.route.snapshot.params['id'];
+    this.newMessageContent = this.newMessageContent.trim();
+
+    if (!this.newMessageContent) {
+      console.error('Le message est vide. Veuillez écrire quelque chose avant d\'envoyer.');
+      alert('Le message est vide. Veuillez écrire quelque chose avant d\'envoyer.')
+      return;
+    }
+
 
     this.meditationService.getMeditationById(+techniqueId).subscribe(
       (technique) => {
@@ -84,6 +92,7 @@ export class ForumDetailsComponent implements OnInit {
 
         this.forumService.addMessageForum(messageToSend).subscribe(
           response => {
+            
             this.forum.push(response);
             this.newMessageContent = '';
             alert('Message envoyé dans le forum!');
@@ -100,7 +109,18 @@ export class ForumDetailsComponent implements OnInit {
   }
 
 
+  onDeleteMessage(messageId: number) {
 
+    this.forumService.deleteMessage(messageId).subscribe(
+      () => {
+        this.forum = this.forum.filter(message => message.id !== messageId);
+        alert('Message supprimé avec succès.');
+      },
+      error => {
+        console.error('Erreur lors de la suppression du message', error);
+      }
+    );
+  }
 
  
 

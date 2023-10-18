@@ -14,7 +14,7 @@
     </div>
 
  <h3>Commentaires</h3>
-    <div class="comment" *ngIf="technique.comments && technique.comments.length">
+    <div class="comment card" *ngIf="technique.comments && technique.comments.length">
      
       <div *ngFor="let comment of technique.comments; let i = index">
         <span>De {{comment.user?.username}} : {{ comment.comment }} </span>
@@ -27,7 +27,7 @@
 
     <div>
       <div class="center">
-      <textarea [(ngModel)]="newCommentTexts[technique.id]"></textarea></div>
+      <textarea [(ngModel)]="newCommentTexts[technique.id]" placeholder="Votre commentaire .."></textarea></div>
       <div class="btns">
       <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
     </div>

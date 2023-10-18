@@ -54,6 +54,10 @@ button:hover {
     justify-content: center;
 }
 
+a{
+  color: var(--title-color);
+}
+
 @media screen and (max-width: 576px) {
   
     .container{

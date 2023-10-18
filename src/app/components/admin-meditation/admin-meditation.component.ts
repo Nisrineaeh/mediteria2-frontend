@@ -116,6 +116,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
     if (!commentText || !commentText.trim()) {
       console.log('Le texte du commentaire est vide, donc il ne sera pas envoyé.');
+      alert('Le texte du commentaire est vide, donc il ne sera pas envoyé.')
       return;
     }
 
@@ -153,6 +154,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
       next: () => {
         this.comments.splice(index, 1);
         alert('Commentaire effacer');
+        window.location.reload()
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du commentaire :', error);

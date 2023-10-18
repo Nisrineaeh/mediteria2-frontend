@@ -1,14 +1,17 @@
-<h1>Didcutez autour de la technique de méditation</h1>
-<div *ngIf="forum"> 
+<div class="title"><h1>Discutez autour de la technique de méditation</h1></div>
+<div class="center" *ngIf="forum"> 
   <h2>{{ forum[0].name }}</h2>
   <div *ngFor="let message of forum"> 
-    <div class="contenu"><p>{{message.user?.username}} <br> {{ message.message }} <br> <i>{{message.date}}</i></p>
+    <div class="contenu">
+      <p class="name">{{message.user?.username}}</p>
+      <p>{{ message.message }}</p>
+      <i>{{message.date |  date:'dd/MM/yyyy HH:mm'}}</i>
     </div>
-  </div>
+    
+</div>
 </div>
 
 <form (ngSubmit)="onSubmit()">
-  <textarea [(ngModel)]="newMessageContent" name="message" required></textarea>
-  <button type="submit">Envoyer</button>
+  <textarea [(ngModel)]="newMessageContent" name="message" required placeholder="Entrez votre message ..."></textarea>
+  <div class="btn"><button type="submit" [disabled]="!newMessageContent.trim()">Envoyer</button></div>
 </form>
-
