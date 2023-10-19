@@ -1,5 +1,13 @@
 div{
-    margin-top: 100px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
+    padding-top: 10px;
+}
+.bg{
+  background-image: url('/assets/kiki.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
 }

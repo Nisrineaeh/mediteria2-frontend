@@ -24,14 +24,14 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.3843855"
-     inkscape:cx="254.26443"
+     inkscape:cx="254.26444"
      inkscape:cy="132.54978"
      inkscape:window-width="1920"
      inkscape:window-height="991"
-     inkscape:window-x="-9"
+     inkscape:window-x="2391"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><defs
+     inkscape:current-layer="g4" /><defs
      id="defs1"><inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="-9.1737457 : -38.032572 : 1"
@@ -96,4 +96,5 @@
                stroke-linecap="butt"
                stroke-width="0.0238267"
                stroke="#004a80"
-               id="path3" /></g></g></g></g></g></svg>
+               id="path3"
+               style="stroke:#6d435a;stroke-opacity:1" /></g></g></g></g></g></svg>

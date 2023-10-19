@@ -2,6 +2,7 @@
 .container {
   padding: 20px 0;
   margin-top: 70px;
+
 }
 
 .user-card {
@@ -60,4 +61,12 @@ p{
     font-size: 30px;
     font-family: 'Satisfy';
     color: var(--title-color);
+}
+
+.bg{
+  background-image: url('/assets/kiki.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
 }

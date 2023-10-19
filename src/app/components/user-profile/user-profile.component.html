@@ -1,3 +1,4 @@
+<p class="profil">profil</p>
 <div class="container">
   <div class="card">
     <h1 class="card-header">Votre profil</h1>
@@ -20,9 +21,12 @@
         <button class="btn btn-danger" data-toggle="modal" (click)="openModal(deleteTemplate)">Quitter la communauté</button>
       </div>
     </div>
-
-    <h1 class="card-header">Vos techniques de méditation</h1>
-    <div class="card-body">
+  </div>
+</div>  
+<div class="container">
+   <div class="card">
+     <h1 class="card-header">Vos techniques de méditation</h1>
+     <div class="card-body">
       <div *ngIf="user">
        <app-my-tech></app-my-tech>
       </div>
@@ -30,17 +34,19 @@
         <button class="btn btn-primary" [routerLink]="['/add']">Ajouter</button>
       </div>
     </div>
-
-
+</div></div>
+<div class="container">
+   <div class="card">
     <h1 class="card-header">Vos favoris</h1>
     <div class="card-body">
       <div *ngIf="user">
        <app-my-favorite></app-my-favorite>
-      </div>
+      </div></div>
       
     </div>
-
-
+</div>
+<div class="container">
+<div class="card">
 <h1 class="card-header">Vos Messages</h1>
 <div class="card-body">
   <div class="container mt-5">
@@ -63,9 +69,7 @@
   </div>
 </div>
 </div>
-    </div>
- 
-
+</div>
 
 <ng-template #deleteTemplate>
   <div class="modal-header">

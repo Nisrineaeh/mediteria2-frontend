@@ -3,9 +3,9 @@
 @import "~font-awesome/css/font-awesome.css";
 
 :root{
-    --title-color:#4A8BA5;
+    --title-color:#6D435A;
     --background-color:#d2f0eb7b;
-    --p-color:#B2D19B;
+    --p-color:#d593b75d;
     --font-family-title: 'Satisfy';
     --font-family-p: 'Lato';
 }

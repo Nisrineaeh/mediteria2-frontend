@@ -1,7 +1,7 @@
 .container{
-    margin-top: 150px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
-
 h1{
     font-family: 'Satisfy';
     background-color: var(--title-color);
@@ -54,9 +54,11 @@ h2{
 
 @media screen and (max-width: 576px) {
   
-    .container {
-        margin-top: 50px;
-        padding: 0px;
+    .container{
+        margin: 0px;
+    }
+    .profil{
+        margin: 0px;
     }
 }
 
@@ -71,3 +73,6 @@ h2{
   min-height: calc(100% - (1.75rem * 2));
 }
 
+.profil{
+    margin-bottom: 90px;
+}

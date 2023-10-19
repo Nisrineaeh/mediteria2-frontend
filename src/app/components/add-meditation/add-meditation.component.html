@@ -1,5 +1,5 @@
 <div class="container">
-  <a [routerLink]="['/profil']"> - Retour -</a>
+  <!-- <a [routerLink]="['/profil']"> - Retour -</a> -->
   <h1>Ajouter une technique de méditation</h1>
   <form [formGroup]="meditationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -32,8 +32,9 @@
       <input type="file" id="visual" formControlName="visual_media_id" class="form-control-file" accept="image/*" (change)="onVisualSelected($event)">
     </div>
     <div class="center">
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-    </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button> 
+        <button [routerLink]="['/profil']">Retour</button>
+   </div>
     
   </form>
 </div>
