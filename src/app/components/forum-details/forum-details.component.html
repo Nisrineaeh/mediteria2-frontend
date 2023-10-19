@@ -10,7 +10,7 @@
     </div>
     <div>
     <!-- <button *ngIf="message.user?.id === currentUser.id" (click)="onDeleteMessage(message.id!)">Supprimer</button> -->
-        <button *ngIf="message.user_id === currentUserId" (click)="onDeleteMessage(message.id!)">Supprimer</button>
+        <button *ngIf="message.user!.id === currentUserId" (click)="onDeleteMessage(message.id!)">Supprimer</button>
 </div>
 </div>
 

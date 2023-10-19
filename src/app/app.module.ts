@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +34,7 @@ import { ChatModalComponent } from './components/chat-modal/chat-modal.component
 import { ChatHistoryComponent } from './components/chat-history/chat-history.component';
 import { ForumListComponent } from './components/forum-list/forum-list.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
+
 
 @NgModule({
   declarations: [

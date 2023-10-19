@@ -115,6 +115,7 @@ export class ForumDetailsComponent implements OnInit {
       () => {
         this.forum = this.forum.filter(message => message.id !== messageId);
         alert('Message supprimé avec succès.');
+        window.location.reload();
       },
       error => {
         console.error('Erreur lors de la suppression du message', error);
