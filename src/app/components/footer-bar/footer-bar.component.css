@@ -1,7 +1,7 @@
 div{
     background-color: white;
     border-color: transparent !important;
-    color: #8DAEC6;
+    color: var(--title-color);
     text-align: center;
 }
 

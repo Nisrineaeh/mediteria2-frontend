@@ -15,9 +15,9 @@
     font-family: 'Satisfy';
     
     background-image: url('/assets/haut2.svg');
-    background-size: cover; /* Fait en sorte que l'image couvre toute la zone de .landing-page */
-    background-repeat: no-repeat; /* Empêche l'image de se répéter */
-    background-position: center; /* Centre l'image dans .landing-page */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .center-text {
     flex: 1;
