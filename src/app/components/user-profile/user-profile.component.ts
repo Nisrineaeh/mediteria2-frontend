@@ -58,6 +58,7 @@ export class UserProfileComponent {
     this.userService.deleteUserAccount(userId).subscribe({
       next: (response) => {
         console.log('Compte supprimé avec succès');
+        localStorage.clear();
         this.router.navigate(['/first']);
         this.modalRef.dismiss()
       },
