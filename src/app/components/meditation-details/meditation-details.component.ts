@@ -32,7 +32,7 @@ export class MeditationDetailsComponent implements OnInit {
 
     setInterval(() => {
       this.displayKeyword();
-    }, 35000);
+    }, 15000);
   }
 
   getMeditationDetails(id: number): void {
@@ -80,16 +80,22 @@ export class MeditationDetailsComponent implements OnInit {
     });
   }
 
+  // displayKeyword(): void {
+  //   if (this.meditation && this.meditation.keyword) {
+  //     console.log("Displaying keyword");
+  //     if (this.currentKeywordIndex < this.meditation.keyword.length) {
+  //       this.currentKeyword = this.meditation.keyword[this.currentKeywordIndex];
+  //       this.currentKeywordIndex++;
+  //     } else {
+  //       this.currentKeyword = this.meditation.keyword[0];
+  //       this.currentKeywordIndex = 1;
+  //     }
+  //   }
+  // }
   displayKeyword(): void {
     if (this.meditation && this.meditation.keyword) {
-      console.log("Displaying keyword");
-      if (this.currentKeywordIndex < this.meditation.keyword.length) {
-        this.currentKeyword = this.meditation.keyword[this.currentKeywordIndex];
-        this.currentKeywordIndex++;
-      } else {
-        this.currentKeyword = this.meditation.keyword[0];
-        this.currentKeywordIndex = 1;
-      }
+      this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.meditation.keyword.length;
+      this.currentKeyword = this.meditation.keyword[this.currentKeywordIndex];
     }
   }
 
