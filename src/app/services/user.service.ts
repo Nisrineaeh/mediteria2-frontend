@@ -31,8 +31,8 @@ export class UserService {
     return this.http.patch<User>(`${this.bddUrl}/${id}`, userData ,{headers : this.getHeaders()})
   }
 
-  deleteUserAccount(id: number): Observable<any> {
-    return this.http.delete(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
+  deleteUserAccount(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
   }
 
   getAllUsers(): Observable<User[]> {
