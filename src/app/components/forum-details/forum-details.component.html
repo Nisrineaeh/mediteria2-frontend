@@ -1,4 +1,7 @@
+<div class="bg">
+  
 <div class="title"><h1>Discutez autour de la technique de méditation</h1></div>
+
 <div class="center" *ngIf="forum"> 
   <div *ngFor="let message of forum"> 
     <div class="contenu">
@@ -7,7 +10,7 @@
       <p>{{ message.message }}</p>
       <i>{{message.date |  date:'dd/MM/yyyy HH:mm'}}</i>
     </div>
-    <div>
+    <div class="bouton">
         <button *ngIf="message.user!.id === currentUserId" (click)="onDeleteMessage(message.id!)">Supprimer</button>
 </div>
 </div>
@@ -16,3 +19,4 @@
   <textarea [(ngModel)]="newMessageContent" name="message" required placeholder="Entrez votre message ..."></textarea>
   <div class="btn"><button type="submit" [disabled]="!newMessageContent.trim()">Envoyer</button><button [routerLink]="['/forum']">Retour</button></div>
 </form>
+</div>

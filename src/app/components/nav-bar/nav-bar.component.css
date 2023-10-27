@@ -72,6 +72,10 @@ div.container{
   color: var(--title-color);
 }
 
+img:hover{
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navbar {
     min-height: auto !important;

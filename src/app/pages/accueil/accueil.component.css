@@ -1,72 +1,70 @@
-h1{
-    margin-top: 80px;
-    font-family: var(--font-family-title);
-    color: var(--title-color);
-    display: flex;
-    justify-content: center;
+h1 {
+  margin-top: 80px;
+  font-family: var(--font-family-title);
+  color: var(--title-color);
+  display: flex;
+  justify-content: center;
 }
 
 p {
   background-repeat: repeat;
   background-size: cover;
-  font-family: 'Lato';
+  font-family: "Lato";
   display: flex;
   text-align: justify;
   margin: 30px;
 }
 
-.col-md-3{
-    margin-top: 100px;
+.col-md-3 {
+  margin-top: 100px;
 }
 
-h2{
-    font-family: var(--font-family-title);
-    color: var(--title-color);
+h2 {
+  font-family: var(--font-family-title);
+  color: var(--title-color);
 }
 
-button{
-    background-color: var(--p-color);
-    border: none;
-    color: var(--title-color);
+button {
+  background-color: var(--p-color);
+  border: none;
+  color: var(--title-color);
 }
 
-button:hover, button:active{
-    background-color: var(--title-color);
-    border: none;
+button:hover,
+button:active {
+  background-color: var(--title-color);
+  border: none;
 }
 
-.card .mb-3{
-    border: none;
+.card .mb-3 {
+  border: none;
 }
 
-button{
-    width: 100%;
-
+button {
+  width: 100%;
 }
 
-div.card{
-    border-color: var(--p-color);
+div.card {
+  border-color: var(--p-color);
 }
 
 @media screen and (max-width: 576px) {
-  
-    h1{
-        margin: 0px;
-        padding: 0px;
-    }
+  h1 {
+    margin: 0px;
+    padding: 0px;
+  }
 
-    .col-md-3{
-    margin-top: 210px;
+  .col-md-3 {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+  }
 }
 
-.bg{
-  background-image: url('/assets/kiki.jpg');
+.bg {
+  background-image: url("/assets/bg2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 90vh;
 }

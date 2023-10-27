@@ -7,25 +7,12 @@ import { Socket } from 'ngx-socket-io';
 })
 export class WebSocketService {
 
-  constructor(private socket: Socket) {
-    // this.socket = io('ws://localhost:3000/')
-  }
+  constructor(private socket: Socket) {  }
 
-  // initConnection(): void {
-  //   this.socket = new Socket({ url: 'http://localhost:3000', options: {} });
-  // }
 
   listen(eventName: string) {
     console.log("Listen");
     return this.socket.fromEvent(eventName);
-    // return new Observable((subscriber) => {
-    //   this.socket.on(eventName, (data: any) => {
-    //     console.log("-------", data);
-
-    //     subscriber.next(data);
-
-    //   })
-    // })
   }
 
   emit(eventName: string, data: Message) {

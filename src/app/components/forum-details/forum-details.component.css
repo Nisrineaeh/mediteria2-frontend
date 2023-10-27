@@ -1,5 +1,16 @@
+
+.bg{
+  background-image: url('/assets/bg2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin: 0px;
+  height: 600px;
+}
+
 .title{
-    margin-top: 100px;
+    margin-top: 80px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     font-family: 'Satisfy';
@@ -59,4 +70,10 @@ p{
 }
 button:hover{
     cursor: pointer;
+}
+
+.bouton{
+    display: flex;
+    justify-content: right;
+    margin: 0px;
 }

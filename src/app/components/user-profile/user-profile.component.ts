@@ -31,6 +31,7 @@ export class UserProfileComponent {
   ) {}
 
   ngOnInit() {
+   
     console.log('Id user actuel', localStorage.getItem('user_id'));
 
     this.userService.getUserProfile().subscribe({
