@@ -10,6 +10,7 @@ h1 {
 h2 {
   font-family: "Satisfy";
   color: var(--title-color);
+  padding: 25px;
 }
 
 div.card {
@@ -36,7 +37,7 @@ div.card {
 
 p {
   font-family: "Lato";
-  
+  margin: 0px;
 }
 
 .underline {
@@ -79,11 +80,6 @@ button {
   margin: 10px;
 }
 
-h3 {
-  margin-left: 15px;
-  font-family: "Satisfy";
-  color: var(--p-color);
-}
 
 .center{
     display: flex;
@@ -96,10 +92,6 @@ h3 {
     color: grey;
 }
 
-.card{
-  margin-bottom: 50px;
-}
-
 app-heart:hover{
   cursor: pointer;
 }
@@ -109,4 +101,45 @@ app-heart:hover{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 80%;
+}
+
+.searchBar{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.btnlist{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tri{
+  font-weight: bold;
+  color: var(--title-color);
+}
+
+@media screen and (max-width: 576px) {
+  
+    .btn {
+        margin: 0px;
+    }
+
+    .tri{
+      padding: 20px;
+    }
+}
+
+.container{
+  padding-bottom: 30px;
 }

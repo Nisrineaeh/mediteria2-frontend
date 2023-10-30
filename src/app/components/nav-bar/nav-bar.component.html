@@ -26,9 +26,13 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/profil']">Profil</a>
         </li>
-      </ul>
+      
+
+       <li class="nav-item" *ngIf="isUserLoggedIn">
+      <a class="nav-link" (click)="navigateToModal()">Déconnexion</a>
+    </li></ul>
     </div>
 
-    <button type="button" class="nav-link" (click)="navigateToModal()" *ngIf="isUserLoggedIn"> Déconnexion</button>
+    <!-- <button type="button" class="nav-link" (click)="navigateToModal()" *ngIf="isUserLoggedIn"> Déconnexion</button> -->
   </div>
 </nav>

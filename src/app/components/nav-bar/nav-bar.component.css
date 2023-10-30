@@ -101,3 +101,7 @@ img:hover{
 img {
    width: 5% ;
 }
+
+a:hover{
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 #photo {
-width: 32%;
-margin: 150px 0px 0px 150px;
+width: 20%;
+margin: 150px 0px 0px 250px;
 }
 
 .connexion {
@@ -39,11 +39,18 @@ p{
     font-family: 'Lato';
 }
 
+form{
+    margin-top: 150px;
+}
+
 @media screen and (max-width: 576px) {
    #photo {
         display: none;
     }
     .container {
         padding: 0 15px;
+    }
+    form{
+        margin-top: 100px;
     }
 }

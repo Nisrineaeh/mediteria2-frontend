@@ -24,6 +24,9 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
   newCommentTexts: { [key: number]: string } = {};
   currentUser?: User;
 
+  searchText: string = '';
+  filteredTechniques: MeditationTechnique[] = [];
+
   @Input() techniqueId?: number;
 
 
@@ -81,6 +84,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     forkJoin([meditations$, favorites$]).subscribe(([meditations, favorites]) => {
       this.techniques = meditations;
       this.userFavorites = favorites;
+      this.filteredTechniques = [...this.techniques]
 
       this.techniques.forEach(technique => {
         technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
@@ -168,7 +172,27 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
   }
 
 
- 
+  searchTechnique() {
+    const searchQuery = this.searchText.toLowerCase();
+
+    if (!searchQuery.trim()) {
+      this.filteredTechniques = [...this.techniques];
+      return;
+    }
+
+    this.filteredTechniques = this.techniques.filter((technique) => {
+      return technique.name.toLowerCase().includes(searchQuery);
+    });
+  }
+
+  sortTechniques(order: string) {
+    if (order === 'asc') {
+      this.techniques.sort((a, b) => a.id - b.id);
+    } else if (order === 'desc') {
+      this.techniques.sort((a, b) => b.id - a.id);
+    }
+    this.filteredTechniques = [...this.techniques];
+  }
 
 }
 

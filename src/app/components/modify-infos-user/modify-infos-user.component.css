@@ -1,9 +1,19 @@
+.bg{
+    background-image: url('/assets/bg2.jpg');
+    margin: 0px;
+      background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 620px;
+}
+
 div{
     margin: 20px;
   
 }
 .modal-header{
-    margin: 130px 90px 0px;
+    margin: 80px 90px 0px;
+    padding: 20px;
     font-family: var(--font-family-title);
     color: var(--title-color);
 }

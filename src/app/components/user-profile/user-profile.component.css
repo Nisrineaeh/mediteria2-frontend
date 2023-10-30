@@ -60,6 +60,12 @@ h2{
     .profil{
         margin: 0px;
     }
+    .card{
+        margin-bottom: 10px;
+    }
+    .mt-5{
+        margin: 0px!important;
+    }
 }
 
 .card-body{
@@ -75,4 +81,10 @@ h2{
 
 .profil{
     margin-bottom: 90px;
+}
+
+.no-favorites {
+    text-align: center;
+    color: #a5a5a5;
+    font-style: italic;
 }

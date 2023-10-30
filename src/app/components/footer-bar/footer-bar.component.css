@@ -9,3 +9,7 @@ p{
     margin: 5px;
     font-family: 'Lato';
 }
+
+.fix{
+    height: 2.5rem;
+}

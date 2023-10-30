@@ -25,24 +25,34 @@
             
             
             <div class="card mb-3">
-                <div class="card-body">
-                    <h2>Techniques de méditations</h2>
-                    <p>Techniques récentes...</p>
-                </div>
-            </div>
+    <div class="card-body">
+        <h2>Techniques de méditations</h2>
+        <h3>Trois dernières technique proposé sur Méditéria</h3>
+        <div class="list" *ngFor="let meditation of latestMeditations">
+            <p> <span class="view"> {{ meditation.name }}</span>, crée par {{meditation.createdBy.username}}</p>
+            
+        </div>
+    </div>
+</div>
 
-            <div class="card mb-3">
+            <!-- <div class="card mb-3">
                 <div class="card-body">
                     <h2>Messagerie</h2>
                     <p>Messages récents...</p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="card mb-3">
                 <div class="card-body">
-                    <h2>Forum</h2>
-                    <p>Forum récents...</p>
-                </div>
+                    <h2>Une grande communauté</h2>
+                    <p>Dernier utilisateur à a voir rejoint la communauté :</p>
+                    <div class="raw">
+    <ul>
+      <!-- Afficher les noms des derniers utilisateurs -->
+      <li *ngFor="let user of latestUsers">{{ user.username }}</li>
+    </ul>
+    <p>Nombre total d'utilisateurs inscrits : {{ totalUsers }}</p>
+  </div></div>
             </div>
 
         </div>

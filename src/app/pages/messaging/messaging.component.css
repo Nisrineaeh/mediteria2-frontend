@@ -49,7 +49,6 @@
 }
 
 .search-bar input.form-control:focus {
-  border-color: #007bff;
   box-shadow: none;
 }
 

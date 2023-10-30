@@ -8,7 +8,7 @@
       <p class="name">{{message.user?.username}}</p>
 
       <p>{{ message.message }}</p>
-      <i>{{message.date |  date:'dd/MM/yyyy HH:mm'}}</i>
+      <i>{{message.date |  date:'HH:mm dd/MM/yyyy'}}</i>
     </div>
     <div class="bouton">
         <button *ngIf="message.user!.id === currentUserId" (click)="onDeleteMessage(message.id!)">Supprimer</button>

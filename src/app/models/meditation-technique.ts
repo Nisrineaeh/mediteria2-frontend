@@ -9,7 +9,7 @@ export interface MeditationTechnique {
     atmosphere: string;
     duration: number;
     keyword: string | string[];
-    createdBy: number;
+    createdBy: User;
     audioMedia: Média;
     visualMedia: Média;
     isFavorite?: boolean;

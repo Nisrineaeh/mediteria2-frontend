@@ -1,10 +1,19 @@
 <div class="bg">
 <h1>Techniques de Méditéria</h1>
+<div class="searchBar">
+<input type="text" placeholder="Rechercher une technique..." [(ngModel)]="searchText" (input)="searchTechnique()"></div>
+<div class="btnlist">
+  <p class="tri">Afficher les techniques les </p>
+  <button (click)="sortTechniques('desc')">Plus récentes</button>
+  <button (click)="sortTechniques('asc')">Plus anciennes</button>
+</div>
+
 <div class="container">
-  <div class="card" *ngFor="let technique of techniques">
+  <div class="card" *ngFor="let technique of filteredTechniques">
     <div class="card-body">
       <h2 class="card-title">{{ technique.name }}</h2>
       <p class="card-text strong">{{ technique.description }}</p>
+      <p class="card-text"><span class="underline">Crée par :</span> {{ technique.createdBy.username }}</p>
       <p class="card-text"><span class="underline">Durée :</span> {{ technique.duration }} minutes</p>
       <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
     </div>
@@ -13,7 +22,7 @@
       <app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
     </div>
 
- <h3>Commentaires</h3>
+ <h2>Commentaires</h2>
     <div class="comment card" *ngIf="technique.comments && technique.comments.length">
      
       <div *ngFor="let comment of technique.comments; let i = index">
