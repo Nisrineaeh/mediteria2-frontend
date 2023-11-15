@@ -59,7 +59,6 @@ export class MeditationDetailsComponent implements OnInit {
           .map(word => word.trim().replace(/"/g, ''));
       }
 
-
       this.displayKeyword();
     });
   }
@@ -69,6 +68,7 @@ export class MeditationDetailsComponent implements OnInit {
     reader.readAsDataURL(image);
     reader.addEventListener('load', () => {
       this.meditImg = reader.result;
+      console.log("l\'image",this.meditImg)
     });
   }
 
@@ -80,18 +80,7 @@ export class MeditationDetailsComponent implements OnInit {
     });
   }
 
-  // displayKeyword(): void {
-  //   if (this.meditation && this.meditation.keyword) {
-  //     console.log("Displaying keyword");
-  //     if (this.currentKeywordIndex < this.meditation.keyword.length) {
-  //       this.currentKeyword = this.meditation.keyword[this.currentKeywordIndex];
-  //       this.currentKeywordIndex++;
-  //     } else {
-  //       this.currentKeyword = this.meditation.keyword[0];
-  //       this.currentKeywordIndex = 1;
-  //     }
-  //   }
-  // }
+
   displayKeyword(): void {
     if (this.meditation && this.meditation.keyword) {
       this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.meditation.keyword.length;

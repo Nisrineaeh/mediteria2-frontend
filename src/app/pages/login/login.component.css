@@ -43,6 +43,13 @@ form{
     margin-top: 150px;
 }
 
+
+.form-control:focus {
+  border-color: #6d435a;
+  box-shadow: 0 0 0 0.2rem #6d435a73;
+}
+
+
 @media screen and (max-width: 576px) {
    #photo {
         display: none;
@@ -53,4 +60,14 @@ form{
     form{
         margin-top: 100px;
     }
+
+    .col-12{
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 776px) {
+   .container{
+    overflow-x: hidden;
+   }
 }

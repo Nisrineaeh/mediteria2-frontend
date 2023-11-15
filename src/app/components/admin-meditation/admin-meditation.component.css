@@ -101,6 +101,7 @@ app-heart:hover{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  
 }
 
 input {
@@ -129,6 +130,13 @@ input {
   color: var(--title-color);
 }
 
+.container{
+  padding-bottom: 30px;
+}
+
+
+
+
 @media screen and (max-width: 576px) {
   
     .btn {
@@ -140,6 +148,3 @@ input {
     }
 }
 
-.container{
-  padding-bottom: 30px;
-}

@@ -12,7 +12,7 @@ export class ModalDeconnexionComponent {
 
   onDisconnect() {
     localStorage.clear();
-    this.router.navigate(['/first']);
+    this.router.navigate(['/landing']);
   }
 
   onCancel() {

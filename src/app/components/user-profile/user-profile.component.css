@@ -26,6 +26,10 @@ button{
     border: none;
 }
 
+.btn-primary:active{
+    background-color: var(--title-color)
+}
+
 .btn-danger{
     opacity: 0.5;
     background-color: grey;
@@ -52,25 +56,9 @@ h2{
     font-family: var(--font-family-p);
 }
 
-@media screen and (max-width: 576px) {
-  
-    .container{
-        margin: 0px;
-    }
-    .profil{
-        margin: 0px;
-    }
-    .card{
-        margin-bottom: 10px;
-    }
-    .mt-5{
-        margin: 0px!important;
-    }
-}
-
 .card-body{
     margin-bottom: 20px;
-    padding: 30px;
+    /* padding: 30px; */
 }
 
 .modal-dialog-centered {
@@ -87,4 +75,24 @@ h2{
     text-align: center;
     color: #a5a5a5;
     font-style: italic;
+}
+
+@media screen and (max-width: 576px) {
+  
+    .container{
+        margin: 0px;
+        padding: 20px;
+    }
+    .profil{
+        margin: 0px;
+    }
+    .card{
+        margin-bottom: 10px;
+    }
+    .card-body{
+        margin: 0px!important;
+    }
+    .mt-5{
+        margin-top: 0px!important;
+    }
 }

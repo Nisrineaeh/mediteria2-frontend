@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <img src="assets/logo1.svg" alt="" [routerLink]="['/first']">
+    <img src="assets/logo1.svg" alt="" [routerLink]="['/landing']">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,20 +19,19 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/messaging']">Messagerie</a>
         </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
+        </li>
         <li class="nav-item" *ngIf="!isUserLoggedIn">
           <a class="nav-link" [routerLink]="['/login']">Connexion</a>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
-        </li>
-      
 
        <li class="nav-item" *ngIf="isUserLoggedIn">
       <a class="nav-link" (click)="navigateToModal()">Déconnexion</a>
     </li></ul>
     </div>
 
-    <!-- <button type="button" class="nav-link" (click)="navigateToModal()" *ngIf="isUserLoggedIn"> Déconnexion</button> -->
   </div>
 </nav>

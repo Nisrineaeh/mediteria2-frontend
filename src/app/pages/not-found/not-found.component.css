@@ -1,9 +1,47 @@
-img {
+.img {
 margin-top: 80px;
   width: 100%;
-  height: 600px;
+  height: calc(100vh - 80px);
   cursor: pointer;
+  background-image: url('/assets/404.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+
 .txt {
   text-align: center;
 }
+
+.title{
+  display: flex;
+  justify-content: center;
+  font-family: 'Satisfy';
+  color: var(--title-color);
+  background-color:  rgba(163, 220, 165, 0.404); ;
+  padding: 10px;
+}
+
+.down{
+    padding-top: 250px;
+}
+
+
+@media screen and (max-width: 575px) {
+img{
+  width: 100%
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  font-family: 'Satisfy';
+  color: var(--title-color);
+  background-color:  rgba(163, 220, 165, 0.404); ;
+  padding: 10px;
+}
+
+
+}
+

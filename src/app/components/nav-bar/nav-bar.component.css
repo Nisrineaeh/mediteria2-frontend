@@ -51,8 +51,8 @@ body {
 }
 
 .nav-link:hover {
-    font-weight: bold;
     color: #4b7575;
+    text-decoration: underline;
 }
 
 ul.navbar-nav{
@@ -73,6 +73,13 @@ div.container{
 }
 
 img:hover{
+  cursor: pointer;
+}
+img {
+   width: 5% ;
+}
+
+a:hover{
   cursor: pointer;
 }
 
@@ -98,10 +105,3 @@ img:hover{
 }
 
 
-img {
-   width: 5% ;
-}
-
-a:hover{
-  cursor: pointer;
-}

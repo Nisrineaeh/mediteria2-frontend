@@ -11,3 +11,12 @@ div{
   background-position: center center;
   height: 90vh;
 }
+
+@media screen and (max-width: 576px) {
+  
+    .bg{
+        height: 100%;
+    }
+
+
+}

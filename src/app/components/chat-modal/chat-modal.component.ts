@@ -45,12 +45,10 @@ export class ChatModalComponent implements OnInit {
     this.loadMessages();
   }
 
-  loadMessages(): void {
+  loadMessages() {
     console.log('ESSAYE DE RECUP DES MESSAGES')
     const currentUserId = this.currentUser.id;
     const receiverId = this.selectedUser.id;
-
-    
 
     this.messageService.getUserChats(currentUserId, receiverId).subscribe({
       next: (existingMessages: Message[]) => {
@@ -69,14 +67,6 @@ export class ChatModalComponent implements OnInit {
 
     this.ws.listen('msgToClient').subscribe((data: any) => {
 
-      console.log("Data recu du serveur:", data);
-      console.log('Type de data:', typeof data);
-      console.log("Sender from server:", data.sender);
-      console.log("Receiver from server:", data.receiver);
-      console.log("Content from server:", data.content);
-      console.log("Date from server:", data.date);
-
-
       if (typeof data === 'object' && 'sender' in data && 'receiver' in data && 'content' in data && 'date' in data) {
         const newMessage: Message = {
           id_message: 0,
@@ -89,11 +79,8 @@ export class ChatModalComponent implements OnInit {
         console.log('Messages avant ajout:', this.messages);
         this.messages.push(newMessage);
         console.log('Messages après ajout:', this.messages)
-        console.log('ENVOYEUR DATA', data.sender)
       }
-
     });
-  
   }
 
 

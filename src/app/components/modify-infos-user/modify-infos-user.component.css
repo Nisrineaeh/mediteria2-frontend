@@ -25,6 +25,15 @@ div{
 
 }
 
+.b{
+    background-color: grey;
+}
+
+
+.b:active{
+    background-color: var(--title-color);
+}
+
 label{
     font-family: var(--font-family-p);
     color: var(--title-color);
@@ -38,6 +47,10 @@ label{
 color: rgba(128, 128, 128, 0.42);
 }
 
+.form-control:focus {
+  border-color: #6d435a;
+  box-shadow: 0 0 0 0.2rem #6d435a73;
+}
 
 @media screen and (max-width: 576px) {
   
@@ -45,3 +58,6 @@ color: rgba(128, 128, 128, 0.42);
         margin: 0px;
     }
 }
+
+
+

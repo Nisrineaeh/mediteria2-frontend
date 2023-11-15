@@ -8,7 +8,7 @@
             <button class="btn btn-primary mb-2" [routerLink]="['/profil']">Accèder à mon profil</button>
             <button class="btn btn-primary mb-2" [routerLink]="['/messaging']">Acceder à la messagerie</button>
             <button class="btn btn-primary mb-2" [routerLink]="['/medtech']">Acceder aux techniques</button>
-            <button class="btn btn-primary mb-2" [routerLink]="['/forum']">Acceder aux salon de forums</button>
+            <button class="btn btn-primary mb-2" [routerLink]="['/forum']">Acceder aux salons de forums</button>
         </div>
 
         
@@ -35,20 +35,15 @@
     </div>
 </div>
 
-            <!-- <div class="card mb-3">
-                <div class="card-body">
-                    <h2>Messagerie</h2>
-                    <p>Messages récents...</p>
-                </div>
-            </div> -->
+
 
             <div class="card mb-3">
                 <div class="card-body">
                     <h2>Une grande communauté</h2>
-                    <p>Dernier utilisateur à a voir rejoint la communauté :</p>
+                    <h3>Dernier utilisateur à avoir rejoint la communauté :</h3>
                     <div class="raw">
     <ul>
-      <!-- Afficher les noms des derniers utilisateurs -->
+
       <li *ngFor="let user of latestUsers">{{ user.username }}</li>
     </ul>
     <p>Nombre total d'utilisateurs inscrits : {{ totalUsers }}</p>

@@ -31,7 +31,6 @@ import { MyFavoriteComponent } from './components/my-favorite/my-favorite.compon
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
 import { SocketIoModule } from 'ngx-socket-io';
 import { ChatModalComponent } from './components/chat-modal/chat-modal.component';
-import { ChatHistoryComponent } from './components/chat-history/chat-history.component';
 import { ForumListComponent } from './components/forum-list/forum-list.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 
@@ -62,7 +61,6 @@ import { ForumDetailsComponent } from './components/forum-details/forum-details.
     MyFavoriteComponent,
     ModalDeconnexionComponent,
     ChatModalComponent,
-    ChatHistoryComponent,
     ForumListComponent,
     ForumDetailsComponent,
 

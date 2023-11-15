@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
-import { Forum } from 'src/app/models/forum';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { User } from 'src/app/models/user';
-import { ForumService } from 'src/app/services/forum.service';
 import { MeditationService } from 'src/app/services/meditation.service';
 import { UserService } from 'src/app/services/user.service';
 

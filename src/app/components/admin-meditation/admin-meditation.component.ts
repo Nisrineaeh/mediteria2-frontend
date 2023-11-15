@@ -153,18 +153,25 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     
   }
 
-  onDeleteComment(commentId: number, index: number): void {
+
+  onDeleteComment(commentId: number, technique: MeditationTechnique): void {
     this.commentService.deleteComment(commentId).subscribe({
       next: () => {
-        this.comments.splice(index, 1);
-        alert('Commentaire effacer');
-        window.location.reload()
+        
+        const commentIndex = technique.comments!.findIndex(c => c.id === commentId);
+        if (commentIndex > -1) {
+          
+          technique.comments!.splice(commentIndex, 1);
+          
+        }
+        alert('Commentaire supprimé');
       },
       error: (error) => {
         console.error('Erreur lors de la suppression du commentaire :', error);
       }
     });
   }
+
 
   isUserAllowedToDelete(commentUserId: number): boolean {
   

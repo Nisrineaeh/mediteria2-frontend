@@ -17,8 +17,8 @@ import { ForumDetailsComponent } from './components/forum-details/forum-details.
 import { authGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'first', pathMatch: "full" },
-  {path: 'first', component: LandingPageComponent},
+  { path: '', redirectTo: 'landing', pathMatch: "full" },
+  {path: 'landing', component: LandingPageComponent},
   {path:'signin', component: SigninComponent},
   {path: 'home', component: AccueilComponent, canActivate:[authGuard]},
   { path: 'forum', component: ForumComponent, canActivate: [authGuard] } ,

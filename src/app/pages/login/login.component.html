@@ -11,12 +11,15 @@
     <h1>Connexion</h1>
     <label for="FormControlInput1" class="form-label" ></label>
     <input type="text" class="form-control shadow" id="FormControlInput1" placeholder="Votre pseudo" formControlName="username" name="username">
-
+    <div *ngIf="connexion.get('username')?.touched && connexion.get('username')?.invalid" class="alert alert-danger">
+      Le nom d'utilisateur est requis.
+    </div>
 
   <label for="inputPassword5" class="form-label"></label>
   <input type="password" id="inputPassword5" formControlName="password" class="form-control shadow" aria-describedby="passwordHelpBlock" placeholder="Votre mot de passe" name="password">
-
+    <div *ngIf="connexion.get('password')?.touched && connexion.get('password')?.invalid" class="alert alert-danger">
+      Le mot de passe est requis.
+    </div>
 </div><div><button type="submit" class="btn connexion" [disabled]="!connexion.valid">Se connecter</button></div>
 <p [routerLink]="['/signin']">Pas encore inscrit ? C'est par ici 🧘</p>
 </form>
-

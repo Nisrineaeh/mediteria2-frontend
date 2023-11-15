@@ -14,9 +14,12 @@
         <button *ngIf="message.user!.id === currentUserId" (click)="onDeleteMessage(message.id!)">Supprimer</button>
 </div>
 </div>
-
+<div class="c">
+<div class="fix">
 <form (ngSubmit)="onSubmit()">
   <textarea [(ngModel)]="newMessageContent" name="message" required placeholder="Entrez votre message ..."></textarea>
   <div class="btn"><button type="submit" [disabled]="!newMessageContent.trim()">Envoyer</button><button [routerLink]="['/forum']">Retour</button></div>
 </form>
+</div>
+
 </div>

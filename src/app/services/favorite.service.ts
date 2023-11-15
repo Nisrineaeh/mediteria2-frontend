@@ -14,10 +14,10 @@ export class FavoriteService {
 
   constructor(private http: HttpClient) { }
 
-  // Observable pour les autres composants à écouter
+ 
   favoriteUpdated$ = this._favoriteUpdated.asObservable();
 
-  // Méthode pour émettre un événement lorsque les favoris sont mis à jour
+  
   notifyFavoriteUpdated() {
     this._favoriteUpdated.next();
   }

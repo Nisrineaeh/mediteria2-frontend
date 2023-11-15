@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, tap } from 'rxjs';
 import { MeditationService } from 'src/app/services/meditation.service';
 import { MédiaService } from 'src/app/services/média.service';
 
@@ -52,10 +51,8 @@ export class AddMeditationComponent {
       };
 
       console.log('DATA ENVOYER AU BACKEND  : ', meditationData)
-      // Envoyez les données à l'API
       this.meditationService.addMeditation(meditationData).subscribe({
         next: response => {
-          // Gérez la réponse du backend ici (par exemple, une redirection ou un message de succès)
           console.log('Réponse du backend :', response);
           console.log('this.currentUser:', this.currentUser);
           console.log('this.audioMediaId:', this.audioMediaId);
@@ -63,14 +60,12 @@ export class AddMeditationComponent {
           this.router.navigate(['/profil']);
         },
         error: error => {
-          // Gérez les erreurs ici
-          console.error('Erreur lors de l’ajout de la méditation:', error);
+          console.error('Erreur lors de l\’ajout de la méditation:', error);
         }
       });
 
     } else {
-      // Affichez un message d'erreur ou effectuez une action en cas de formulaire invalide
-      console.error('Formulaire invalide. Assurez-vous de remplir tous les champs requis et d’uploader les médias.');
+      console.error('Formulaire invalide. Assurez-vous de remplir tous les champs requis et d\’uploader les médias.');
     }
   }
 

@@ -60,7 +60,7 @@ export class UserProfileComponent {
       next: (response) => {
         console.log('Compte supprimé avec succès');
         localStorage.clear();
-        this.router.navigate(['/first']);
+        this.router.navigate(['/landing']);
         this.modalRef.dismiss()
       },
       error: (error) => {
@@ -75,17 +75,9 @@ export class UserProfileComponent {
     const modalRef = this.modalService.open(ChatModalComponent, {
       size: 'lg'
     });
-    modalRef.componentInstance.selectedUser = user; // This is how you pass data to modals in ng-bootstrap
+    modalRef.componentInstance.selectedUser = user;
   }
 
-  // get filteredUsers(): User[] {
-  //   if (this.searchTerm) {
-  //     return this.usersWithConversations.filter(
-  //       user => user.username.toLowerCase().includes(this.searchTerm.toLowerCase())
-  //     );
-  //   }
-  //   return this.usersWithConversations;
-  // }
 
 
   get filteredConversations(): User[] {

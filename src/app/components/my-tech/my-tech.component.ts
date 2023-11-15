@@ -61,11 +61,25 @@ export class MyTechComponent {
   loadAllMeditations(): void {
     const userId = this.currentUser;
     this.meditationService.getMeditationsByUserId(userId).subscribe(meditations => {
-      this.meditations = meditations;
+      this.meditations = meditations.map(meditation => {
+        return {
+          ...meditation,
+          keyword: this.parseKeywords(meditation.keyword)
+        };
+      });
       this.loadMediaForMeditations();
     });
   }
 
+  parseKeywords(keywordInput: string | string[]): string {
+    if (Array.isArray(keywordInput)) {
+      return keywordInput.join(', ');
+    }
+    let formattedString = keywordInput.replace(/[{""}]/g, '');
+    const keywords = formattedString.split(',');
+
+    return keywords.join(', ');
+  }
 
   updateMeditation() {
     this.meditationService.updateMeditation(this.selectedMeditation.id, this.selectedMeditation).subscribe(() => {
@@ -73,7 +87,7 @@ export class MyTechComponent {
       this.modalRef.hide();
       this.loadAllMeditations();
     }, (error: any) => {
-      console.error('There was an error updating the meditation!', error);
+      console.error('Il y a une erreur dans la mise a jour de la technique !', error);
     });
 
   }
@@ -83,8 +97,8 @@ export class MyTechComponent {
       alert('Méditation supprimée avec succès!');
       this.loadAllMeditations();
     }, (error: any) => {
-      console.error('Erreur lors de la suppression de la méditation!', error);
-      alert('Erreur lors de la suppression de la méditation!');
+      console.error('Erreur lors de la suppression de la méditation !', error);
+      alert('Erreur lors de la suppression de la méditation !');
     });
   }
 

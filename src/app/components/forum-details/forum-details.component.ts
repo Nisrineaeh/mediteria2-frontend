@@ -3,9 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Forum } from 'src/app/models/forum';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
-import { MessageForum } from 'src/app/models/message-forum';
 import { User } from 'src/app/models/user';
-// import { MessageForum } from 'src/app/models/message-forum';
 import { ForumService } from 'src/app/services/forum.service';
 import { MeditationService } from 'src/app/services/meditation.service';
 import { UserService } from 'src/app/services/user.service';
@@ -37,93 +35,92 @@ export class ForumDetailsComponent implements OnInit {
     this.getForumDetails(techniqueId);
   }
 
-
-
-  getForumDetails(techniqueId: number) {
-    this.forumService.getForumByTechnique(techniqueId).subscribe(
-      (forums) => {
-
-        const userRequests = forums.map(message => this.userService.getUserById(message.user_id));
-
-        forkJoin(userRequests).subscribe(users => {
-
-          forums.forEach((message, index) => {
-            message.user = users[index];
-          });
-
-          this.forum = forums;
-          console.log('Forums with user data', forums);
+  getForumDetails(idTechnique: number) {
+    this.forumService.getForumByTechnique(idTechnique).subscribe({
+      next: (forums) => {
+        const requetesUtilisateur = forums.map(message => this.userService.getUserById(message.user_id));
+        forkJoin(requetesUtilisateur).subscribe({
+          next: (utilisateurs) => {
+            forums.forEach((message, index) => {
+              message.user = utilisateurs[index];
+            });
+            this.forum = forums;
+            console.log('Forums avec données utilisateur', forums);
+          },
+          error: (erreur) => {
+            console.error('Erreur lors de la récupération des utilisateurs', erreur);
+          }
         });
       },
-      (error) => {
-        console.error('Erreur lors de la récupération des forums', error);
+      error: (erreur) => {
+        console.error('Erreur lors de la récupération des forums', erreur);
       }
-    );
+    });
   }
 
+
   onSubmit() {
-    const techniqueId = this.route.snapshot.params['id'];
+    const idTechnique = this.route.snapshot.params['id'];
     this.newMessageContent = this.newMessageContent.trim();
 
     if (!this.newMessageContent) {
       console.error('Le message est vide. Veuillez écrire quelque chose avant d\'envoyer.');
-      alert('Le message est vide. Veuillez écrire quelque chose avant d\'envoyer.')
+      alert('Le message est vide. Veuillez écrire quelque chose avant d\'envoyer.');
       return;
     }
 
-
-    this.meditationService.getMeditationById(+techniqueId).subscribe(
-      (technique) => {
-          console.log('REGARDE LA',technique.name)
+    this.meditationService.getMeditationById(+idTechnique).subscribe({
+      next: (technique) => {
         if (!technique) {
-          console.error(`Aucune technique de méditation trouvée pour l'ID: ${techniqueId}`);
+          console.error(`Aucune technique de méditation trouvée pour l'ID: ${idTechnique}`);
           return;
         }
 
-        const messageToSend: Forum = {
+        const messageAEnvoyer: Forum = {
           date: new Date(),
           message: this.newMessageContent,
-          user_id: +localStorage.getItem('user_id')!,
-          meditation_technique_id: +techniqueId,
+          user_id: +localStorage.getItem('user_id')!, 
+          meditation_technique_id: +idTechnique,
           name: technique.name,
         };
 
-        console.log('MESSAGE DU FORUM ENVOYER', messageToSend);
-
-        this.forumService.addMessageForum(messageToSend).subscribe(
-          response => {
-            
-            this.forum.push(response);
+        this.forumService.addMessageForum(messageAEnvoyer).subscribe({
+          next: (reponse) => {
+            this.forum.push(reponse);
             this.newMessageContent = '';
-            alert('Message envoyé dans le forum!');
+            alert('Message envoyé dans le forum !');
           },
-          error => {
-            console.error('Erreur lors de l’envoi du message', error);
+          error: (erreur) => {
+            console.error('Erreur lors de l’envoi du message', erreur);
           }
-        );
+        });
       },
-      (error) => {
-        console.error(`Erreur lors de la récupération de la technique de méditation pour l'ID: ${techniqueId}`, error);
+      error: (erreur) => {
+        console.error(`Erreur lors de la récupération de la technique de méditation pour l'ID: ${idTechnique}`, erreur);
       }
-    );
+    });
   }
 
 
-  onDeleteMessage(messageId: number) {
-
-    this.forumService.deleteMessage(messageId).subscribe(
-      () => {
-        this.forum = this.forum.filter(message => message.id !== messageId);
+  onDeleteMessage(idMessage: number) {
+    this.forumService.deleteMessage(idMessage).subscribe({
+      next: () => {
+        this.forum = this.forum.filter(message => message.id !== idMessage);
         alert('Message supprimé avec succès.');
-        window.location.reload();
+        this.refreshForum();
       },
-      error => {
-        console.error('Erreur lors de la suppression du message', error);
+      error: (erreur) => {
+        console.error('Erreur lors de la suppression du message', erreur);
       }
-    );
+    });
   }
 
- 
+  refreshForum() {
+    const idTechnique = this.route.snapshot.params['id'];
+    this.getForumDetails(idTechnique);
+  }
+
+
 
 }
 

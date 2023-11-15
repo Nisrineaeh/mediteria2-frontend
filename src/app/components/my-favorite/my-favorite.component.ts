@@ -27,16 +27,16 @@ export class MyFavoriteComponent {
     this.favoriteService.getUserFavorites(this.currentUser).subscribe({
       next: (favorites: Favorite[]) => {
         this.favoriteTechniques = favorites;
-        console.log('Favorites received:', this.favoriteTechniques);
+        console.log('Favorites recus :', this.favoriteTechniques);
 
         if (this.favoriteTechniques && this.favoriteTechniques.length > 0) {
 
           this.technique = this.favoriteTechniques[0].meditation_technique;
-          console.log('First technique:', this.technique.name);
+          console.log('Première technique:', this.technique.name);
         }
       },
       error: error => {
-        console.error('There was an error', error);
+        console.error('Il y a une erreur', error);
       }
     });
   }

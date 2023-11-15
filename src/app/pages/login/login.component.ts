@@ -37,7 +37,6 @@ export class LoginComponent {
         next: (response: any) => {
           console.log('Réponse complète du serveur :', response);
           if (response && response.accessToken) {
-            // Stocker le token dans le localStorage
             localStorage.setItem('access_token', response.accessToken);
 
             console.log('Connexion réussie et token stocké!');
@@ -48,6 +47,7 @@ export class LoginComponent {
         },
         error: (error: any) => {
           console.error('Erreur lors de la connexion:', error);
+          alert('Erreur lors de la connexion !')
         },
       });
     }
