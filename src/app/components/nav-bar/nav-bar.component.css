@@ -1,7 +1,7 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+.navbar-expand-lg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar {
@@ -68,7 +68,7 @@ div.container{
 }
 
 .navbar-nav .nav-item .nav-link:focus {
-  font-weight: bold;
+  text-decoration: underline;
   color: var(--title-color);
 }
 
@@ -101,6 +101,11 @@ a:hover{
 
   .nav-item {
     margin: 10px 0 !important;
+  }
+
+  img{
+    margin-right: 15px;
+    width: 10%;
   }
 }
 

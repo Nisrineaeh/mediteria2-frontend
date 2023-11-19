@@ -17,6 +17,12 @@ li{
     color: var(--title-color);
 }
 
+   .left{
+        display: flex;
+        justify-content: right;
+    }
+
+
 button{
     margin: 15px;
 }
@@ -24,10 +30,12 @@ button{
 .btn-primary{
     background-color: var(--title-color);
     border: none;
+    padding: 10px;
 }
 
-.btn-primary:active{
-    background-color: var(--title-color)
+.btn-primary:hover{
+    background-color:#67515d ;
+    color:white ;
 }
 
 .btn-danger{
@@ -56,11 +64,6 @@ h2{
     font-family: var(--font-family-p);
 }
 
-.card-body{
-    margin-bottom: 20px;
-    /* padding: 30px; */
-}
-
 .modal-dialog-centered {
   display: flex;
   align-items: center;
@@ -77,22 +80,41 @@ h2{
     font-style: italic;
 }
 
+.mt-5{
+    margin: 0px!important;
+}
+
 @media screen and (max-width: 576px) {
   
-    .container{
-        margin: 0px;
-        padding: 20px;
+    .cardP{
+        margin-top: 30px;
+        margin-bottom: 0px;
+        padding: 10px;
     }
     .profil{
         margin: 0px;
     }
-    .card{
-        margin-bottom: 10px;
-    }
+
     .card-body{
-        margin: 0px!important;
+        margin-bottom: 0px;
     }
-    .mt-5{
-        margin-top: 0px!important;
+
+    button{
+        margin: 0px;
+        margin-top: 10px;
     }
+
+    .conv{
+        width: 100px;
+        height: 50px;
+        font-size: 12px;
+        padding: 0px;
+    }
+
+    .left{
+        display: flex;
+        justify-content: right;
+    }
+
+   
 }

@@ -44,6 +44,7 @@ export class MessageService {
 
     );
   }
+  
   getUserConversations(userId: number): Observable<User[]> {
     const headers = this.getHeaders();
     return this.http.get<User[]>(`${this.bddUrl}/message/list/${userId}`, { headers });

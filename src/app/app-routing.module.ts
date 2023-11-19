@@ -15,6 +15,7 @@ import { AddMeditationComponent } from './components/add-meditation/add-meditati
 import { ModalDeconnexionComponent } from './components/modal-deconnexion/modal-deconnexion.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 import { authGuard } from './auth.guard';
+import { LegalMentionsComponent } from './pages/legal-mentions/legal-mentions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: "full" },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'meditation/:id', component: MeditationDetailsComponent, canActivate: [authGuard] },
   { path: 'add', component: AddMeditationComponent, canActivate: [authGuard] },
   { path: 'deconnexion', component: ModalDeconnexionComponent, canActivate: [authGuard] },
+  {path: 'legalMentions', component: LegalMentionsComponent, canActivate:[authGuard]},
   {path: '**', component: NotFoundComponent},
 ];
 

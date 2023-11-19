@@ -4,6 +4,19 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
+  
+
+  background-image: url("/assets/dream.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
+
+
+}
+
+img{
+    width: 35%;
 }
 
 .img_class {
@@ -23,6 +36,7 @@
   flex: 2;
   max-width: 53%;
   margin-top: 100px;
+  justify-content: left!important;
 }
 
 .formcontainer {
@@ -68,7 +82,6 @@ h1 {
   .page_form {
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
   }
   .rounded {
     margin-bottom: 50px;

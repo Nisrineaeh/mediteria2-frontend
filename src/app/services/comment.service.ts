@@ -22,16 +22,16 @@ export class CommentService {
   }
 
   getCommentsByTechnique(techniqueId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.bddUrl}/technique/${techniqueId}`, {headers:this.getHeaders()});
+    return this.http.get<Comment[]>(`${this.bddUrl}/technique/${techniqueId}`, { headers: this.getHeaders() });
   }
 
   addComment(comment: Comment): Observable<Comment> {
-    console.log('Le comments', comment)
+    console.log('le commentaire envoyé', comment)
     return this.http.post<Comment>(`${this.bddUrl}`, comment, { headers: this.getHeaders() });
   }
 
   deleteComment(commentId: number): Observable<void> {
-    return this.http.delete<void>(`${this.bddUrl}/${commentId}`,  { headers: this.getHeaders() });
+    return this.http.delete<void>(`${this.bddUrl}/${commentId}`, { headers: this.getHeaders() });
   }
 
 

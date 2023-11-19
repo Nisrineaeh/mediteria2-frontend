@@ -41,6 +41,7 @@ p{
 
 form{
     margin-top: 150px;
+    
 }
 
 
@@ -48,6 +49,15 @@ form{
   border-color: #6d435a;
   box-shadow: 0 0 0 0.2rem #6d435a73;
 }
+
+.bg {
+  background-image: url("/assets/dream.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 90vh;
+}
+
 
 
 @media screen and (max-width: 576px) {

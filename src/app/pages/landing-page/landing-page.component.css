@@ -1,86 +1,90 @@
 * {
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.landing-page{
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: 'Satisfy';
-    
-    background-image: url('/assets/lpw.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.landing-page {
+  position: relative;
 }
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+}
+
+.text-container {
+  position: absolute;
+  right: 6rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 350px;
+}
+
 .center-text {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .nom-marque {
-    display: block;
-    font-size: 4em;
-    color: #6D435A;
+  display: block;
+  font-size: 4em;
+  color: white;
+  font-family: var(--font-family-title);
 }
 
 .sous-titre {
-    display: block;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    font-family: 'Lato';
-    color: #6D435A;
+  display: block;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: "Lato";
+  color: white;
 }
 
 .btn-round {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 50px;        
-    height: 50px;
-    border-radius: 50%;  
-    
-    border: 1px solid black; 
-    background-color: transparent;
-    
-    color: black; 
-    font-size: 1em;
-    
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    margin-top: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  border: 1px solid black;
+  background-color: transparent;
+
+  color: black;
+  font-size: 1em;
+
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 0px;
 }
 
 .btn-round:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--dark-color); 
-    color: var(--dark-color);
-    font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--dark-color);
+  color: var(--dark-color);
+  font-weight: bold;
 }
 
 .li {
-    font-size: 10px;
-}
-.titre-central {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-size: 10px;
 }
 
 img {
-    width: 15%;
+  width: 15%;
   transition: transform 0.3s;
   cursor: pointer;
 }
@@ -90,54 +94,68 @@ img:hover {
 }
 
 .cta {
-    display: block;
-    font-size: 1em;
-    color: #6D435A;
-    font-family: 'Lato';
+  display: block;
+  font-size: 1em;
+  color: white;
+  font-family: "Lato";
 }
 
 .btn-custom {
-    background-color: rgb(163, 220, 165); 
-    color: white;
-    padding: 12px 25px;
-    border-radius: 30px; 
-    border: none;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
-    cursor: pointer;
-    transition: all 0.3s ease; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-    font-family: 'Lato';
-    margin-top: 20px;
+  background-color: rgb(163, 220, 165);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Lato";
+  margin-top: 20px;
 }
 
 .btn-custom:hover {
-    background-color: #66BB6A; 
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); 
+  background-color: #66bb6a;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .btn-custom:focus {
-    outline: none;
+  outline: none;
 }
-
-
 
 @media screen and (max-width: 575px) {
-.btn-custom{
+  .btn-custom {
     width: 50%;
     font-size: 0.8rem;
-}
-
-.cta{
+  }
+  .cta {
     margin: 10px;
+  }
+  video {
+    display: none;
+  }
+
+  .landing-page {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Satisfy";
+    background-image: url("/assets/lpw.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+  }
 }
-
-
-}
-
-
-
-
-

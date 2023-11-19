@@ -55,7 +55,7 @@ button {
 }
 
 .center {
-  max-height: 280px;
+  max-height: 300px;
   overflow-y: scroll;
   margin-bottom: 10px;
 }
@@ -80,12 +80,11 @@ button:hover {
 .fix {
   position: absolute;
   bottom: -2rem;
-  position: fixed;
   width: 50%;
   height: 15rem;
   z-index: 2;
   opacity: 1;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .c{
@@ -97,10 +96,14 @@ button:hover {
   
     .fix {
         bottom: -2rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     textarea{
-      width: 100px;
+      width: 200px;
+      margin-left: 0px;
     }
 
     .title{

@@ -1,14 +1,27 @@
-<div class="landing-page d-flex flex-column justify-content-center align-items-center vh-100">
-    <div class="center-text mb-auto">
-        <div class="titre-central">
-            <span class="nom-marque">Méditeria</span>
-            <span class="sous-titre">Un clic, une respiration, une transformation</span>
-            <span class="cta">Rejoignez la communauté de Méditeria et commencez votre voyage vers la paix intérieure</span>
-            <button class="btn btn-custom" [routerLink]="['/signin']">Inscrivez-vous gratuitement</button>
-        </div>
+<div
+  class="landing-page d-flex flex-column justify-content-center align-items-center vh-100"
+>
+  <div class="video-container">
+    <video autoplay muted loop class="video-background">
+      <source src="/assets/landing.mp4" type="video/mp4" />
+      Votre navigateur ne supporte pas les vidéos.
+    </video>
+  </div>
+  <div class="text-container">
+    <div class="titre-central">
+      <span class="nom-marque">Méditeria</span>
+      <span class="sous-titre"
+        >Un clic, une respiration, une transformation</span
+      >
+      <span class="cta"
+        >Rejoignez la communauté de Méditeria et commencez votre voyage vers la
+        paix intérieure</span
+      >
+      <button class="btn btn-custom" [routerLink]="['/signin']">
+        Inscrivez-vous gratuitement
+      </button>
     </div>
-    <div>
-
-    </div>
+  </div>
+  <div></div>
 </div>
 <app-article></app-article>

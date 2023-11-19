@@ -41,12 +41,10 @@ export class ChatModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("ID utilisateur courant:", this.currentUser.id);
     this.loadMessages();
   }
 
   loadMessages() {
-    console.log('ESSAYE DE RECUP DES MESSAGES')
     const currentUserId = this.currentUser.id;
     const receiverId = this.selectedUser.id;
 
@@ -62,9 +60,6 @@ export class ChatModalComponent implements OnInit {
         console.error('Erreur lors de la récup des messages existants:', error);
       }
     });
-
-    console.log('listen to websocket');
-
     this.ws.listen('msgToClient').subscribe((data: any) => {
 
       if (typeof data === 'object' && 'sender' in data && 'receiver' in data && 'content' in data && 'date' in data) {
@@ -76,9 +71,7 @@ export class ChatModalComponent implements OnInit {
           content: data.content,
           date: new Date(data.date),
         };
-        console.log('Messages avant ajout:', this.messages);
         this.messages.push(newMessage);
-        console.log('Messages après ajout:', this.messages)
       }
     });
   }

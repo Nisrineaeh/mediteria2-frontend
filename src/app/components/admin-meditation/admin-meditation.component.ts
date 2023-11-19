@@ -15,22 +15,22 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './admin-meditation.component.html',
   styleUrls: ['./admin-meditation.component.css']
 })
-export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
- 
-  techniques: MeditationTechnique[] =[];
+export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
+
+  techniques: MeditationTechnique[] = [];
   userFavorites: Favorite[] = [];
   private ngUnsubscribe = new Subject<void>();
   comments: Comment[] = [];
   newCommentTexts: { [key: number]: string } = {};
   currentUser?: User;
-
   searchText: string = '';
   filteredTechniques: MeditationTechnique[] = [];
+  noResultsFound: boolean = false; 
 
   @Input() techniqueId?: number;
 
 
-  constructor(private meditationService: MeditationService, private favoriteService: FavoriteService, private commentService: CommentService, private userService: UserService){}
+  constructor(private meditationService: MeditationService, private favoriteService: FavoriteService, private commentService: CommentService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe(user => {
@@ -38,7 +38,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     });
     this.getAllMeditationAndFavorites();
     this.getUserFavorites();
-    
+
 
     this.favoriteService.favoriteUpdated$
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -47,7 +47,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
         this.getUserFavorites();
       });
 
-      
+
   }
 
 
@@ -88,20 +88,20 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
       this.techniques.forEach(technique => {
         technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
-        
-    
+
+
         this.commentService.getCommentsByTechnique(technique.id).subscribe(comments => {
           technique.comments = comments;
           console.log('REGARDE LA ', technique.comments);
-          
-       
+
+
           technique.comments.forEach(comment => {
             this.userService.getUserById((Number(comment.user_id))).subscribe(user => {
               comment.user = user;
             });
           });
         });
-          
+
       });
     });
   }
@@ -126,20 +126,21 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
     const commentPayload = {
       comment: commentText,
-      user_id:  +(localStorage.getItem('user_id'))!,
+      user_id: +(localStorage.getItem('user_id')!),
       meditationTechniqueId: technique.id,
       date: new Date().toISOString(),
-  
+
     };
 
-    console.log('LE COMMENTAIRE :', commentPayload);
+    console.log('Payload envoyé :', commentPayload);
 
     this.commentService.addComment(commentPayload).subscribe({
       next: (addedComment) => {
+        console.log('Réponse du Backend:', addedComment);
         if (!technique.comments) {
           technique.comments = [];
         }
-        addedComment.user_id = +(localStorage.getItem('user_id'))!;
+        addedComment.user_id = commentPayload.user_id;
         addedComment.user = this.currentUser;
         technique.comments.push(addedComment);
         this.newCommentTexts[technique.id] = '';
@@ -150,19 +151,19 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
       }
     });
 
-    
+
   }
 
 
   onDeleteComment(commentId: number, technique: MeditationTechnique): void {
     this.commentService.deleteComment(commentId).subscribe({
       next: () => {
-        
+
         const commentIndex = technique.comments!.findIndex(c => c.id === commentId);
         if (commentIndex > -1) {
-          
+
           technique.comments!.splice(commentIndex, 1);
-          
+
         }
         alert('Commentaire supprimé');
       },
@@ -174,13 +175,14 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
 
 
   isUserAllowedToDelete(commentUserId: number): boolean {
-  
+
     return this.currentUser ? commentUserId === this.currentUser.id : false;
   }
 
 
   searchTechnique() {
     const searchQuery = this.searchText.toLowerCase();
+    this.noResultsFound = false; 
 
     if (!searchQuery.trim()) {
       this.filteredTechniques = [...this.techniques];
@@ -190,6 +192,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy{
     this.filteredTechniques = this.techniques.filter((technique) => {
       return technique.name.toLowerCase().includes(searchQuery);
     });
+    this.noResultsFound = this.filteredTechniques.length === 0 ;
   }
 
   sortTechniques(order: string) {

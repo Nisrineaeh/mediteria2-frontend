@@ -1,10 +1,10 @@
 .bg{
     background-image: url('/assets/bg2.jpg');
     margin: 0px;
-      background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 620px;
+  height: calc(100vh - 80px)!important;
 }
 
 div{

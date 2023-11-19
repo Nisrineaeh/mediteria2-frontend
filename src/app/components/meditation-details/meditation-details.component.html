@@ -1,9 +1,13 @@
 <div *ngIf="meditation" class="background-container" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}">
     <div class="info-panel">
-        <h2>{{ meditation.name }}</h2>
-        <p>{{ meditation.description }}</p>
-        <p><span class="highlighted">Durée</span> : {{ meditation.duration }} minutes</p>
-        <p><span class="highlighted">Atmosphère</span> : {{ meditation.atmosphere }}</p>
+
+        <div>
+            <h2>{{ meditation.name }}</h2>
+            <p>{{ meditation.description }}</p>
+            <p><span class="highlighted">Durée</span> : {{ meditation.duration }} minutes</p>
+            <p><span class="highlighted">Atmosphère</span> : {{ meditation.atmosphere }}</p>
+        </div>
+
         <div *ngIf="meditAudio" class="audio-container">
             <a [routerLink]="['/medtech']">Retour à la liste</a>
             <audio controls [src]="meditAudio">
