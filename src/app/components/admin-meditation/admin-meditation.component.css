@@ -13,11 +13,13 @@ h2 {
   padding-left: 25px;
 }
 
-div.card {
-  margin-bottom: 45px;
+.card {
+
   border-color: var(--p-color);
   position: relative;
   border-width: 15px;
+  width: 90%;
+  margin: 20px;
 }
 
 .comment{
@@ -137,6 +139,8 @@ input {
 
 .container {
   padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .noResultsMessage {
