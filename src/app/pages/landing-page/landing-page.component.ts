@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
+  stopVideo(video: HTMLVideoElement) {
+    console.log(video)
+    if (!video.play) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+
+
 }

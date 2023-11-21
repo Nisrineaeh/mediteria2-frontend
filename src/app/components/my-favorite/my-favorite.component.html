@@ -2,7 +2,10 @@
 <h2>Toutes vos techniques favorites :</h2>
 <ul *ngIf="favoriteTechniques && favoriteTechniques.length" class="favorite-list">
   <li *ngFor="let favorite of favoriteTechniques">
-    {{ favorite.meditation_technique.name }}
+    <div (click)="openFavorite(favorite)">
+      {{ favorite.meditation_technique.name }}
+    </div>
+
     <button (click)="removeFromFavorites(favorite.id)">Supprimer de mes favoris</button>
   </li>
 </ul>

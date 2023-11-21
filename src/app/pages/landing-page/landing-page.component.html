@@ -1,8 +1,8 @@
 <div
   class="landing-page d-flex flex-column justify-content-center align-items-center vh-100"
 >
-  <div class="video-container">
-    <video autoplay [muted]="true" loop class="video-background">
+  <div class="video-container" (click)="stopVideo(myVideo)">
+    <video #myVideo autoplay [muted]="true" loop class="video-background">
       <source src="/assets/landing.mp4" type="video/mp4" />
       Votre navigateur ne supporte pas les vidéos.
     </video>

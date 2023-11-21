@@ -204,6 +204,8 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
     this.filteredTechniques = [...this.techniques];
   }
 
+  
+
 }
 
 

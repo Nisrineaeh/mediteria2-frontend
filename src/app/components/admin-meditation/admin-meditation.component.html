@@ -17,7 +17,7 @@
       <p class="card-text"><span class="underline">Atmosphère :</span> {{ technique.atmosphere }}</p>
     </div>
     <div class="btns">
-      <button [routerLink]="['/meditation', technique.id]" class="btn btn-primary">Méditer</button>
+      <button [routerLink]="['/meditation', technique.id]" class="btn btn-primary medite">Méditer</button>
       <app-heart [isFavorite]="technique.isFavorite" (favoriteChanged)="onFavoriteChanged($event, technique)" [techniqueId]="technique.id"></app-heart>
     </div>
 
@@ -46,3 +46,4 @@
 <div *ngIf="noResultsFound" class="noResultsMessage">
   <h2>Elle n'existe pas encore, désolé...</h2>
 </div></div>
+

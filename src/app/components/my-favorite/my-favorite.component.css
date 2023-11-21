@@ -48,6 +48,10 @@ h2{
     color: var(--title-color);
 }
 
+div{
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 576px) {
   

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Favorite } from 'src/app/models/favorite';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { FavoriteService } from 'src/app/services/favorite.service';
+import { MeditationService } from 'src/app/services/meditation.service';
 
 @Component({
   selector: 'app-my-favorite',
@@ -17,7 +19,8 @@ export class MyFavoriteComponent {
   meditationTechnique!: MeditationTechnique;
 
 
-  constructor(private favoriteService: FavoriteService) { }
+  constructor(private favoriteService: FavoriteService, private meditationService: MeditationService
+    , private router : Router) { }
 
   ngOnInit(): void {
     this.loadUserFavorites();
@@ -55,5 +58,11 @@ export class MyFavoriteComponent {
       });
   }
 
-
+  openFavorite(favorite : Favorite){
+  this.meditationService.getMeditationById(favorite.meditation_technique.id).subscribe({
+    next: (meditationDetails)=>{
+      this.router.navigate(['/meditation/', favorite.meditation_technique.id])
+    }
+  })
+}
 }

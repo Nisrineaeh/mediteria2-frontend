@@ -1,5 +1,5 @@
 .bg {
-  background-image: url("/assets/bg2.jpg");
+  background-image: url("/assets/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -22,7 +22,7 @@ h2 {
 }
 
 .contenu {
-  background-color: var(--p-color);
+  background-color: var(--greenLight-color);
   margin: 10px;
   border-radius: 5px;
   padding: 10px;
