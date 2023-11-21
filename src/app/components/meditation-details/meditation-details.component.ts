@@ -13,7 +13,7 @@ export class MeditationDetailsComponent implements OnInit {
   meditation!: MeditationTechnique;
   meditImg!: any;
   meditAudio!: any;
-
+  meditVideo!: any;
   displayedKeyword: string[] = [];
   currentKeywordIndex = 0;
   currentKeyword: string = "";
@@ -78,6 +78,15 @@ export class MeditationDetailsComponent implements OnInit {
     reader.addEventListener('load', () => {
       this.meditAudio = reader.result;
     });
+  }
+
+  createVideoFromBlob(video: Blob){
+    const reader = new FileReader();
+    reader.readAsDataURL(video);
+    reader.addEventListener('load', ()=>{
+      this.meditVideo= reader.result;
+    })
+    
   }
 
 

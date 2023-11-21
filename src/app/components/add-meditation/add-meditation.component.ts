@@ -46,7 +46,6 @@ export class AddMeditationComponent {
         keyword: this.meditationForm.get('keyword')?.value.split(',').map((keyword: string)=> keyword.trim()),
         user_id: this.currentUser,
         audio_media_id: this.audioMediaId,
-
         visual_media_id: this.visualMediaId
       };
 

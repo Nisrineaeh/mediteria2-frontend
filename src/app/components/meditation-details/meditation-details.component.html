@@ -1,4 +1,5 @@
 <div *ngIf="meditation" class="background-container" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}">
+<video *ngIf="meditVideo" [src]="meditVideo" muted autoplay loop class="video-background"></video>    
     <div class="info-panel">
 
         <div>
@@ -18,3 +19,28 @@
 <div class="keyword-display">{{ currentKeyword }}</div>
 
 </div>
+
+<!-- <div *ngIf="meditation" class="background-container">
+     <video *ngIf="meditVideo" [src]="meditVideo" muted autoplay loop class="video-background"></video>
+    <div *ngIf="meditImg" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}" class="image-container"></div>
+
+
+    <div class="info-panel">
+        <div>
+            <h2>{{ meditation.name }}</h2>
+            <p>{{ meditation.description }}</p>
+            <p><span class="highlighted">Durée</span> : {{ meditation.duration }} minutes</p>
+            <p><span class="highlighted">Atmosphère</span> : {{ meditation.atmosphere }}</p>
+        </div>
+
+
+        <div *ngIf="meditAudio" class="audio-container">
+            <a [routerLink]="['/medtech']">Retour à la liste</a>
+            <audio controls [src]="meditAudio">
+                Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+        </div>
+    </div>
+
+    <div class="keyword-display">{{ currentKeyword }}</div>
+</div> -->

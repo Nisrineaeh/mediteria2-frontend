@@ -26,18 +26,18 @@
 
 
 .user-card button {
-  background-color: var(--p-color);
+  background-color: var(--greenLight-color);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  color: #fff;
+  color: var(--title-color);
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .user-card button:hover {
-  background-color: var(--title-color); 
+  background-color: var(--green-color); 
 }
 
 .search-bar input.form-control {
