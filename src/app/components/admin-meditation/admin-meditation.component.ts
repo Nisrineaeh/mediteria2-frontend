@@ -28,7 +28,7 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
   noResultsFound: boolean = false; 
 
   @Input() techniqueId?: number;
-
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
 
   constructor(private meditationService: MeditationService, private favoriteService: FavoriteService, private commentService: CommentService, private userService: UserService) { }
 
@@ -165,10 +165,11 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
           technique.comments!.splice(commentIndex, 1);
 
         }
-        alert('Commentaire supprimé');
+        this.showToast('Commentaire supprimé avec succès.')
       },
       error: (error) => {
-        console.error('Erreur lors de la suppression du commentaire :', error);
+        console.error('Erreur lors de la suppression du commentaire :', error)
+        this.showToast('Erreur lors de la suppression du commentaire.')
       }
     });
   }
@@ -204,7 +205,11 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
     this.filteredTechniques = [...this.techniques];
   }
 
-  
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.deleteToast.nativeElement.classList.add('show')
+  }
+
 
 }
 

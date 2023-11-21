@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import * as bootstrap from 'bootstrap';
 import { Favorite } from 'src/app/models/favorite';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { FavoriteService } from 'src/app/services/favorite.service';
@@ -14,9 +15,9 @@ export class MyFavoriteComponent {
   favoriteTechniques!: Favorite[];
   private currentUser = +localStorage.getItem('user_id')!;
   technique!: MeditationTechnique;
+  meditationTechnique!: MeditationTechnique
 
-
-  meditationTechnique!: MeditationTechnique;
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
 
 
   constructor(private favoriteService: FavoriteService, private meditationService: MeditationService
@@ -48,7 +49,7 @@ export class MyFavoriteComponent {
     this.favoriteService.removeFavorite(favoriteId)
       .subscribe({
         next: () => {
-          alert('Technique supprimée de vos favoris avec succès.');
+          this.showToast('Technique supprimée de vos favoris avec succès !')
           this.loadUserFavorites();
           this.favoriteService.notifyFavoriteUpdated()
         },
@@ -65,4 +66,11 @@ export class MyFavoriteComponent {
     }
   })
 }
+
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message;
+    const toast = new bootstrap.Toast(this.deleteToast.nativeElement);
+    toast.show();
+  }
+
 }

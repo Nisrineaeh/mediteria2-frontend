@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MeditationService } from 'src/app/services/meditation.service';
@@ -14,6 +14,8 @@ export class AddMeditationComponent {
   audioMediaId!: number;
   visualMediaId!: number;
   currentUser = +localStorage.getItem('user_id')!;
+
+  @ViewChild('addToast') addToast!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -52,19 +54,24 @@ export class AddMeditationComponent {
       console.log('DATA ENVOYER AU BACKEND  : ', meditationData)
       this.meditationService.addMeditation(meditationData).subscribe({
         next: response => {
-          console.log('Réponse du backend :', response);
-          console.log('this.currentUser:', this.currentUser);
-          console.log('this.audioMediaId:', this.audioMediaId);
-          console.log('this.visualMediaId:', this.visualMediaId);
-          this.router.navigate(['/profil']);
+          console.log('Réponse du backend :', response)
+          console.log('this.currentUser:', this.currentUser)
+          console.log('this.audioMediaId:', this.audioMediaId)
+          console.log('this.visualMediaId:', this.visualMediaId)
+          this.showToast('Méditation ajoutée avec succès 🧘 !')
+          setTimeout(()=>{
+            this.router.navigate(['/medtech']);
+          }, 3000)
         },
         error: error => {
           console.error('Erreur lors de l\’ajout de la méditation:', error);
+          this.showToast('Erreur lors de l’ajout de la méditation')
         }
       });
 
     } else {
       console.error('Formulaire invalide. Assurez-vous de remplir tous les champs requis et d\’uploader les médias.');
+      this.showToast('Formulaire invalide. Veuillez vérifier les champs.')
     }
   }
 
@@ -111,7 +118,11 @@ export class AddMeditationComponent {
   }
 
 
-
+  showToast(message: string) {
+    this.addToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.addToast.nativeElement.classList.add('show')
+  }
+ 
 
 }
 

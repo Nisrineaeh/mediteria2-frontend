@@ -58,6 +58,15 @@ form{
   height: 90vh;
 }
 
+.toast-hide{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+img{
+    width: 10%;
+}
 
 
 @media screen and (max-width: 576px) {

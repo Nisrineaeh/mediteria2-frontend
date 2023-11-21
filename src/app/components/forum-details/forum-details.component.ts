@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Forum } from 'src/app/models/forum';
@@ -22,6 +22,8 @@ export class ForumDetailsComponent implements OnInit {
   currentUserId= +localStorage.getItem('user_id')!;
   techniques: MeditationTechnique[] = [];
   newMessageContent: string = '';
+
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
 
   constructor(
     private route: ActivatedRoute,
@@ -88,7 +90,6 @@ export class ForumDetailsComponent implements OnInit {
           next: (reponse) => {
             this.forum.push(reponse);
             this.newMessageContent = '';
-            alert('Message envoyé dans le forum !');
           },
           error: (erreur) => {
             console.error('Erreur lors de l’envoi du message', erreur);
@@ -105,12 +106,13 @@ export class ForumDetailsComponent implements OnInit {
   onDeleteMessage(idMessage: number) {
     this.forumService.deleteMessage(idMessage).subscribe({
       next: () => {
-        this.forum = this.forum.filter(message => message.id !== idMessage);
-        alert('Message supprimé avec succès.');
-        this.refreshForum();
+        this.forum = this.forum.filter(message => message.id !== idMessage)
+        this.showToast('Message supprimé avec succès !')
+        this.refreshForum()
       },
       error: (erreur) => {
-        console.error('Erreur lors de la suppression du message', erreur);
+        console.error('Erreur lors de la suppression du message', erreur)
+        this.showToast('Erreur lors de la suppression du message !')
       }
     });
   }
@@ -120,6 +122,10 @@ export class ForumDetailsComponent implements OnInit {
     this.getForumDetails(idTechnique);
   }
 
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.deleteToast.nativeElement.classList.add('show')
+  }
 
 
 }

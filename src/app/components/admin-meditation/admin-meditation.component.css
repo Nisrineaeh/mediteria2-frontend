@@ -148,6 +148,10 @@ input {
   font-size: 20px;
 }
 
+img{
+  width: 10%;
+}
+
 @media screen and (max-width: 576px) {
   .btn {
     margin: 0px;
