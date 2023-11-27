@@ -42,7 +42,7 @@ textarea {
   width: 100%;
 }
 
-button {
+.btn-com {
   border-radius: 5px;
   background-color: var(--title-color);
   color: white;

@@ -54,6 +54,7 @@ export class AddMeditationComponent {
       console.log('DATA ENVOYER AU BACKEND  : ', meditationData)
       this.meditationService.addMeditation(meditationData).subscribe({
         next: response => {
+          
           console.log('Réponse du backend :', response)
           console.log('this.currentUser:', this.currentUser)
           console.log('this.audioMediaId:', this.audioMediaId)

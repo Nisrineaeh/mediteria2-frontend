@@ -119,8 +119,8 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
     const commentText = this.newCommentTexts[technique.id];
 
     if (!commentText || !commentText.trim()) {
-      console.log('Le texte du commentaire est vide, donc il ne sera pas envoyé.');
-      alert('Le texte du commentaire est vide, donc il ne sera pas envoyé.')
+      console.log('Le texte du commentaire est vide, donc il ne sera pas envoyé.')
+      this.showToast('Le texte du commentaire est vide, donc il ne sera pas envoyé.');
       return;
     }
 

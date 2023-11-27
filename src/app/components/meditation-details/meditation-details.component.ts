@@ -98,5 +98,4 @@ export class MeditationDetailsComponent implements OnInit {
   }
 
 
-
 }

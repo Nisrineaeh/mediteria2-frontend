@@ -46,7 +46,7 @@ export class LoginComponent {
             this.showToast('Vous êtes maintenant connecté à la plateforme !')
             setTimeout(() => {
               this.router.navigate(['/profil']);
-            }, 3000)
+            }, 2000)
 
           } else {
             console.error('Token non reçu dans la réponse.')

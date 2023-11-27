@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -13,6 +13,7 @@ export class SigninComponent {
   addUser!: FormGroup;
   newUser!: User;
 
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
 
   constructor(
     private authService: AuthService,
@@ -36,7 +37,7 @@ export class SigninComponent {
     
     this.authService.addUser(newUser).subscribe({
       next: () => {
-        alert('Utilisateur ajouté avec succès !');
+        this.showToast('Utilisateur ajouté avec succès !');
         this.addUser.reset();
         this.router.navigate(['/login']);
       },
@@ -53,6 +54,12 @@ export class SigninComponent {
     }
     console.log(newUser);
   }
+
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.deleteToast.nativeElement.classList.add('show')
+  }
+
 
  
 }

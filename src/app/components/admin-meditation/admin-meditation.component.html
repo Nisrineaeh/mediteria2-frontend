@@ -3,8 +3,8 @@
 <input type="text" placeholder="Rechercher une technique..." [(ngModel)]="searchText" (input)="searchTechnique()"></div>
 <div class="btnlist">
   <p class="tri">Afficher les techniques les ..</p>
-  <button (click)="sortTechniques('desc')">Plus récentes</button>
-  <button (click)="sortTechniques('asc')">Plus anciennes</button>
+  <button class="btn-com" (click)="sortTechniques('desc')">Plus récentes</button>
+  <button class="btn-com" (click)="sortTechniques('asc')">Plus anciennes</button>
 </div>
 
 <div class="container">
@@ -27,7 +27,7 @@
       <div *ngFor="let comment of technique.comments; let i = index">
         <span>De {{comment.user?.username}} : {{ comment.comment }} </span>
         <p class="author">{{comment.date |  date:'dd/MM/yyyy HH:mm'}}</p>
-        <button *ngIf="isUserAllowedToDelete(+comment.user_id)" (click)="onDeleteComment(comment.id!, technique)">
+        <button class="btn-com" *ngIf="isUserAllowedToDelete(+comment.user_id)" (click)="onDeleteComment(comment.id!, technique)">
           Supprimer
         </button>
       </div>
@@ -37,7 +37,7 @@
       <div class="center">
       <textarea [(ngModel)]="newCommentTexts[technique.id]" placeholder="Votre commentaire .."></textarea></div>
       <div class="btns">
-      <button (click)="onAddComment(technique)">Ajouter un commentaire</button>
+      <button class="btn-com" (click)="onAddComment(technique)">Ajouter un commentaire</button>
     </div>
     </div>  
   </div>

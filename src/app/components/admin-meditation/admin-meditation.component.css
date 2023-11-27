@@ -78,7 +78,7 @@ textarea {
   border: 1px rgba(177, 173, 173, 0.573) solid;
 }
 
-button {
+.btn-com {
   background-color: var(--title-color);
   border: none;
   border-radius: 10px;
@@ -150,6 +150,10 @@ input {
 
 img{
   width: 10%;
+}
+
+.medite:active{
+  background-color: var(--title-color);
 }
 
 @media screen and (max-width: 576px) {

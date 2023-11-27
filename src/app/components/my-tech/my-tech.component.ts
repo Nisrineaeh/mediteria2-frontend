@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { MeditationService } from 'src/app/services/meditation.service';
@@ -14,9 +14,11 @@ export class MyTechComponent {
   currentUser = +localStorage.getItem('user_id')!;
   mediaImg : any;
   meditAudio: any;
-
   modalRef!: BsModalRef;
   selectedMeditation!: MeditationTechnique;
+
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
+
 
   constructor(private meditationService: MeditationService, private mediaService: MédiaService, private modalService: BsModalService) { }
 
@@ -94,12 +96,18 @@ export class MyTechComponent {
 
   deleteMeditation(id: number) {
     this.meditationService.deleteMeditation(id).subscribe(() => {
-      alert('Méditation supprimée avec succès!');
+      this.showToast('Méditation supprimée avec succès!')
       this.loadAllMeditations();
     }, (error: any) => {
       console.error('Erreur lors de la suppression de la méditation !', error);
-      alert('Erreur lors de la suppression de la méditation !');
+      this.showToast('Erreur lors de la suppression de la méditation !');
     });
+  }
+
+
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.deleteToast.nativeElement.classList.add('show')
   }
 
 }

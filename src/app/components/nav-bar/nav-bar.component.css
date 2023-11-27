@@ -6,7 +6,7 @@
 
 .navbar {
   background-color: white !important;
-  min-height: 80px;
+  max-height: 80px;
   position: fixed;
   top: 0;
   left: 0;

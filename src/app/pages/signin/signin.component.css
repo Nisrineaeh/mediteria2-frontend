@@ -78,6 +78,10 @@ h1 {
   box-shadow: 0 0 0 0.2rem #6d435a73;
 }
 
+.rounded{
+  width: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .page_form {
     flex-direction: column;

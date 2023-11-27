@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { tap } from 'rxjs';
 import { Favorite } from 'src/app/models/favorite';
 import { FavoriteService } from 'src/app/services/favorite.service';
@@ -9,7 +9,7 @@ import { FavoriteService } from 'src/app/services/favorite.service';
   styleUrls: ['./heart.component.css']
 })
 export class HeartComponent {
-  private userId= +localStorage.getItem('user_id')!;
+  private userId = +localStorage.getItem('user_id')!;
   private favoriteId?: number;
 
 
@@ -17,12 +17,14 @@ export class HeartComponent {
   @Input() isFavorite?: boolean = false;
   @Output() favoriteChanged = new EventEmitter<boolean>();
 
+  @ViewChild('deleteToast') deleteToast!: ElementRef;
+
   constructor(private favoriteService: FavoriteService) { }
 
   toggleFavorite() {
 
     if (this.isFavorite) {
-      return alert('Il est déjà dans ta rubrique favoris, va dans ton profil si tu veux le supprimer 😊 ');
+      return this.showToast('Il est déjà dans ta rubrique favoris, va dans ton profil si tu veux le supprimer 😊')
     }
     this.isFavorite = !this.isFavorite;
 
@@ -55,6 +57,13 @@ export class HeartComponent {
       }
     }
   }
+
+
+  showToast(message: string) {
+    this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
+    this.deleteToast.nativeElement.classList.add('show')
+  }
+
 
 
 

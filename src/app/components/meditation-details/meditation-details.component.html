@@ -1,6 +1,8 @@
-<div *ngIf="meditation" class="background-container" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}">
-<video *ngIf="meditVideo" [src]="meditVideo" muted autoplay loop class="video-background"></video>    
-    <div class="info-panel">
+<div *ngIf="meditImg" class="background-container" [ngStyle]="{'background-image': 'url(' + meditImg + ')'}">
+<!-- <div *ngIf="meditVideo" class="background-container" [ngStyle]="{'background-clip': 'url(' + meditVideo + ')'}"></div> -->
+<video *ngIf="meditVideo" [src]="meditVideo" muted autoplay loop class="video-background"></video>
+
+<div class="info-panel">
 
         <div>
             <h2>{{ meditation.name }}</h2>
