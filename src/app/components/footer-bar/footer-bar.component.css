@@ -44,12 +44,14 @@ p{
     text-decoration: none;
     font-family: var(--font-p);
     color: #A3DCA5;
+    z-index: 1000;
 }
 
 p:last-child{
     font-weight: bolder;
     font-family: var(--font-p);
     cursor: pointer;
+    z-index: 1000;
 }
 
 .link:hover {

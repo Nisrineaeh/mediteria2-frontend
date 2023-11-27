@@ -126,6 +126,7 @@ img:hover {
   outline: none;
 }
 
+
 @media screen and (max-width: 575px) {
   .btn-custom {
     width: 50%;

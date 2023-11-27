@@ -8,8 +8,8 @@
 }
 
 .title {
-  margin-top: 80px;
-  padding-top: 20px;
+  /* margin-top: 80px; */
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   font-family: "Satisfy";
@@ -85,7 +85,7 @@ button:hover {
   position: absolute;
   bottom: -2rem;
   width: 50%;
-  height: 15rem;
+  height: 20rem;
   z-index: 2;
   opacity: 1;
   /* align-items: center; */

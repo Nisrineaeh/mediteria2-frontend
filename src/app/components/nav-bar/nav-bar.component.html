@@ -1,57 +1,20 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar">
   <div class="container">
-    <img src="assets/logo1.svg" alt="" [routerLink]="['/landing']">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <img src="assets/logo1.svg" alt="Logo" [routerLink]="['/landing']" class="logo" />
+    <input type="checkbox" id="navbar-check" class="navbar-check" #navbarCheck />
+    <label for="navbar-check" class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/medtech']">Méditation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/forum']">Forum</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/messaging']">Messagerie</a>
-        </li>
-      
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profil']">Profil</a>
-        </li>
-        <li class="nav-item" *ngIf="!isUserLoggedIn">
-          <a class="nav-link" [routerLink]="['/login']">Connexion</a>
-        </li>
-        
+    </label>
 
-       <li class="nav-item" *ngIf="isUserLoggedIn">
-      <a class="nav-link" (click)="navigateToModal()">Déconnexion</a>
-    </li></ul>
+    <div class="navbar-menu" id="navbarMenu">
+      <a class="nav-link active" aria-current="page" routerLink="/home" (click)="closeMenu()">Bienvenue</a>
+      <a class="nav-link" routerLink="/medtech" (click)="closeMenu()">Méditation</a>
+      <a class="nav-link" routerLink="/forum" (click)="closeMenu()">Forum</a>
+      <a class="nav-link" routerLink="/messaging" (click)="closeMenu()">Messagerie</a>
+      <a class="nav-link" routerLink="/profil" (click)="closeMenu()">Profil</a>
+      <a *ngIf="!isUserLoggedIn" class="nav-link" routerLink="/login" (click)="closeMenu()">Connexion</a>
+      <a *ngIf="isUserLoggedIn" class="nav-link" (click)="navigateToModal()">Déconnexion</a>
     </div>
-
   </div>
 </nav>
 
-<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-     <img src="assets/logo1.svg" alt="" [routerLink]="['/landing']">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Bienvenue</a>
-        <a class="nav-link" [routerLink]="['/medtech']">Méditation</a>
-        <a class="nav-link" [routerLink]="['/forum']">Forum</a>
-        <a class="nav-link" [routerLink]="['/messaging']">Messagerie</a>
-        <a class="nav-link" [routerLink]="['/profil']">Profil</a>
-        <div *ngIf="!isUserLoggedIn"></div><a class="nav-link" [routerLink]="['/login']">Connexion</a>
-        <div *ngIf="isUserLoggedIn"> <a class="nav-link" (click)="navigateToModal()">Déconnexion</a> </div>
-      </div>
-    </div>
-  </div>
-</nav> -->
