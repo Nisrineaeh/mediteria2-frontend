@@ -18,6 +18,9 @@ export class MeditationDetailsComponent implements OnInit {
   currentKeywordIndex = 0;
   currentKeyword: string = "";
 
+  isImage : boolean = false;
+  isVideo : boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private meditationService: MeditationService,
@@ -41,9 +44,19 @@ export class MeditationDetailsComponent implements OnInit {
 
       if (meditation.visualMedia) {
         this.mediaService.getMédiaById(meditation.visualMedia.id).subscribe((data: Blob) => {
-          this.createImageFromBlob(data);
+          if(data.type.startsWith('image/')){
+            this.createImageFromBlob(data);
+          }else if (data.type.startsWith('video/')) {
+            this.createVideoFromBlob(data);
+          }
         });
       }
+
+      // if (meditation.visualMedia) {
+      //   this.mediaService.getMédiaById(meditation.visualMedia.id).subscribe((data: Blob) => {
+      //     this.createVideoFromBlob(data);
+      //   });
+      // }
 
       if (meditation.audioMedia) {
         this.mediaService.getMédiaById(meditation.audioMedia.id).subscribe((data: Blob) => {
@@ -64,6 +77,8 @@ export class MeditationDetailsComponent implements OnInit {
   }
 
   createImageFromBlob(image: Blob) {
+    this.isImage= true;
+    this.isVideo = false;
     const reader = new FileReader();
     reader.readAsDataURL(image);
     reader.addEventListener('load', () => {
@@ -73,6 +88,7 @@ export class MeditationDetailsComponent implements OnInit {
   }
 
   createAudioFromBlob(audio: Blob) {
+
     const reader = new FileReader();
     reader.readAsDataURL(audio);
     reader.addEventListener('load', () => {
@@ -81,6 +97,8 @@ export class MeditationDetailsComponent implements OnInit {
   }
 
   createVideoFromBlob(video: Blob){
+    this.isVideo = true;
+    this.isImage = false;
     const reader = new FileReader();
     reader.readAsDataURL(video);
     reader.addEventListener('load', ()=>{

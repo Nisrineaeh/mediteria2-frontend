@@ -1,20 +1,15 @@
 .big-container {
-  /* height: 100vh;  */
-  width: 100%; /* Pleine largeur de la fenêtre */
-  /* border: 2px solid red; */
-  /* position: relative; */
+  width: 100%;
 }
 .item-container {
   background-image: url("/assets/dream.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-
-  /* border: 2px solid green; */
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 70px;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -22,21 +17,11 @@
 }
 .form-container {
   width: 40%;
-  /* border: 2px solid rgb(219, 64, 90); */
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-/* .form-container h1 {
-  padding-left: 0.8rem;
-}
-.form-container button {
-  margin-left: 3.5rem;
-}
-.form-container input,
-textarea {
-  margin-bottom: 1rem;
-} */
+
 .formulaire {
   display: flex;
   flex-direction: column;
@@ -46,6 +31,21 @@ textarea {
 textarea {
   margin-bottom: 1rem;
 }
+
+h1{
+  font-family: var(--font-family-title);
+  font-size: 50px;
+  color: var(--title-color);
+}
+
+.btn{
+  background-color: var(--title-color);
+  color: white;
+}
+
+/* img{
+  width: 55%;
+} */
 @media screen and (max-width: 900px) {
   .form-container h1 {
     padding-left: 1rem;
@@ -58,7 +58,6 @@ textarea {
 }
 @media screen and (max-width: 770px) {
   .item-container {
-    border: 2px solid red;
     flex-direction: column;
   }
   .img-container {
@@ -66,7 +65,6 @@ textarea {
   }
   .form-container {
     width: 80%;
-    border: 2px solid green;
   }
   .formulaire {
     width: 70%;
@@ -75,7 +73,6 @@ textarea {
 }
 @media screen and (max-width: 400px) {
   .item-container {
-    border: 2px solid red;
     flex-direction: column;
   }
 

@@ -89,14 +89,17 @@ img {
 
 .insta {
   display: flex;
-  /* border: 1px solid red;
-  background-color: red; */
   width: 30%;
   z-index: 1000;
-  /* padding-right: 237px; */
 }
 .insta {
   width: 8%;
+}
+
+.mention:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 576px) {
