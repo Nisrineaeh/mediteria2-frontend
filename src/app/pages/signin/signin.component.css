@@ -4,19 +4,20 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  
 
   background-image: url("/assets/dream.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 90vh;
-
-
+}
+input,
+textarea {
+  width: 25rem !important;
 }
 
-img{
-    width: 35%;
+img {
+  width: 35%;
 }
 
 .img_class {
@@ -29,14 +30,14 @@ img{
 .img_class img {
   max-width: 100%;
   height: auto;
-  margin-top: 125px;
+  margin-top: 200px;
 }
 
 .d-flex {
   flex: 2;
   max-width: 53%;
   margin-top: 100px;
-  justify-content: left!important;
+  justify-content: left !important;
 }
 
 .formcontainer {
@@ -45,7 +46,7 @@ img{
 
 input,
 textarea {
-  width: 100%!important;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -78,9 +79,9 @@ h1 {
   box-shadow: 0 0 0 0.2rem #6d435a73;
 }
 
-.rounded{
+/* .rounded {
   width: 20px;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .page_form {
@@ -105,7 +106,24 @@ h1 {
   input {
     width: 350px;
   }
- 
+}
+
+@media screen and (max-width: 680px) {
+  .form_group {
+    width: 75%;
+    display: flex;
+  }
+  input,
+  textarea {
+    width: 16rem !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .formcontainer {
+    /* background-color: red;
+    border: 1px solid red; */
+    width: 17rem !important;
+  }
 }
 @media screen and (max-width: 376px) {
   .page_form {

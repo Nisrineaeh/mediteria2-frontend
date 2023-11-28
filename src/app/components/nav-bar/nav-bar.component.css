@@ -1,8 +1,8 @@
-nav{
+nav {
   z-index: 1000;
 }
 
-img{
+img {
   width: 4%;
 }
 
@@ -16,49 +16,31 @@ img{
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  font-family: 'Lato';
+  font-family: "Lato";
 }
 
-h1{
+h1 {
   font-family: var(--font-family-title);
   margin: 10px;
 }
 
-.navbar-toggler {
-  cursor: pointer;
-  z-index: 2000; 
-}
 
 
 .navbar-check {
   display: none;
 }
 
-.navbar-menu {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  height: calc(100% - 80px);
-  width: 0;
-  overflow-x: hidden;
-  background-color: rgba(255, 255, 255, 0.9);
-  flex-direction: column;
-  align-items: center;
-  z-index: 1;
-  transition: 0.5s;
-}
 
 .navbar-check:checked ~ .navbar-menu {
   width: 250px;
 }
 
-.navbar-menu a:hover, .navbar-menu a:active {
+.navbar-menu a:hover,
+.navbar-menu a:active {
   cursor: pointer;
-  text-decoration: underline; 
+  text-decoration: underline;
   font-weight: bold;
 }
-
 
 .navbar-check:checked ~ .navbar-menu {
   display: flex;
@@ -77,25 +59,80 @@ h1{
   /* border-radius: 5px; */
 }
 
-@media screen and (max-width:600px) {
-  .logo{
+
+
+.navbar-toggler {
+  display: none;
+}
+
+.navbar-menu {
+
+  display: flex; 
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: -250px;
+    height: calc(100% - 50px);
+    width: 250px;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    align-items: start;
+    padding: 10px; 
+    transition: left 0.5s; 
+    z-index: 1; 
+  }
+
+  .navbar-check:checked ~ .navbar-menu {
+    display: flex;
+    left: 0;
+  }
+
+  .navbar-menu a {
+    padding: 10px 20px;
+    display: block; 
+    text-decoration: none;
+    color: var(--title-color);
+    width: 100%; 
+  }
+
+  .navbar-menu a:hover,
+  .navbar-menu a:active {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .logo {
     width: 10%;
   }
 
-  .navbar{
-      height: 50px;
+  .navbar {
+    height: 50px;
   }
 
-  .navbar-menu{
-    top:50px;
+  .navbar-menu {
+    top: 50px;
   }
 
-  img{
+  img {
     width: 20%;
   }
 
-  h1{
+  h1 {
     display: none;
   }
-  
 }

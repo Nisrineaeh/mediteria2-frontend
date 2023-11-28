@@ -1,94 +1,82 @@
 <div class="page_form">
   <div class="img_class">
-    <img
-      id="photo"
-      src="assets/background2.svg"
-      alt=""
-    />
+    <img id="photo" src="assets/background2.svg" alt="" />
   </div>
 
   <div class="d-flex justify-content-center form_group">
-    <div class="col-md-6 col-sm-12 form_group p-3 mb-5 rounded">
+    <div class="col-md-6 col-sm-12 form_group p-3 rounded">
       <form [formGroup]="addUser" (ngSubmit)="onSubmit()" class="formcontainer">
         <h1>Inscription</h1>
 
-          <input
-            formControlName="username"
-            class="form-control shadow"
-            id="inputLastName"
-            placeholder="Pseudo"
-            [ngClass]="{
-              'is-invalid':
-                addUser.get('username')?.touched &&
-                addUser.get('username')?.invalid
-            }"
-          />
-          <div
-            *ngIf="
+        <input
+          formControlName="username"
+          class="form-control shadow"
+          id="inputLastName"
+          placeholder="Pseudo"
+          [ngClass]="{
+            'is-invalid':
               addUser.get('username')?.touched &&
               addUser.get('username')?.invalid
-            "
-            class="invalid-feedback"
-          >
-            Le pseudo est requis.
-          </div>
+          }"
+        />
+        <div
+          *ngIf="
+            addUser.get('username')?.touched && addUser.get('username')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Le pseudo est requis.
+        </div>
 
-          <input
-            formControlName="email"
-            type="email"
-            class="form-control shadow"
-            id="inputEmail"
-            placeholder=" E-mail"
-            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-            [ngClass]="{
-              'is-invalid':
-                addUser.get('email')?.touched && addUser.get('email')?.invalid
-            }"
-          />
-          <div
-            *ngIf="
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control shadow"
+          id="inputEmail"
+          placeholder=" E-mail"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          [ngClass]="{
+            'is-invalid':
               addUser.get('email')?.touched && addUser.get('email')?.invalid
-            "
-            class="invalid-feedback"
-          >
-            Format d'adresse e-mail invalide.
-          </div>
+          }"
+        />
+        <div
+          *ngIf="addUser.get('email')?.touched && addUser.get('email')?.invalid"
+          class="invalid-feedback"
+        >
+          Format d'adresse e-mail invalide.
+        </div>
 
-          <input
-            formControlName="password"
-            type="password"
-            class="form-control shadow"
-            id="exampleInputPassword1"
-            placeholder="Mot de Passe"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
-            [ngClass]="{
-              'is-invalid':
-                addUser.get('password')?.touched &&
-                addUser.get('password')?.invalid
-            }"
-          />
-          <div
-            *ngIf="
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control shadow"
+          id="exampleInputPassword1"
+          placeholder="Mot de Passe"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+          [ngClass]="{
+            'is-invalid':
               addUser.get('password')?.touched &&
               addUser.get('password')?.invalid
-            "
-            class="invalid-feedback"
-          >
-            Le mot de passe doit contenir au moins 8 caractères, une majuscule,
-            une minuscule et un chiffre.
-          </div>
+          }"
+        />
+        <div
+          *ngIf="
+            addUser.get('password')?.touched && addUser.get('password')?.invalid
+          "
+          class="invalid-feedback"
+        >
+          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+          une minuscule et un chiffre.
+        </div>
 
-     
-  
-         
-
-          <textarea
-            formControlName="description"
-            class="form-control shadow mytext"
-            rows="3"
-            id="inputDescription"
-            placeholder="Description"
-          ></textarea>
+        <textarea
+          formControlName="description"
+          class="form-control shadow mytext"
+          rows="3"
+          id="inputDescription"
+          placeholder="Description"
+        ></textarea>
 
         <div class="btn_signin">
           <button
@@ -104,16 +92,27 @@
   </div>
 </div>
 
-<div aria-live="polite" aria-atomic="true" style="position: relative;">
+<div aria-live="polite" aria-atomic="true" style="position: relative">
   <div class="toast-container position-fixed top-0 end-0 p-3">
-    <div id="deleteToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" #deleteToast>
+    <div
+      id="deleteToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      #deleteToast
+    >
       <div class="toast-header">
-        <img src="assets/logo1.svg" class="rounded me-2" alt="" srcset="">
+        <img src="assets/logo1.svg" class="rounded me-2" alt="" srcset="" />
         <strong class="me-auto">Méditéria Notification</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="toast-body">  
-      </div>
+      <div class="toast-body"></div>
     </div>
   </div>
 </div>
