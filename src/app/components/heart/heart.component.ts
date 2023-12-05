@@ -1,6 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { tap } from 'rxjs';
-import { Favorite } from 'src/app/models/favorite';
+import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
@@ -22,39 +21,21 @@ export class HeartComponent {
   constructor(private favoriteService: FavoriteService) { }
 
   toggleFavorite() {
-
     if (this.isFavorite) {
-      return this.showToast('Il est déjà dans ta rubrique favoris, va dans ton profil si tu veux le supprimer 😊')
-    }
-    this.isFavorite = !this.isFavorite;
-
-    if (this.isFavorite) {
-      console.log("Technique ID:", this.techniqueId);
+      return this.showToast('La technqiue est déjà dans votre rubrique favoris, allez dans votre profil pour la supprimer 😊');
+    } else {
       this.favoriteService.addFavorite(this.userId, this.techniqueId!)
         .subscribe({
-          next: (response: Favorite) => {
+          next: (response: MeditationTechnique) => {
+            this.isFavorite = true;
             this.favoriteId = response.id;
             this.favoriteChanged.emit(this.isFavorite);
+            this.showToast('Technique ajoutée aux favoris avec succès !');
           },
           error: (error) => {
             console.error("Erreur lors de l'ajout en favoris", error);
-            this.isFavorite = !this.isFavorite;
           }
         });
-    } else {
-      if (this.favoriteId) {
-        this.favoriteService.removeFavorite(this.userId,this.favoriteId)
-          .subscribe({
-            next: (response) => {
-              this.favoriteId = undefined;
-              this.favoriteChanged.emit(this.isFavorite);
-            },
-            error: (error) => {
-              console.error("Erreur lors de la suppression des favoris", error);
-              this.isFavorite = !this.isFavorite;
-            }
-          });
-      }
     }
   }
 

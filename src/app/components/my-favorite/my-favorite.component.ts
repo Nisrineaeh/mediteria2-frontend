@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
-import { Favorite } from 'src/app/models/favorite';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { User } from 'src/app/models/user';
 import { FavoriteService } from 'src/app/services/favorite.service';

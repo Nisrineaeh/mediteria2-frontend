@@ -1,8 +1,6 @@
 import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { Observable, Subject, forkJoin, map, switchMap, takeUntil } from 'rxjs';
+import {  Subject, forkJoin, takeUntil } from 'rxjs';
 import { Comment } from 'src/app/models/comment';
-
-import { Favorite } from 'src/app/models/favorite';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { User } from 'src/app/models/user';
 import { CommentService } from 'src/app/services/comment.service';
@@ -78,19 +76,17 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
 
   getAllMeditationAndFavorites() {
     const meditations$ = this.meditationService.getAllMeditations();
-    const currentUser$ = this.userService.getCurrentUser(); // Assurez-vous que cette méthode renvoie les favoris
+    const currentUser$ = this.userService.getCurrentUser();
 
     forkJoin([meditations$, currentUser$]).subscribe(([meditations, currentUser]) => {
       this.techniques = meditations;
       this.currentUser = currentUser;
       this.filteredTechniques = [...this.techniques];
 
-      // Mise à jour de la propriété isFavorite pour chaque technique
       this.techniques.forEach(technique => {
         technique.isFavorite = currentUser.favorites.some(fav => fav.id === technique.id);
       });
 
-      // Charger les commentaires pour chaque technique
       this.techniques.forEach(technique => {
         this.commentService.getCommentsByTechnique(technique.id).subscribe(comments => {
           technique.comments = comments;

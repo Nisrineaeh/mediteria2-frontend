@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Favorite } from '../models/favorite';
 import { MeditationTechnique } from '../models/meditation-technique';
 
 @Injectable({
