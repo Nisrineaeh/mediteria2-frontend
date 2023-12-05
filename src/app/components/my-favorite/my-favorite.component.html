@@ -3,10 +3,10 @@
 <ul *ngIf="favoriteTechniques && favoriteTechniques.length" class="favorite-list">
   <li *ngFor="let favorite of favoriteTechniques">
     <div (click)="openFavorite(favorite)">
-      {{ favorite.meditation_technique.name }}
+      {{ favorite.name }}
     </div>
 
-    <button (click)="removeFromFavorites(favorite.id)">Supprimer de mes favoris</button>
+    <button (click)="removeFromFavorites(currentUser,favorite.id)">Supprimer de mes favoris</button>
   </li>
 </ul>
 <p *ngIf="!favoriteTechniques || !favoriteTechniques.length" class="no-favorites">Vous n'avez pas encore de techniques favorites.</p>

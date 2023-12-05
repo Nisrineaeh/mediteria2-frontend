@@ -43,7 +43,7 @@ export class HeartComponent {
         });
     } else {
       if (this.favoriteId) {
-        this.favoriteService.removeFavorite(this.favoriteId)
+        this.favoriteService.removeFavorite(this.userId,this.favoriteId)
           .subscribe({
             next: (response) => {
               this.favoriteId = undefined;

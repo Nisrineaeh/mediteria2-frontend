@@ -18,7 +18,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
 
   techniques: MeditationTechnique[] = [];
-  userFavorites: Favorite[] = [];
+  userFavorites: MeditationTechnique[] = [];
   private ngUnsubscribe = new Subject<void>();
   comments: Comment[] = [];
   newCommentTexts: { [key: number]: string } = {};
@@ -66,45 +66,45 @@ export class AdminMeditationComponent implements OnInit, OnChanges, OnDestroy {
   getUserFavorites(): void {
     const userId = +localStorage.getItem('user_id')!;
 
-    this.favoriteService.getUserFavorites(userId).subscribe(favorites => {
-      this.userFavorites = favorites;
+    this.userService.getUserById(userId).subscribe(favorites => {
+      this.userFavorites = favorites.favorites;
 
       this.techniques.forEach(technique => {
-        technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
+        technique.isFavorite = this.userFavorites.some(fav => fav.id === technique.id);
       });
     });
   }
 
 
   getAllMeditationAndFavorites() {
-    const userId = Number(localStorage.getItem('user_id'))!;
     const meditations$ = this.meditationService.getAllMeditations();
-    const favorites$ = this.favoriteService.getUserFavorites(userId);
+    const currentUser$ = this.userService.getCurrentUser(); // Assurez-vous que cette méthode renvoie les favoris
 
-    forkJoin([meditations$, favorites$]).subscribe(([meditations, favorites]) => {
+    forkJoin([meditations$, currentUser$]).subscribe(([meditations, currentUser]) => {
       this.techniques = meditations;
-      this.userFavorites = favorites;
-      this.filteredTechniques = [...this.techniques]
+      this.currentUser = currentUser;
+      this.filteredTechniques = [...this.techniques];
 
+      // Mise à jour de la propriété isFavorite pour chaque technique
       this.techniques.forEach(technique => {
-        technique.isFavorite = this.userFavorites.some(fav => fav.meditation_technique.id === technique.id);
+        technique.isFavorite = currentUser.favorites.some(fav => fav.id === technique.id);
+      });
 
-
+      // Charger les commentaires pour chaque technique
+      this.techniques.forEach(technique => {
         this.commentService.getCommentsByTechnique(technique.id).subscribe(comments => {
           technique.comments = comments;
-          console.log('REGARDE LA ', technique.comments);
-
 
           technique.comments.forEach(comment => {
-            this.userService.getUserById((Number(comment.user_id))).subscribe(user => {
+            this.userService.getUserById(Number(comment.user_id)).subscribe(user => {
               comment.user = user;
             });
           });
         });
-
       });
     });
   }
+
 
 
 

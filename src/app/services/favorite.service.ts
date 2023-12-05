@@ -32,16 +32,16 @@ export class FavoriteService {
   }
 
 
-  addFavorite(userId: number, meditationTechniqueId: number): Observable<Favorite> {
-    return this.http.post<Favorite>(`${this.bddUrl}/favorite`, { userId, meditationTechniqueId }, {headers: this.getHeaders()});
+  addFavorite(userId: number, meditationTechniqueId: number): Observable<any> {
+    return this.http.post<any>(`${this.bddUrl}/user/${userId}/favorites/${meditationTechniqueId}`, {}, { headers: this.getHeaders() });
   }
 
-  removeFavorite(favoriteId: number): Observable<Favorite> {
-    return this.http.delete<Favorite>(`${this.bddUrl}/favorite/${favoriteId}`, { headers: this.getHeaders() });
+  removeFavorite(userId:number, meditationTechniqueId: number): Observable<any> {
+    return this.http.delete<any>(`${this.bddUrl}/user/${userId}/favorites/${meditationTechniqueId}`, { headers: this.getHeaders() });
   }
 
-  getUserFavorites(userId: number): Observable<Favorite[]> {
-    return this.http.get<Favorite[]>(`${this.bddUrl}/favorite/user/${userId}`, { headers: this.getHeaders() });
+  getUserFavorites(userId: number): Observable<MeditationTechnique[]> {
+    return this.http.get<MeditationTechnique[]>(`${this.bddUrl}/user/${userId}/favorites`, { headers: this.getHeaders() });
   }
 
 

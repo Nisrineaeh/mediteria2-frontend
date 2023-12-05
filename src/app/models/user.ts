@@ -1,3 +1,4 @@
+import { MeditationTechnique } from "./meditation-technique";
 import { Message } from "./message";
 
 export interface User {
@@ -8,4 +9,5 @@ export interface User {
     description: string,
     sentMessages: Message[];
     receivedMessage: Message[];
+    favorites: MeditationTechnique[];
 }
