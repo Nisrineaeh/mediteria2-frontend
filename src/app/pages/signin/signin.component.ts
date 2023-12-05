@@ -22,8 +22,6 @@ export class SigninComponent {
   ) { }
 
   ngOnInit(): void {
-  
-
     this.addUser = this.formBuilder.group({
       username: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),

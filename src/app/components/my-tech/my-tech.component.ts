@@ -16,6 +16,7 @@ export class MyTechComponent {
   meditAudio: any;
   modalRef!: BsModalRef;
   selectedMeditation!: MeditationTechnique;
+  meditationToDelete!: number;
 
   @ViewChild('deleteToast') deleteToast!: ElementRef;
 
@@ -58,6 +59,19 @@ export class MyTechComponent {
     this.selectedMeditation = meditation;
     this.modalRef = this.modalService.show(template);
   }
+
+  // openModal(template: TemplateRef<any>, meditationId?: number) {
+  //   if (meditationId) {
+  //     this.meditationToDelete = meditationId;
+  //   }
+  //   this.modalRef = this.modalService.show(template);
+  // }
+
+  // confirmDelete() {
+  //   if (this.meditationToDelete) {
+  //     this.deleteMeditation(this.meditationToDelete);
+  //   }
+  // }
 
  
   loadAllMeditations(): void {
@@ -109,5 +123,9 @@ export class MyTechComponent {
     this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message
     this.deleteToast.nativeElement.classList.add('show')
   }
+
+
+
+
 
 }

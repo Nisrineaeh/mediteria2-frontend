@@ -7,6 +7,7 @@
   height: calc(100vh - 80px);
 }
 
+
 .title {
   /* margin-top: 80px; */
   padding-top: 100px;
@@ -116,5 +117,5 @@ button:hover {
       text-align: center;
     }
 
-    
+
 }

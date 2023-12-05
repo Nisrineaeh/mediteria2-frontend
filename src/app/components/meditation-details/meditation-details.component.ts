@@ -17,9 +17,9 @@ export class MeditationDetailsComponent implements OnInit {
   displayedKeyword: string[] = [];
   currentKeywordIndex = 0;
   currentKeyword: string = "";
-
   isImage : boolean = false;
   isVideo : boolean = false;
+  showInfoPanel = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,12 +51,6 @@ export class MeditationDetailsComponent implements OnInit {
           }
         });
       }
-
-      // if (meditation.visualMedia) {
-      //   this.mediaService.getMédiaById(meditation.visualMedia.id).subscribe((data: Blob) => {
-      //     this.createVideoFromBlob(data);
-      //   });
-      // }
 
       if (meditation.audioMedia) {
         this.mediaService.getMédiaById(meditation.audioMedia.id).subscribe((data: Blob) => {
@@ -113,6 +107,10 @@ export class MeditationDetailsComponent implements OnInit {
       this.currentKeywordIndex = (this.currentKeywordIndex + 1) % this.meditation.keyword.length;
       this.currentKeyword = this.meditation.keyword[this.currentKeywordIndex];
     }
+  }
+
+  toggleInfoPanel() {
+    this.showInfoPanel = !this.showInfoPanel;
   }
 
 

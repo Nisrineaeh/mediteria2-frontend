@@ -35,7 +35,7 @@ textarea {
   border-radius: 5px;
 }
 
-button {
+.btn {
   background-color: var(--title-color);
   color: #fff;
   padding: 10px 20px;

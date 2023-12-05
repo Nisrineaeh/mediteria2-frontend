@@ -9,8 +9,8 @@
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-  margin-top: 70px;
-  height: 80vh;
+  /* margin-top: 70px; */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -30,22 +30,27 @@
 .formulaire input,
 textarea {
   margin-bottom: 1rem;
+  width: 500px;
 }
 
-h1{
+h1 {
   font-family: var(--font-family-title);
   font-size: 50px;
   color: var(--title-color);
+  margin-bottom: 50px;
 }
 
-.btn{
+.btn {
   background-color: var(--title-color);
   color: white;
 }
 
-/* img{
-  width: 55%;
-} */
+@media screen and (max-width:950px) {
+    .img-container{
+    display: none;
+  } 
+}
+
 @media screen and (max-width: 900px) {
   .form-container h1 {
     padding-left: 1rem;
@@ -70,10 +75,16 @@ h1{
     width: 70%;
     display: flex;
   }
+  .formulaire input,
+  textarea {
+    margin-bottom: 1rem;
+    width: 300px;
+  }
 }
 @media screen and (max-width: 400px) {
   .item-container {
     flex-direction: column;
+    margin-top: 0px;
   }
 
   .form-container {

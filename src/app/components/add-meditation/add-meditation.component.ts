@@ -26,7 +26,7 @@ export class AddMeditationComponent {
     this.meditationForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      duration: [0, Validators.required],
+      duration: [0, [Validators.required, Validators.min(0)]],
       atmosphere: ['', Validators.required],
       keyword:['', Validators.required],
       audio_media_id: [null, Validators.required],

@@ -66,12 +66,6 @@ export class LoginComponent {
     this.loginToast.nativeElement.classList.add('show');
   }
 
-  // showToasts(message: string) {
-  //   const toastEl = this.loginToast.nativeElement;
-  //   toastEl.querySelector('.toast-body').textContent = message;
-  //   const toast = new bootstrap.Toast(toastEl);
-  //   toast.show();
-  // }
 
 
 
