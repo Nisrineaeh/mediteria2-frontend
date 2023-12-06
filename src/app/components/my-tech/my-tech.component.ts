@@ -15,6 +15,7 @@ export class MyTechComponent {
   mediaImg : any;
   meditAudio: any;
   modalRef!: BsModalRef;
+  modal2Ref!:BsModalRef;
   selectedMeditation!: MeditationTechnique;
   meditationToDelete!: number;
 
@@ -60,18 +61,18 @@ export class MyTechComponent {
     this.modalRef = this.modalService.show(template);
   }
 
-  // openModal(template: TemplateRef<any>, meditationId?: number) {
-  //   if (meditationId) {
-  //     this.meditationToDelete = meditationId;
-  //   }
-  //   this.modalRef = this.modalService.show(template);
-  // }
+  open2Modal(template: TemplateRef<any>, meditationId?: number) {
+    if (meditationId) {
+      this.meditationToDelete = meditationId;
+    }
+    this.modal2Ref = this.modalService.show(template);
+  }
 
-  // confirmDelete() {
-  //   if (this.meditationToDelete) {
-  //     this.deleteMeditation(this.meditationToDelete);
-  //   }
-  // }
+  confirmDelete() {
+    if (this.meditationToDelete) {
+      this.deleteMeditation(this.meditationToDelete);
+    }
+  }
 
  
   loadAllMeditations(): void {

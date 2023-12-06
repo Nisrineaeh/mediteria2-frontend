@@ -11,7 +11,7 @@
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary" [routerLink]="['/meditation', meditation.id]">Ouvrir</button>
             <button type="button" class="btn btn-sm btn-outline-secondary" (click)="openModal(editTemplate, meditation)">Modifier</button>
-            <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteMeditation(meditation.id)">Supprimer</button>
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="open2Modal(deleteConfirmationTemplate, meditation.id)">Supprimer</button>
           </div>
         </div>
       </div>
@@ -75,10 +75,10 @@
 
 
 
-<!-- <ng-template #deleteConfirmationTemplate let-modal>
+<ng-template #deleteConfirmationTemplate let-modal>
   <div class="modal-header">
     <h5 class="modal-title">Confirmer la suppression</h5>
-    <button type="button" class="close" (click)="modal.hide()" aria-label="Close">
+    <button type="button" class="close" (click)="modal2Ref.hide()" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -86,7 +86,8 @@
     Êtes-vous sûr de vouloir supprimer cette méditation ?
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.hide()">Annuler</button>
-    <button type="button" class="btn btn-danger" (click)="confirmDelete(); modal.hide()">Confirmer</button>
+    <button type="button" class="btn btn-secondary" (click)="modal2Ref.hide()">Annuler</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete(); modal2Ref.hide()">Confirmer</button>
   </div>
-</ng-template> -->
+</ng-template>
+

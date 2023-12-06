@@ -41,8 +41,7 @@ export class AuthService {
   }
 
   checkConnexion(): boolean {
-    this.isConnected = !!localStorage.getItem('access_token');
-    return this.isConnected;
+    return !!localStorage.getItem('access_token');
   }
 
 
