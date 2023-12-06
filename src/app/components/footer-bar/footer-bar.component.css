@@ -74,11 +74,11 @@ span {
   align-items: center;
   padding-top: 20px;
   justify-content: center;
-  z-index: 2000;
+  z-index: 1000;
 }
+
 .span p {
   width: 10rem;
-  /* background-color: red; */
 }
 
 img {
@@ -89,12 +89,9 @@ img {
 
 .insta {
   display: flex;
-  width: 30%;
-  z-index: 1000;
-}
-.insta {
   width: 8%;
 }
+
 
 .mention:hover{
     font-weight: bold;
@@ -102,10 +99,29 @@ img {
     cursor: pointer;
 }
 
+@media screen and (max-width:637px) {
+    
+    .footer{
+        height: 80px;
+    }
+}
+
 @media screen and (max-width: 576px) {
   .fix {
     height: 4rem;
   }
-
-
 }
+@media screen and (max-width:350px) {
+    .footer-links{
+        display: none;
+    }
+    .insta{
+        display: none;
+    }
+    .footer{
+        margin-top: 0px;
+    }
+}
+
+
+

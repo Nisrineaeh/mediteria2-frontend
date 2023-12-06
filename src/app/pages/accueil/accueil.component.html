@@ -1,57 +1,65 @@
 <div class="bg">
-<div class="container">
-    
+  <div class="container">
     <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-primary mb-2" [routerLink]="['/profil']">
+          Accèder à mon profil
+        </button>
+        <button class="btn btn-primary mb-2" [routerLink]="['/messaging']">
+          Acceder à la messagerie
+        </button>
+        <button class="btn btn-primary mb-2" [routerLink]="['/medtech']">
+          Acceder aux techniques
+        </button>
+        <button class="btn btn-primary mb-2" [routerLink]="['/forum']">
+          Acceder aux salons de forums
+        </button>
+      </div>
 
-        
-        <div class="col-md-3">
-            <button class="btn btn-primary mb-2" [routerLink]="['/profil']">Accèder à mon profil</button>
-            <button class="btn btn-primary mb-2" [routerLink]="['/messaging']">Acceder à la messagerie</button>
-            <button class="btn btn-primary mb-2" [routerLink]="['/medtech']">Acceder aux techniques</button>
-            <button class="btn btn-primary mb-2" [routerLink]="['/forum']">Acceder aux salons de forums</button>
+      <div class="col-md-9">
+        <div class="mb-3">
+          <div class="card-body">
+            <h1>Bienvenue dans l'univers Méditéria</h1>
+            <p>
+              Plongez dans l'univers de la sérénité avec Méditéria : votre
+              sanctuaire en ligne dédié à la méditation.
+            </p>
+            <p>
+              Créez, découvrez et partagez des techniques innovantes, échangez
+              avec une communauté bienveillante et explorez nos forums pour
+              enrichir votre voyage intérieur. Tout cela, gratuitement et à
+              portée de clic.
+            </p>
+          </div>
         </div>
 
-        
-        <div class="col-md-9">
-
-            
-            <div class="mb-3">
-                <div class="card-body">
-                    <h1>Bienvenue dans l'univers Méditéria</h1>
-                    <p>Plongez dans l'univers de la sérénité avec Méditéria : votre sanctuaire en ligne dédié à la méditation. </p><p>Créez, découvrez et partagez des techniques innovantes, échangez avec une communauté bienveillante et explorez nos forums pour enrichir votre voyage intérieur. Tout cela, gratuitement et à portée de clic.</p>
-                </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h2>Techniques de méditations</h2>
+            <h3>Trois dernières technique proposé sur Méditéria</h3>
+            <div class="list" *ngFor="let meditation of latestMeditations">
+              <p>
+                <span class="view"> {{ meditation.name }}</span
+                >, crée par {{ meditation.createdBy.username }}
+              </p>
             </div>
-
-            
-            
-            <div class="card mb-3">
-    <div class="card-body">
-        <h2>Techniques de méditations</h2>
-        <h3>Trois dernières technique proposé sur Méditéria</h3>
-        <div class="list" *ngFor="let meditation of latestMeditations">
-            <p> <span class="view"> {{ meditation.name }}</span>, crée par {{meditation.createdBy.username}}</p>
-            
+          </div>
         </div>
-    </div>
-</div>
 
+        <div class="card mb-3">
+          <div class="card-body">
+            <h2>Une grande communauté</h2>
 
-
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2>Une grande communauté</h2>
-                    
-                    <div class="raw">
-    <ul>
-
-     <h3>Derniers utilisateurs à avoir rejoint la communauté :</h3> <li *ngFor="let user of latestUsers">{{ user.username }}</li>
-    </ul>
-    <p>Nombre total d'utilisateurs inscrits : {{ totalUsers }}</p>
-  </div></div>
+            <div class="raw">
+              <ul>
+                <h3>Derniers utilisateurs à avoir rejoint la communauté :</h3>
+                <li *ngFor="let user of latestUsers">{{ user.username }}</li>
+              </ul>
+              <p>Nombre total d'utilisateurs inscrits : {{ totalUsers }}</p>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
+  </div>
 </div>
