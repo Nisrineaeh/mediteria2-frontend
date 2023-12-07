@@ -30,7 +30,7 @@ div{
 }
 
 
-.b:active{
+.btn:active{
     background-color: var(--title-color);
 }
 

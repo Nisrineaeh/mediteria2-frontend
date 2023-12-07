@@ -5,6 +5,11 @@
 .container:first-child{
     padding-top: 100px;
 }
+
+.container:last-child{
+    padding-top: 10px;
+}
+
 h1{
     font-family: 'Satisfy';
     background-color: var(--title-color);

@@ -19,7 +19,8 @@ export class ChatModalComponent implements OnInit {
   messageForm: FormGroup;
   currentUser = { id: this.userService.getUserConnected()! };
   receiverUser = localStorage.getItem('receiverId')!
-  senderUsername: string = localStorage.getItem('username')!;
+  // senderUsername: string = localStorage.getItem('username')!;
+  senderUsername! : string;
 
   @Input() otherUserId!: number;
   @Input() selectedUser!: User;
@@ -42,6 +43,7 @@ export class ChatModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMessages();
+    this.getUsername();
   }
 
   loadMessages() {
@@ -76,7 +78,13 @@ export class ChatModalComponent implements OnInit {
     });
   }
 
-
+  getUsername(){
+    this.userService.getUserById(this.currentUser.id).subscribe(
+      (userData)=>{
+        this.senderUsername = userData.username;
+      }
+    )
+  }
 
   sendMessage(): void {
     if (!this.receiverUser || this.receiverUser === '0') {
@@ -88,7 +96,7 @@ export class ChatModalComponent implements OnInit {
       if (newMessageContent) {
         const newMessage: Message = {
           id_message: 0,
-          username: this.senderUsername,
+          username:this.senderUsername,
           sender: { id: +this.currentUser.id },
           receiver: { id: +this.receiverUser },
           content: newMessageContent,

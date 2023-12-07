@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center center;
   margin: 0px;
-  height: calc(100vh - 80px);
+  height: 100vh;
 }
 
 
@@ -84,12 +84,11 @@ button:hover {
 
 .fix {
   position: absolute;
-  bottom: -2rem;
+  bottom: -6rem;
   width: 50%;
   height: 20rem;
   z-index: 2;
   opacity: 1;
-  /* align-items: center; */
 }
 
 .c{
@@ -118,4 +117,14 @@ button:hover {
     }
 
 
+}
+
+@media screen and (max-width: 767px) {
+  .center{
+    max-height: 250px;
+  }
+
+  .fix{
+    bottom:-6rem;
+  }
 }

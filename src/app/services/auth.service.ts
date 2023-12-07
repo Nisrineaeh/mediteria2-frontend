@@ -20,7 +20,7 @@ export class AuthService {
         tap(response => {
           // console.log(response)
           localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('username', response.sub);
+          // localStorage.setItem('username', response.sub);
           console.log('username co stocker', response.sub)
           if (response.user_id && Number.isFinite(response.user_id)) {
             localStorage.setItem('user_id', `${response.user_id}`);

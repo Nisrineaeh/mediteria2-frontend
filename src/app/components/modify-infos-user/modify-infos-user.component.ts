@@ -33,7 +33,7 @@ export class ModifyInfosUserComponent {
     this.userService.modifyInfosUser(this.user, userData).subscribe({
       next: (response) => {
         console.log('Profil modifié avec succès', response);
-        localStorage.setItem('username', response.username);
+        // localStorage.setItem('username', response.username);
         this.router.navigate(['/profil'])
       },
       error: (error) => {
