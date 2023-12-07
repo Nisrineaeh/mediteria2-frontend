@@ -16,7 +16,7 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ArticleComponent } from './components/article/article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { ScreenComponent } from './components/screen/screen.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ModifyInfosUserComponent } from './components/modify-infos-user/modify-infos-user.component';
@@ -34,6 +34,7 @@ import { ChatModalComponent } from './components/chat-modal/chat-modal.component
 import { ForumListComponent } from './components/forum-list/forum-list.component';
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 import { LegalMentionsComponent } from './pages/legal-mentions/legal-mentions.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -78,7 +79,7 @@ import { LegalMentionsComponent } from './pages/legal-mentions/legal-mentions.co
     ModalModule.forRoot(),
     SocketIoModule.forRoot({ url: 'http://localhost:3000', options: {} }),
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
