@@ -50,6 +50,10 @@ button:hover {
   background-color: #5e3a4e;
 }
 
+button:active {
+  background-color: #5e3a4e!important;
+}
+
 .center{
     display: flex;
     justify-content: center;

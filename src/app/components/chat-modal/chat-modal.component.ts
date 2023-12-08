@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Message } from 'src/app/models/message';
@@ -25,7 +25,7 @@ export class ChatModalComponent implements OnInit {
   @Input() otherUserId!: number;
   @Input() selectedUser!: User;
 
-
+  @ViewChild('msgToast') msgToast!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -63,7 +63,6 @@ export class ChatModalComponent implements OnInit {
       }
     });
     this.ws.listen('msgToClient').subscribe((data: any) => {
-
       if (typeof data === 'object' && 'sender' in data && 'receiver' in data && 'content' in data && 'date' in data) {
         const newMessage: Message = {
           id_message: 0,
@@ -115,4 +114,6 @@ export class ChatModalComponent implements OnInit {
   closeModal() {
     this.modalService.dismissAll();
   }
+
+
 }

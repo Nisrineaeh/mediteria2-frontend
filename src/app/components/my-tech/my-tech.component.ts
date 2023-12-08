@@ -1,5 +1,6 @@
 import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { catchError, forkJoin, of } from 'rxjs';
 import { MeditationTechnique } from 'src/app/models/meditation-technique';
 import { MeditationService } from 'src/app/services/meditation.service';
 import { MédiaService } from 'src/app/services/média.service';
@@ -51,6 +52,7 @@ export class MyTechComponent {
   createImageFromBlob(image: Blob, callback: (dataUrl: string) => void): void {
     const reader = new FileReader();
     reader.onload = (event: any) => {
+      console.log('Data URL de l\'image : ', event.target.result)
       callback(event.target.result);
     }
     reader.readAsDataURL(image);
@@ -119,6 +121,7 @@ export class MyTechComponent {
     });
   }
 
+  
 
   showToast(message: string) {
     this.deleteToast.nativeElement.querySelector('.toast-body').textContent = message

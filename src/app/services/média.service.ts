@@ -47,8 +47,7 @@ export class MédiaService {
   }
 
   deleteMédia(id: number) {
-   
-    return this.http.delete(`http://localhost:3000/api/photos/${id}`, {headers: this.getHeaders()});
+    return this.http.delete(`http://localhost:3000/media/${id}`, {headers: this.getHeaders()});
   }
 
 
