@@ -46,7 +46,7 @@ h2{
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid black;
+    border: 1px solid var(--green-color);
 }
 
 .card-title {
@@ -88,6 +88,7 @@ h2{
 }
 
 @media (max-width: 768px) {
+  
     .container {
         width: 90%;
     }
@@ -108,8 +109,9 @@ h2{
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 24px;
+        font-size: 40px;
     }
+
 
     .favorites-subtitle {
         font-size: 18px;
