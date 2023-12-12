@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
+  showSubMenu: boolean = false;
+  @ViewChild('navbarCheck') navbarCheck!: ElementRef;
+
   constructor(private router: Router) { }
 
-  @ViewChild('navbarCheck') navbarCheck!: ElementRef;
 
   navigateToModal(): void {
     this.router.navigate(['/deconnexion']);
@@ -22,6 +24,11 @@ export class NavBarComponent {
 
   closeMenu(){
     this.navbarCheck.nativeElement.checked = false;
+  }
+
+
+  toggleSubMenu() {
+    this.showSubMenu = !this.showSubMenu;
   }
 
   
