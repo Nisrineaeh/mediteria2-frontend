@@ -1,27 +1,3 @@
-<!-- <nav class="navbar">
-  <div class="container">
-    <img src="assets/logo1.svg" alt="Logo" [routerLink]="['/landing']" class="logo" />
-    <input type="checkbox" id="navbar-check" class="navbar-check" #navbarCheck />
-    <label for="navbar-check" class="navbar-toggler">
-      <span class="navbar-toggler-icon"></span>
-    </label>
-
-    <div class="navbar-menu" id="navbarMenu">
-      <a class="nav-link active" aria-current="page" routerLink="/home" (click)="closeMenu()">Bienvenue</a>
-      <a class="nav-link" routerLink="/medtech" (click)="closeMenu()">Méditation</a>
-      <a class="nav-link" routerLink="/forum" (click)="closeMenu()">Forum</a>
-      <a class="nav-link" routerLink="/messaging" (click)="closeMenu()">Messagerie</a>
-      <a class="nav-link" (click)="toggleSubMenu()" #monCompteBtn>Mon compte</a>
-    <div *ngIf="showSubMenu" class="sub-menu" id="subMenu">
-      <a class="sub-menu-link" routerLink="/profil" (click)="closeMenu()">Mon profil</a>
-      <a class="sub-menu-link" routerLink="/favoris" (click)="closeMenu()">Mes favoris</a>
-    </div>
-      <a *ngIf="!isUserLoggedIn" class="nav-link" routerLink="/login" (click)="closeMenu()">Connexion</a>
-      <a *ngIf="isUserLoggedIn" class="nav-link" (click)="navigateToModal()">Déconnexion</a>
-    </div>
-  </div>
-</nav> -->
-
 <nav class="navbar">
   <div class="container">
     <img src="assets/logo1.svg" alt="Logo" [routerLink]="['/landing']" class="logo" />
@@ -36,15 +12,14 @@
       <a class="nav-link" routerLink="/forum" (click)="closeMenu()">Forum</a>
       <a class="nav-link" routerLink="/messaging" (click)="closeMenu()">Messagerie</a>
       <div class="nav-link-container">
-  <a class="nav-link" (click)="toggleSubMenu()" #monCompteBtn>Mon compte</a>
+  <a *ngIf="isUserLoggedIn" class="nav-link" (click)="toggleSubMenu()" #monCompteBtn>Mon compte</a>
   <div *ngIf="showSubMenu" class="sub-menu">
     <div class="sub-menu-container">
       <a class="sub-menu-link" routerLink="/profil" (click)="toggleSubMenu(); closeMenu()">Mon profil</a>
-      <a class="sub-menu-link" routerLink="/favoris" (click)="toggleSubMenu(); closeMenu()">Mes favoris</a>
+      <a class="sub-menu-link" routerLink="/myFavorites" (click)="toggleSubMenu(); closeMenu()">Mes favoris</a>
     </div>
   </div>
 </div>
-
       <a *ngIf="!isUserLoggedIn" class="nav-link" routerLink="/login" (click)="closeMenu()">Connexion</a>
       <a *ngIf="isUserLoggedIn" class="nav-link" (click)="navigateToModal()">Déconnexion</a>
     </div>

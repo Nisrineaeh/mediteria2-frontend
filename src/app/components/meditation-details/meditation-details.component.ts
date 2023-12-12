@@ -113,5 +113,9 @@ export class MeditationDetailsComponent implements OnInit {
     this.showInfoPanel = !this.showInfoPanel;
   }
 
+  goBack(){
+    window.history.back()
+  }
+
 
 }

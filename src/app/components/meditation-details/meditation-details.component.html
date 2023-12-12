@@ -20,7 +20,7 @@
   </div>
 
   <div *ngIf="meditAudio" class="audio-container">
-    <a [routerLink]="['/medtech']">Retour à la liste</a>
+    <button (click)="goBack()">Retour à la liste</button>
     <audio controls [src]="meditAudio">
       Votre navigateur ne supporte pas l'élément audio.
     </audio>

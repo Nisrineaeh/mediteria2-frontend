@@ -35,6 +35,7 @@ import { ForumListComponent } from './components/forum-list/forum-list.component
 import { ForumDetailsComponent } from './components/forum-details/forum-details.component';
 import { LegalMentionsComponent } from './pages/legal-mentions/legal-mentions.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { AuthInterceptor } from './auth.interceptor';
     ForumListComponent,
     ForumDetailsComponent,
     LegalMentionsComponent,
+    FavoritesComponent,
 
 
   ],
