@@ -18,14 +18,14 @@
               addUser.get('username')?.invalid
           }"
         />
-        <div
+        <p
           *ngIf="
             addUser.get('username')?.touched && addUser.get('username')?.invalid
           "
           class="invalid-feedback"
         >
           Le pseudo est requis.
-        </div>
+        </p>
 
         <input
           formControlName="email"
@@ -39,12 +39,12 @@
               addUser.get('email')?.touched && addUser.get('email')?.invalid
           }"
         />
-        <div
+        <p
           *ngIf="addUser.get('email')?.touched && addUser.get('email')?.invalid"
           class="invalid-feedback"
         >
           Format d'adresse e-mail invalide.
-        </div>
+        </p>
 
         <input
           formControlName="password"
@@ -59,15 +59,15 @@
               addUser.get('password')?.invalid
           }"
         />
-        <div
+        <p
           *ngIf="
             addUser.get('password')?.touched && addUser.get('password')?.invalid
           "
           class="invalid-feedback"
         >
-          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+          Le mot de passe doit contenir au moins 12 caractères, une majuscule,
           une minuscule et un chiffre.
-        </div>
+        </p>
 
         <textarea
           formControlName="description"
