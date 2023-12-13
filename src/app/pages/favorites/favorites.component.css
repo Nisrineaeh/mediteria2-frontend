@@ -82,9 +82,11 @@ h2{
 }
 
 .no-favorites {
-    color: #fff;
+    color: grey;
     text-align: center;
     margin-top: 50px;
+    font-size: 25px;
+    font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -110,10 +112,16 @@ h2{
 @media (max-width: 480px) {
     h1 {
         font-size: 40px;
+        margin-top: 50px;
     }
 
 
     .favorites-subtitle {
         font-size: 18px;
     }
+
+    .no-favorites {
+        font-size: 15px;
+    }
+
 }

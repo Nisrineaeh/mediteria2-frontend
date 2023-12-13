@@ -1,4 +1,4 @@
-<div class="bg">
+<!-- <div class="bg">
 
 <h1>Mes Favoris</h1>
 <div class="container">
@@ -16,9 +16,34 @@
     </div>
 
  
+</div> -->
 
-  <p *ngIf="!favoriteTechniques || !favoriteTechniques.length" class="no-favorites">
-    Vous n'avez pas encore de techniques favorites.
-  </p>
-
+<div class="bg">
+  <h1>Mes Favoris</h1>
+  <div class="container">
+    <div *ngIf="favoriteTechniques && favoriteTechniques.length; else noFavorites">
+      <!-- Boucle sur les techniques favorites -->
+      <div *ngFor="let favorite of favoriteTechniques" class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ favorite.name }}</h2>
+          <p class="card-text strong">{{ favorite.description }}</p>
+          <p class="card-text">
+            <span class="underline">Crée par :</span> {{ favorite.createdBy.username }}
+          </p>
+          <p class="card-text">
+            <span class="underline">Durée :</span> {{ favorite.duration }} minutes
+          </p>
+          <p class="card-text">
+            <span class="underline">Atmosphère :</span> {{ favorite.atmosphere }}
+          </p>
+        </div>
+        <div class="btns">
+          <button [routerLink]="['/meditation', favorite.id]" class="btn btn-primary medite">Méditer</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #noFavorites>
+      <p class="no-favorites">Pas de techniques mise en favoris pour l'instant</p>
+    </ng-template>
+  </div>
 </div>
