@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,23 +25,23 @@ export class UserService {
     if (!userId) {
       throw new Error('Pas id utilisateur trouvé')
     }
-    return this.http.get<User>(`${this.bddUrl}/${userId}`, {headers: this.getHeaders()})
+    return this.http.get<User>(`${environment.api}/user/${userId}`, {headers: this.getHeaders()})
   }
 
   modifyInfosUser(id: number, userData: Partial<User>): Observable<User> {
-    return this.http.patch<User>(`${this.bddUrl}/${id}`, userData ,{headers : this.getHeaders()})
+    return this.http.patch<User>(`${environment.api}/user/${id}`, userData ,{headers : this.getHeaders()})
   }
 
   deleteUserAccount(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
+    return this.http.delete<User>(`${environment.api}/user/${id}`, { headers: this.getHeaders() });
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.bddUrl}`, { headers: this.getHeaders() });
+    return this.http.get<User[]>(`${environment.api}/user`, { headers: this.getHeaders() });
   }
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.bddUrl}/${id}`, { headers: this.getHeaders() });
+    return this.http.get<User>(`${environment.api}/user/${id}`, { headers: this.getHeaders() });
   }
 
   getUserConnected(): number {
@@ -63,7 +64,7 @@ export class UserService {
 
   getCurrentUser(): Observable<User> {
     const currentUserId = localStorage.getItem('user_id');
-    return this.http.get<User>(`${this.bddUrl}/${currentUserId}`, { headers: this.getHeaders() });
+    return this.http.get<User>(`${environment.api}/user/${currentUserId}`, { headers: this.getHeaders() });
   }
 
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Message } from '../models/message';
 import { Observable, tap } from 'rxjs';
 import { User } from '../models/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,12 +27,12 @@ export class MessageService {
   sendMessage(content: Message, senderId: number, receiverId: number) {
     const headers = this.getHeaders();
     const body = { content, senderId, receiverId };
-    return this.http.post<Message>(`${this.bddUrl}/message`, body, { headers });
+    return this.http.post<Message>(`${environment.api}/message`, body, { headers });
   }
 
   getUserChats(senderId: number, receiverId: number): Observable<Message[]> {
     const headers = this.getHeaders();
-    return this.http.get<Message[]>(`${this.bddUrl}/message/conversation/${senderId}/${receiverId}`, { headers }).pipe(
+    return this.http.get<Message[]>(`${environment.api}/message/conversation/${senderId}/${receiverId}`, { headers }).pipe(
       tap((messages: Message[]) => {
         console.log('Message recu de api : ', messages)
         if (messages.length > 0) {
@@ -47,6 +48,6 @@ export class MessageService {
   
   getUserConversations(userId: number): Observable<User[]> {
     const headers = this.getHeaders();
-    return this.http.get<User[]>(`${this.bddUrl}/message/list/${userId}`, { headers });
+    return this.http.get<User[]>(`${environment.api}/message/list/${userId}`, { headers });
   }
 }

@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'add', component: AddMeditationComponent, canActivate: [authGuard] },
   {path: 'myFavorites', component: FavoritesComponent, canActivate:[authGuard]},
   { path: 'deconnexion', component: ModalDeconnexionComponent, canActivate: [authGuard] },
-  {path: 'legalMentions', component: LegalMentionsComponent, canActivate:[authGuard]},
+  {path: 'legalMentions', component: LegalMentionsComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

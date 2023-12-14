@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { MeditationTechnique } from '../models/meditation-technique';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -32,15 +33,15 @@ export class FavoriteService {
 
 
   addFavorite(userId: number, meditationTechniqueId: number): Observable<any> {
-    return this.http.post<any>(`${this.bddUrl}/user/${userId}/favorites/${meditationTechniqueId}`, {}, { headers: this.getHeaders() });
+    return this.http.post<any>(`${environment.api}/user/${userId}/favorites/${meditationTechniqueId}`, {}, { headers: this.getHeaders() });
   }
 
   removeFavorite(userId:number, meditationTechniqueId: number): Observable<any> {
-    return this.http.delete<any>(`${this.bddUrl}/user/${userId}/favorites/${meditationTechniqueId}`, { headers: this.getHeaders() });
+    return this.http.delete<any>(`${environment.api}/user/${userId}/favorites/${meditationTechniqueId}`, { headers: this.getHeaders() });
   }
 
   getUserFavorites(userId: number): Observable<MeditationTechnique[]> {
-    return this.http.get<MeditationTechnique[]>(`${this.bddUrl}/user/${userId}/favorites`, { headers: this.getHeaders() });
+    return this.http.get<MeditationTechnique[]>(`${environment.api}/user/${userId}/favorites`, { headers: this.getHeaders() });
   }
 
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Média } from '../models/média';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class MédiaService {
   }
 
   getMédiaById(id: number) {
-    return this.http.get(`http://localhost:3000/media/${id}`, {
+    return this.http.get(`${environment.api}/media/${id}`, {
       responseType: 'blob',
       headers: this.getHeaders(),
     }).pipe(
@@ -43,11 +44,12 @@ export class MédiaService {
   }
 
   postMédia(formData: FormData) {
-    return this.http.post('http://localhost:3000/media', formData, {headers: this.getHeaders()});
+    return this.http.post(`${environment.api}/media`, formData, {headers: this.getHeaders()});
   }
 
   deleteMédia(id: number) {
-    return this.http.delete(`http://localhost:3000/media/${id}`, {headers: this.getHeaders()});
+
+    return this.http.delete(`${environment.api}/api/photos/${id}`, {headers: this.getHeaders()});
   }
 
 

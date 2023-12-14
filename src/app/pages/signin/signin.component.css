@@ -45,6 +45,30 @@ h1 {
   color: white;
 }
 
+.lign{
+  display: flex;
+  align-items: center;
+  justify-content: center!important;
+  align-items: center!important;
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+ width: 20px!important;
+ margin-bottom: 0px!important;
+}
+
+
+.mention{
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.mention:hover{
+  text-decoration: underline;
+}
+
 @media screen and (max-width:950px) {
     .img-container{
     display: none;
@@ -80,6 +104,16 @@ h1 {
     margin-bottom: 1rem;
     width: 300px;
   }
+
+  input[type="checkbox"] {
+ width: 20px!important;
+ margin:20px;
+}
+
+.lign{
+  display: flex;
+  justify-content: center;
+}
 }
 @media screen and (max-width: 400px) {
   .item-container {

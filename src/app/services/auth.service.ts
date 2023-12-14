@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<{ access_token: string, user_id: number, sub: string }>(this.bddUrl + '/auth/login', { username, password })
+    return this.http.post<{ access_token: string, user_id: number, sub: string }>(`${environment.api}` + '/auth/login', { username, password })
       .pipe(
         tap(response => {
           // console.log(response)
@@ -35,7 +36,7 @@ export class AuthService {
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(
-      'http://localhost:3000/auth/register',
+      `${environment.api}/auth/register`,
       user
     );
   }
