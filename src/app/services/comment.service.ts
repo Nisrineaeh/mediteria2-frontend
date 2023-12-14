@@ -23,16 +23,16 @@ export class CommentService {
   }
 
   getCommentsByTechnique(techniqueId: number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${environment.api}/technique/${techniqueId}`, { headers: this.getHeaders() });
+    return this.http.get<Comment[]>(`${environment.api}/comment/technique/${techniqueId}`, { headers: this.getHeaders() });
   }
 
   addComment(comment: Comment): Observable<Comment> {
     console.log('le commentaire envoyé', comment)
-    return this.http.post<Comment>(`${environment.api}`, comment, { headers: this.getHeaders() });
+    return this.http.post<Comment>(`${environment.api}/comment`, comment, { headers: this.getHeaders() });
   }
 
   deleteComment(commentId: number): Observable<void> {
-    return this.http.delete<void>(`${environment.api}/${commentId}`, { headers: this.getHeaders() });
+    return this.http.delete<void>(`${environment.api}/comment/${commentId}`, { headers: this.getHeaders() });
   }
 
 
