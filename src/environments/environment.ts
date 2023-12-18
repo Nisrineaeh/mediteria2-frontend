@@ -1,3 +1,3 @@
 export const environment = {
-    api: 'http://api.mediteria.fr',
+    api: 'https://api.mediteria.fr',
 };
