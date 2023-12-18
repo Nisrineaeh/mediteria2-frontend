@@ -124,6 +124,9 @@ export class AddMeditationComponent {
     this.addToast.nativeElement.classList.add('show')
   }
  
+  back(){
+    window.history.back()
+  }
 
 }
 

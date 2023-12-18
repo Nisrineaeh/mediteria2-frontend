@@ -25,6 +25,7 @@ p {
   text-align: justify;
   margin: 0px;
   color: var(--text-color);
+  text-align: justify;
 }
 
 .last p:last-child{
@@ -60,6 +61,12 @@ li {
   background-size: cover;
   background-position: center center;
   height: 100%;
+}
+
+.btn{
+  color: white;
+  background-color: var(--title-color);
+  margin: 10px;
 }
 
 
